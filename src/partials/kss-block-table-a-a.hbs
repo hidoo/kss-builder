@@ -1,0 +1,38 @@
+{{#each this.items}}
+{{#if @first}}
+<div class="kss-block-table-a-a  kss-unit-box{{#if ../this.utils}}  {{../this.utils}}{{/if}}">
+  <div class="kss-block-table-a-a__container  kss-unit-box__container">
+    <table class="kss-block-table-a-a__list  kss-unit-table-a-a-a">
+      <tr>
+        <th class="kss-block-table-a-a__list__head  kss-unit-table-a-a-a__column  kss-unit-table-a-a-a__column--head" scope="col">
+          <p class="kss-block-table-a-a__heading  kss-unit-text  kss-unit-text--theme-a-a-b">PARAMETER</p>
+        </th>
+        <th class="kss-block-table-a-a__list__head  kss-unit-table-a-a-a__column  kss-unit-table-a-a-a__column--head" scope="col">
+          <p class="kss-block-table-a-a__heading  kss-unit-text  kss-unit-text--theme-a-a-b">DESCRIPTION</p>
+        </th>
+        <th class="kss-block-table-a-a__list__head  kss-unit-table-a-a-a__column  kss-unit-table-a-a-a__column--head" scope="col">
+          <p class="kss-block-table-a-a__heading  kss-unit-text  kss-unit-text--theme-a-a-b">DEFAULT</p>
+        </th>
+      </tr>
+{{/if}}
+
+      <tr>
+        <td class="kss-block-table-a-a__list__body  kss-unit-table-a-a-a__column">
+          <code class="kss-block-table-a-a__name  kss-unit-text  kss-unit-text--theme-b-a-a  kss-unit-text--inline-block  kss-unit-text--truncate-true">{{this.name}}</code>
+        </td>
+        <td class="kss-block-table-a-a__list__body  kss-unit-table-a-a-a__column">
+          <div class="kss-block-table-a-a__description  kss-unit-document  kss-unit-document--theme-a-a-a">
+            {{{this.description}}}
+          </div>
+        </td>
+        <td class="kss-block-table-a-a__list__body  kss-unit-table-a-a-a__column">
+          <code class="kss-block-table-a-a__default  kss-unit-text  kss-unit-text--theme-b-a-a  kss-unit-text--inline-block  kss-unit-text--truncate-true">{{or this.defaultValue '-'}}</code>
+        </td>
+      </tr>
+
+{{#if @last}}
+    </table>
+  </div>
+</div>
+{{/if}}
+{{/each}}

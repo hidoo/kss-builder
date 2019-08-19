@@ -1,0 +1,53 @@
+////
+/// (c) hidoo | MIT Lisence
+/// @group kssbuilder
+////
+
+/// wrappper of theme state class like `is-theme-light`
+/// @param {String} $state ["light"] - state keyword (one of `"light"`, `"dark"`, `"example-light"`, `"example-dark"`, `"example-light-transparent"` or `"example-dark-transparent"`)
+/// @param {List} $capturing-selectors [()] - capturing parent selectors
+///
+/// @require {variable} $kss-state-selectors-theme
+/// @require {variable} $kss-root-selectors
+/// @require {mixin} on
+///
+/// @example scss - scss inputs
+///   .selector {
+///     @include on-theme("light") {
+///       font-size: 16px;
+///     }
+///   }
+///
+/// @example css - css outputs
+///   .selector.is-theme-light {
+///     font-size: 16px;
+///   }
+///
+@mixin on-theme(
+  $state: "light",
+  $capturing-selectors: ()
+) {
+  $states: ("light", "dark", "example-light", "example-dark", "example-light-transparent", "example-dark-transparent");
+
+  @if not global-variable-exists("kss-state-selectors-theme") {
+    @error "@mixin on-theme: Global variable $kss-state-selectors-theme is undefined.";
+  }
+
+  @if not global-variable-exists("kss-root-selectors") {
+    @error "@mixin on-theme: Global variable $kss-root-selectors is undefined.";
+  }
+
+  @if index($states, $state) == null {
+    @error "@mixin on-theme: Argument $state is one of #{join($states, $separator: comma)}.";
+  }
+
+  $selectors: map-get($kss-state-selectors-theme, $state);
+
+  @if length($capturing-selectors) == 0 {
+    $capturing-selectors: $kss-root-selectors;
+  }
+
+  @include on($selectors: $selectors, $capturing-selectors: $capturing-selectors) {
+    @content;
+  }
+}

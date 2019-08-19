@@ -1,0 +1,29 @@
+/*
+@mixin
+
+Mixins.
+
+Deprecated: This mixin is deprecated.
+
+Weight: -100
+
+Style guide: mixin
+*/
+
+/*
+@mixin example-a
+
+Example mixin (a).
+
+Experimental: This mixin is experimental.
+
+Weight: -99
+
+$param-a = "a" - description of `$param-a`
+$param-b = "b" - description of `$param-b`
+
+Style guide: mixin.example.a
+*/
+@mixin example-a($param-a: "a", $param-b: "b") {
+  // has no settings
+}

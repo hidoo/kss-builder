@@ -1,0 +1,223 @@
+/*
+kss-block-example
+
+kss blocks for markup example.
+
+Weight: -100
+
+Style guide: kss-block-example
+*/
+
+/*
+kss-block-example-a-a
+
+Markup example (a)
+
+Markup: <div class="kss-block-example-a-a{{#if modifier_class}}  {{modifier_class}}{{/if}}  kss-unit-box{{#if this.utils}}  {{this.utils}}{{/if}}">
+  <div class="kss-block-example-a-a__container  kss-unit-box__container">
+    <!-- highlighted markup -->
+    <pre><code class="hljs handlebars html">{{{highlight '<button class="kss-unit-button  kss-unit-button--theme-dark">
+  <span class="kss-unit-button__label  kss-unit-text">button example</span>
+</button>
+' lang='hbs'}}}</code></pre>
+    <!-- highlighted markup -->
+  </div>
+</div>
+
+Style guide: kss-block-example.a.a
+*/
+.kss-block-example-a-a {
+  &__container {
+    pre {
+      margin: 0;
+      border-style: solid;
+      border-width: 1px;
+
+      @include on-theme("light") {
+        $theme: map-get($kss-theme-color-scheme, "light");
+
+        border-color: map-get($theme, "border-color");
+      }
+
+      @include on-theme("dark") {
+        $theme: map-get($kss-theme-color-scheme, "dark");
+
+        border-color: map-get($theme, "border-color");
+      }
+
+      .hljs {
+        @include use-font-family($value: "monospace");
+        @include use-font-size($value: "medium", $monospace: true);
+
+        // override highlight.js theme settings
+        padding: 20px !important;
+        line-height: 1.5;
+
+        // for smooth scrolling
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+  }
+}
+
+/*
+kss-block-example-b-a
+
+Rendered markups example (a)
+
+Markup: <div class="kss-block-example-b-a{{#if modifier_class}}  {{modifier_class}}{{/if}}  kss-unit-box{{#if this.utils}}  {{this.utils}}{{/if}}">
+  <div class="kss-block-example-b-a__container-header  kss-unit-box__container">
+    <div class="kss-block-example-b-a__header  kss-unit-table-grid">
+      <div class="kss-block-example-b-a__header__name  kss-unit-table-grid__column">
+        <code class="kss-block-example-b-a__name  kss-unit-text  kss-unit-text--theme-b-a-a">component-class-name</code>
+      </div>
+      <div class="kss-block-example-b-a__header__description  kss-unit-table-grid__column">
+        <div class="kss-block-example-b-a__description  kss-unit-document  kss-unit-document--theme-a-a-a">
+          <p><code>component</code> description. (<strong>attention</strong>)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="kss-block-example-b-a__container-canvas  kss-unit-box__container">
+    <div class="kss-block-example-b-a__canvas  kss-unit-box  kss-unit-box--texture-transparent">
+      <div class="kss-block-example-b-a__canvas__container  kss-unit-box__container">
+        <!-- rendered markup -->
+        <button class="kss-unit-button  kss-unit-button--theme-dark">
+          <span class="kss-unit-button__label  kss-unit-text">button example</span>
+        </button>
+        <!-- rendered markup -->
+      </div>
+    </div>
+  </div>
+</div>
+
+Style guide: kss-block-example.b.a
+*/
+.kss-block-example-b-a {
+  &__container-header {
+    overflow: auto;
+    width: 100%;
+
+    // for smooth scrolling
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &__container-canvas {
+    // has no settings
+  }
+
+  &__container-header + &__container-canvas {
+    padding-top: 10px;
+  }
+
+  &__header {
+    width: auto;
+
+    &__name {
+      vertical-align: middle;
+    }
+
+    &__description {
+      vertical-align: top;
+    }
+
+    &__name + &__description {
+      padding-left: 10px;
+    }
+  }
+
+  &__name {
+    @include use-font-family($value: "monospace");
+    @include use-font-size($value: "small", $monospace: true);
+
+    width: auto;
+  }
+
+  // stylelint-disable selector-list-comma-newline-after
+  &__description {
+    @include use-font-size($value: "small");
+
+    white-space: nowrap;
+
+    $top-margin: 5px;
+
+    h1, h2, h3, h4, h5, h6, p, ul, ol {
+      padding-top: $top-margin;
+
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+
+    blockquote, pre, table {
+      margin-top: $top-margin;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    hr {
+      padding-top: $top-margin;
+    }
+
+    @include define-breakpoint($until: "mobile") {
+      @include use-font-size($value: 12px);
+    }
+  }
+  // stylelint-enable selector-list-comma-newline-after
+
+  &__canvas {
+    border-style: solid;
+    border-width: 1px;
+
+    @include on-expanded() {
+      $margin: -60px;
+
+      margin-right: $margin;
+      margin-left: $margin;
+      border-right: 0;
+      border-left: 0;
+
+      @include define-breakpoint($from: "mobile", $until: "desktop") {
+        $margin: -40px;
+
+        margin-right: $margin;
+        margin-left: $margin;
+      }
+
+      @include define-breakpoint($until: "mobile") {
+        $margin: -20px;
+
+        margin-right: $margin;
+        margin-left: $margin;
+      }
+    }
+
+    @include on-theme("light") {
+      $theme: map-get($kss-theme-color-scheme, "light");
+
+      border-color: map-get($theme, "border-color");
+    }
+
+    @include on-theme("dark") {
+      $theme: map-get($kss-theme-color-scheme, "dark");
+
+      border-color: map-get($theme, "border-color");
+    }
+
+    &__container {
+      overflow: auto;
+      box-sizing: border-box;
+      padding: 20px;
+
+      // for smooth scrolling
+      -webkit-overflow-scrolling: touch;
+
+      @include on-expanded() {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
+}

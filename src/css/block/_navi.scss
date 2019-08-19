@@ -1,0 +1,293 @@
+/*
+kss-block-navi
+
+kss blocks for navi.
+
+Weight: -100
+
+Style guide: kss-block-navi
+*/
+
+/*
+kss-block-navi-a-a
+
+Navigation that tree listing (a)
+
+Markup: <nav class="kss-block-navi-a-a{{#if modifier_class}}  {{modifier_class}}{{/if}}  kss-unit-box{{#if this.utils}}  {{this.utils}}{{/if}}">
+  <div class="kss-block-navi-a-a__container  kss-unit-box__container">
+    <ul class="kss-block-navi-a-a__list  kss-unit-list">
+    {{#each (or this.items (fromJson '[
+      {"referenceNumber": 1, "header": "component-name"},
+      {"referenceNumber": 2, "header": "component-name", "deprecated": true},
+      {"referenceNumber": 3, "header": "component-name", "isActive": true, "children": [
+        {"referenceNumber": 3.1, "header": "component-child-name"},
+        {"referenceNumber": 3.2, "header": "component-child-name", "experimental": true},
+        {"referenceNumber": 3.3, "header": "component-child-name"}
+      ]}
+    ]'))}}
+      <li class="kss-block-navi-a-a__list__item  kss-unit-list__item  kss-unit-text  kss-unit-text--truncate-true">
+        <span class="kss-block-navi-a-a__list__item__reference  kss-unit-text  kss-unit-text--theme-a-a-b  kss-unit-text--inline-block{{#if isActive}}  is-current{{/if}}">{{this.referenceNumber}}</span>
+        <a class="kss-block-navi-a-a__list__item__name  kss-unit-text__link  kss-unit-text__link--theme-a-a-a" href="javascript:;">{{this.header}}</a>{{#if this.deprecated}}<span class="kss-block-navi-a-a__list__item__deprecated  kss-unit-text  kss-unit-text--theme-a-a-c  kss-unit-text--inline-block">DEPRECATED!</span>{{/if}}{{#if this.experimental}}<span class="kss-block-navi-a-a__list__item__experimental  kss-unit-text  kss-unit-text--theme-a-a-d  kss-unit-text--inline-block">EXPERIMENTAL!</span>{{/if}}
+        {{#if this.children}}
+        <!-- nest -->
+        {{> kss-block-navi.a.a items=this.children ~}}
+        <!-- nest -->
+        {{/if}}
+      </li>
+    {{/each}}
+    </ul>
+  </div>
+</nav>
+
+Style guide: kss-block-navi.a.a
+*/
+.kss-block-navi-a-a {
+  &__container {
+    // some settings
+  }
+
+  &__list {
+    &__item {
+      @include use-font-size($value: 0);
+
+      &__reference {
+        @include use-font-family($value: $kss-font-family-number);
+        @include use-font-size($value: "small");
+
+        min-width: 28px;
+        padding-right: 3px;
+        line-height: 1.2;
+        text-align: center;
+        white-space: nowrap;
+
+        &::before {
+          content: "#";
+        }
+
+        &::after {
+          content: ".";
+        }
+      }
+
+      &__name {
+        @include use-font-size($value: 13px);
+      }
+
+      &__deprecated,
+      &__experimental {
+        @include use-font-size($value: "xsmall");
+
+        letter-spacing: 0;
+        font-weight: 600;
+      }
+
+      &__name + &__deprecated,
+      &__name + &__experimental {
+        padding-left: 5px;
+      }
+    }
+
+    &__item + &__item {
+      margin-top: 8px;
+    }
+  }
+
+  &__list__item > & {
+    padding-top: 8px;
+    padding-bottom: 4px;
+    padding-left: 28px;
+  }
+
+  &__list__item > & &__list__item__reference {
+    @include use-font-size($value: "xsmall");
+  }
+}
+
+/*
+kss-block-navi-b-a
+
+Navigation that switch theme (a)
+
+Markup: <div class="kss-block-navi-b-a{{#if modifier_class}}  {{modifier_class}}{{/if}}  kss-unit-box{{#if this.utils}}  {{this.utils}}{{/if}}">
+  <div class="kss-block-navi-b-a__container  kss-unit-box__container">
+    <dl class="kss-block-navi-b-a__grid  kss-unit-table-grid">
+      <dt class="kss-block-navi-b-a__grid__label  kss-unit-table-grid__column">
+        <p class="kss-block-navi-b-a__label  kss-unit-text  kss-unit-text--theme-a-a-b  kss-unit-text--truncate-true">{{or this.label 'EXAMPLE'}}</p>
+      </dt>
+      <dd class="kss-block-navi-b-a__grid__list  kss-unit-table-grid__column">
+        <ul class="kss-block-navi-b-a__list  kss-unit-table-grid">
+        {{#each (or this.items (fromJson '[
+          {"theme": "light", "label": "light"},
+          {"theme": "dark", "label": "dark"},
+          {"theme": "light-transparent", "label": "light (transparent)"},
+          {"theme": "dark-transparent", "label": "dark (transparent)"},
+          {"theme": "themeable", "label": "expand", "icon": "expand"}
+        ]'))}}
+          <li class="kss-block-navi-b-a__list__item  kss-unit-table-grid__column">
+            <a class="kss-block-navi-b-a__button  kss-block-navi-b-a__button--{{this.theme}}  kss-unit-button" href="javascript:;">
+              {{#if this.icon}}
+              <span class="kss-unit-icon  kss-unit-icon--type-expand">{{this.label}}</span>
+              {{else}}
+              <span class="kss-unit-button__label  kss-unit-text">{{this.label}}</span>
+              {{/if}}
+            </a>
+          </li>
+        {{/each}}
+        </ul>
+      </dd>
+    </dl>
+  </div>
+</div>
+
+kss-block-navi-b-a--inline-true - inline style
+
+Style guide: kss-block-navi.b.a
+*/
+.kss-block-navi-b-a {
+  &__container {
+    // some settings
+  }
+
+  &__grid {
+    width: auto;
+
+    &__label {
+      vertical-align: middle;
+    }
+
+    &__list {
+      vertical-align: middle;
+    }
+
+    &__label + &__list {
+      padding-left: 5px;
+    }
+  }
+
+  &__label {
+    @include use-font-size($value: "xsmall");
+  }
+
+  &__list {
+    table-layout: fixed;
+    width: auto;
+
+    &__item {
+      // has no settings
+    }
+
+    &__item + &__item {
+      padding-left: 5px;
+    }
+  }
+
+  &__button {
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-width: 1px;
+    transition-duration: 0.2s;
+    transition-property: border-color;
+    transition-timing-function: ease-out;
+
+    @include on-theme("light") {
+      $theme: map-get($kss-theme-color-scheme, "light");
+
+      border-color: map-get($theme, "border-color");
+    }
+
+    @include on-theme("dark") {
+      $theme: map-get($kss-theme-color-scheme, "dark");
+
+      border-color: map-get($theme, "border-color");
+    }
+
+    @include on-focus() {
+      @include on-theme("light") {
+        $theme: map-get($kss-theme-color-scheme, "light");
+
+        border-color: map-get($theme, "border-color-focus");
+      }
+
+      @include on-theme("dark") {
+        $theme: map-get($kss-theme-color-scheme, "dark");
+
+        border-color: map-get($theme, "border-color-focus");
+      }
+    }
+
+    @include on-current() {
+      @include on-theme("light") {
+        $theme: map-get($kss-theme-color-scheme, "light");
+
+        border-color: map-get($theme, "accent-color");
+      }
+
+      @include on-theme("dark") {
+        $theme: map-get($kss-theme-color-scheme, "dark");
+
+        border-color: map-get($theme, "accent-color");
+      }
+    }
+
+    > .kss-unit-button__label {
+      color: transparent;
+    }
+
+    > .kss-unit-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+    }
+
+    &--light {
+      background-color: #fff;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    }
+
+    &--light-transparent {
+      @extend %transparent-light;
+
+      background-color: #fff;
+      background-size: 8px 8px;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    }
+
+    &--dark {
+      background-color: #000;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.4);
+    }
+
+    &--dark-transparent {
+      @extend %transparent-dark;
+
+      background-color: #000;
+      background-size: 8px 8px;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.4);
+    }
+
+    &--themeable {
+      @include on-theme("light") {
+        $theme: map-get($kss-theme-color-scheme, "light");
+
+        background-color: map-get($theme, "background-color");
+      }
+
+      @include on-theme("dark") {
+        $theme: map-get($kss-theme-color-scheme, "dark");
+
+        background-color: map-get($theme, "background-color");
+      }
+    }
+  }
+
+  // options: inline
+  &--inline-true {
+    display: inline-block;
+    width: auto;
+  }
+}

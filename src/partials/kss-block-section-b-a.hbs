@@ -1,0 +1,15 @@
+<aside class="kss-block-section-b-a{{#if modifier_class}}  {{modifier_class}}{{/if}}  kss-unit-box{{#if this.utils}}  {{this.utils}}{{/if}}">
+  <header class="kss-block-section-b-a__header  kss-unit-table-grid">
+    <div class="kss-block-section-b-a__header__label  kss-unit-text--theme-a-a-a  kss-unit-table-grid__column">
+      <h2 class="kss-block-section-b-a__label  kss-unit-text  kss-unit-text--truncate-true">{{this.label}}</h2>
+    </div>
+    {{#if this.data}}
+    <div class="kss-block-section-b-a__header__data  kss-unit-table-grid__column">
+      <!-- contents -->
+    </div>
+    {{/if}}
+  </header>
+  <div class="kss-block-section-b-a__container  kss-unit-box__container">
+    {{> @partial-block}}
+  </div>
+</aside>

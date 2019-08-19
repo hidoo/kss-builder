@@ -1,0 +1,159 @@
+/*
+modifiers: type
+
+modifiers of type for kss-unit-icon
+
+Weight: -99
+
+Markup: <span class="kss-unit-icon  {{modifier_class}}"></span>
+
+kss-unit-icon--type-drawer - drawer icon (themeable)
+kss-unit-icon--type-expand - expand icon (themeable)
+
+Style guide: kss-unit-icon.type.extend
+*/
+.kss-unit-icon--type {
+  &-drawer {
+    $width: 18px;
+
+    width: $width;
+    height: $width;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      width: $width;
+      height: 2px;
+      margin: auto;
+      border-radius: 2px;
+      transition-duration: 0.2s;
+      transition-property: background-color;
+      transition-timing-function: ease-in-out;
+    }
+
+    &::before {
+      top: 3px;
+    }
+
+    &::after {
+      bottom: 3px;
+    }
+
+    @include on-theme("light") {
+      $theme: map-get($kss-theme-color-scheme, "light");
+
+      &::before,
+      &::after {
+        background-color: map-get($theme, "color");
+      }
+
+      @include on-focus($capturing-selectors: ("a", "button")) {
+        &::before,
+        &::after {
+          background-color: map-get($theme, "color-focus");
+        }
+      }
+    }
+
+    @include on-theme("dark") {
+      $theme: map-get($kss-theme-color-scheme, "dark");
+
+      &::before,
+      &::after {
+        background-color: map-get($theme, "color");
+      }
+
+      @include on-focus($capturing-selectors: ("a", "button")) {
+        &::before,
+        &::after {
+          background-color: map-get($theme, "color-focus");
+        }
+      }
+    }
+  }
+
+  &-expand {
+    $width: 14px;
+
+    width: $width;
+    height: $width;
+    color: transparent;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      height: 3px;
+      margin: auto 0;
+      border-style: solid;
+      border-width: 1px;
+      border-bottom: 0;
+      border-left: 0;
+      transform-origin: 50% 50%;
+      transition-duration: 0.2s;
+      transition-property: border-color;
+      transition-timing-function: ease-in-out;
+    }
+
+    &::before {
+      right: 1px;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      left: 1px;
+      transform: rotate(-135deg);
+    }
+
+    @include on-expanded() {
+      &::before {
+        right: auto;
+        left: 1px;
+      }
+
+      &::after {
+        right: 1px;
+        left: auto;
+      }
+    }
+
+    @include on-theme("light") {
+      $theme: map-get($kss-theme-color-scheme, "light");
+
+      &::before,
+      &::after {
+        border-color: map-get($theme, "color");
+      }
+
+      @include on-focus($capturing-selectors: ("a", "button")) {
+        &::before,
+        &::after {
+          border-color: map-get($theme, "color-focus");
+        }
+      }
+    }
+
+    @include on-theme("dark") {
+      $theme: map-get($kss-theme-color-scheme, "dark");
+
+      &::before,
+      &::after {
+        border-color: map-get($theme, "color");
+      }
+
+      @include on-focus($capturing-selectors: ("a", "button")) {
+        &::before,
+        &::after {
+          border-color: map-get($theme, "color-focus");
+        }
+      }
+    }
+  }
+}

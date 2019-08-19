@@ -1,0 +1,38 @@
+{{#if this.items}}
+{{#each this.items}}
+{{#if @first}}
+<nav class="kss-block-navi-a-a  kss-unit-box{{#if ../this.utils}}  {{../this.utils}}{{/if}}">
+  <div class="kss-block-navi-a-a__container  kss-unit-box__container">
+    <ul class="kss-block-navi-a-a__list  kss-unit-list">
+{{/if}}
+      <li class="kss-block-navi-a-a__list__item  kss-unit-list__item  kss-unit-text  kss-unit-text--truncate-true">
+        <span class="kss-block-navi-a-a__list__item__reference  kss-unit-text  kss-unit-text--theme-a-a-b  kss-unit-text--inline-block{{#if this.isActive}}  is-current{{/if}}">{{this.referenceNumber}}</span>
+        <a class="kss-block-navi-a-a__list__item__name  kss-unit-text__link  kss-unit-text__link--theme-a-a-a  js-kss-smooth-scroll" href="{{#unless ../this.referenceURI}}section-{{this.referenceURI}}.html{{else}}section-{{../this.referenceURI}}.html#kss-section-{{this.referenceURI}}{{/unless}}">{{this.header}}</a>
+        {{#if this.deprecated}}<span class="kss-block-navi-a-a__list__item__deprecated  kss-unit-text  kss-unit-text--theme-a-a-c  kss-unit-text--inline-block">DEPRECATED!</span>{{/if}}
+        {{#if this.experimental}}<span class="kss-block-navi-a-a__list__item__experimental  kss-unit-text  kss-unit-text--theme-a-a-d  kss-unit-text--inline-block">EXPERIMENTAL!</span>{{/if}}
+        {{#if this.isActive}}
+        {{#if this.children}}
+          {{> kss-block-navi-a-a items=this.children util=''}}
+        {{/if}}
+        {{/if}}
+      </li>
+{{#if @last}}
+    </ul>
+  </div>
+</nav>
+{{/if}}
+{{/each}}
+{{else}}
+{{#if this.homepage}}
+<nav class="kss-block-navi-a-a  kss-unit-box{{#if ../this.utils}}  {{../this.utils}}{{/if}}">
+  <div class="kss-block-navi-a-a__container  kss-unit-box__container">
+    <ul class="kss-block-navi-a-a__list  kss-unit-list">
+      <li class="kss-block-navi-a-a__list__item  kss-unit-list__item  kss-unit-text  kss-unit-text--truncate-true">
+        <span class="kss-block-navi-a-a__list__item__reference  kss-unit-text  kss-unit-text--theme-a-a-b  kss-unit-text--inline-block{{#if this.body}}  is-current{{/if}}">0</span>
+        <a class="kss-block-navi-a-a__list__item__name  kss-unit-text__link  kss-unit-text__link--theme-a-a-a" href="./index.html">{{this.homepage}}</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+{{/if}}
+{{/if}}

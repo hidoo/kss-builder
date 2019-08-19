@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+  <title>Style Guide - {{packageName}} (v{{packageVersion}})</title>
+  <meta name="description" content="{{packageDescription}}" />
+  <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="kss-assets/images/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="192x192" href="kss-assets/images/touchicon.png" />
+  <meta name="apple-mobile-web-app-title" content="{{packageName}}" />
+
+  {{!--
+    css for style guide
+  --}}
+  <link rel="stylesheet" href="kss-assets/css/main{{#isnt (NODE_ENV) 'kss-builder-development'}}.min{{/isnt}}.css" />
+
+  {{!--
+    load specified paths by options.css
+  --}}
+  {{{styles}}}
+
+</head>
+<body class="kss-document  is-theme-light  is-example-theme-light">
+
+  {{!--
+    drawer
+  --}}
+  {{~#> kss-layout-drawer-a-a utils=''}}
+
+    {{!--
+      display overview when has homepage value
+      otherwise display style guide sections
+    --}}
+    {{~#if this.homepage}}
+
+      {{#> kss-block-document-a-a utils=''}}
+        {{{this.homepage}}}
+      {{/kss-block-document-a-a}}
+
+    {{else}}
+
+      {{~#each sections}}
+
+        {{!--
+          display only heading when no example
+        --}}
+        {{~#unless this.example}}
+
+          {{#unless this.parameters}}
+
+            {{!--
+              section heading
+            --}}
+            {{> kss-block-heading-a-a this utils=(or @first 'kss-util--margin-top-60')}}
+
+          {{else}}
+
+            {{!--
+              section
+            --}}
+            {{#> kss-block-section-a-a this utils=(or @first 'kss-util--margin-top-40 kss-util--padding-top-40 kss-util--border-top-a-a-a')}}
+
+              {{!--
+                list of parameters
+              --}}
+              {{> kss-block-table-a-a items=this.parameters utils='kss-util--margin-top-30'}}
+
+            {{/kss-block-section-a-a}}
+
+          {{/unless}}
+
+        {{else}}
+
+          {{!--
+            section
+          --}}
+          {{#> kss-block-section-a-a this utils=(or @first 'kss-util--margin-top-40 kss-util--padding-top-40 kss-util--border-top-a-a-a')}}
+
+            {{!--
+              list of parameters
+            --}}
+            {{> kss-block-table-a-a items=this.parameters utils='kss-util--padding-top-15'}}
+
+            {{!--
+              example of rendered markup by default
+            --}}
+            {{~> kss-block-example-b-a markup=this.markup description='' utils='kss-util--margin-top-30'}}
+
+            {{!--
+              example of rendered markup by modifiers
+            --}}
+            {{#each this.modifiers}}
+              {{~> kss-block-example-b-a this utils='kss-util--margin-top-30'}}
+            {{/each}}
+
+            {{!--
+              example of markup
+            --}}
+            {{~> kss-block-example-a-a this utils='kss-util--margin-top-30'}}
+
+          {{/kss-block-section-a-a}}
+
+        {{/unless}}
+
+      {{/each}}
+
+    {{/if}}
+
+  {{/kss-layout-drawer-a-a}}
+
+  {{!--
+    scripts for style guide
+  --}}
+  <script src="kss-assets/js/main{{#isnt (NODE_ENV) 'kss-builder-development'}}.min{{/isnt}}.js" defer></script>
+
+  {{!--
+    load specified paths by options.js
+  --}}
+  {{{scripts}}}
+
+</body>
+</html>

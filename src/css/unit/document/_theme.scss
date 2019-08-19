@@ -1,0 +1,401 @@
+/*
+modifiers: theme
+
+modifiers of theme for kss-unit-document
+
+Weight: -99
+
+Markup: <div class="kss-unit-document  {{modifier_class}}">
+  <!-- heading -->
+  <h1>Lorem ipsum dolor sit amet.</h1>
+  <h2>Lorem ipsum dolor sit amet.</h2>
+  <h3>Lorem ipsum dolor sit amet.</h3>
+  <h4>Lorem ipsum dolor sit amet.</h4>
+  <h5>Lorem ipsum dolor sit amet.</h5>
+  <h6>Lorem ipsum dolor sit amet.</h6>
+  <hr />
+  <!-- paragraph -->
+  <p>Lorem ipsum dolor sit amet.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br />sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <hr />
+  <!-- inline markup -->
+  <p>Lorem ipsum <strong>dolor sit amet</strong>, consectetur <b>adipiscing elit</b>,sed do eiusmod <em>tempor incididunt</em> ut labore et dolore <i>magna aliqua</i>.</p>
+  <p>Lorem ipsum <u>dolor sit amet</u>, consectetur <del>adipiscing elit</del>,sed do eiusmod <s>tempor incididunt</s> ut labore et dolore <code>magna aliqua</code>.</p>
+  <p>Lorem ipsum <span>dolor sit amet</span>, consectetur <a href="javascript:;">adipiscing elit</a>.</p>
+  <hr />
+  <!-- list -->
+  <ul>
+    <li>Lorem ipsum dolor sit amet.</li>
+    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      <ul>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+      </ul>
+    </li>
+  </ul>
+  <ol>
+    <li>Lorem ipsum dolor sit amet.</li>
+    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      <ol>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+      </ol>
+    </li>
+  </ol>
+  <hr />
+  <!-- embedded image -->
+  <p><img src="https://picsum.photos/600/400/?grayscale&amp;blur=10" /></p>
+  <hr />
+  <!-- embedded image (extended markup) -->
+  <figure class="kss-unit-document__pict  kss-unit-document__pict--copy-protect-true" style="width: 400px;">
+    <img src="https://picsum.photos/400/300/?grayscale&amp;blur=10" alt="" width="400" height="300" />
+    <figcaption>Lorem ipsum dolor sit amet.</figcaption>
+  </figure>
+  <hr />
+  <!-- embedded video -->
+  <p>
+    <iframe title="vimeo-player" src="https://player.vimeo.com/video/76979871" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+  </p>
+  <hr />
+  <!-- embedded video (extended markup) -->
+  <p>
+    <span class="kss-unit-document__pict  kss-unit-document__pict--aspect-ratio-16-9">
+      <iframe title="vimeo-player" src="https://player.vimeo.com/video/76979871" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+    </span>
+  </p>
+  <hr />
+  <!-- table -->
+  <table>
+    <tr>
+      <th scope="row">Lorem ipsum dolor sit amet.</th>
+      <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+    </tr>
+    <tr>
+      <th scope="row">Lorem ipsum dolor sit amet.</th>
+      <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+    </tr>
+  </table>
+  <hr />
+  <!-- table (extended markup) -->
+  <div class="kss-unit-document__scrollable-table">
+    <table>
+      <tr>
+        <th scope="col">Lorem ipsum dolor sit amet.</th>
+        <th scope="col">Lorem ipsum dolor sit amet.</th>
+        <th scope="col">Lorem ipsum dolor sit amet.</th>
+        <th scope="col">Lorem ipsum dolor sit amet.</th>
+        <th scope="col">Lorem ipsum dolor sit amet.</th>
+        <th scope="col">Lorem ipsum dolor sit amet.</th>
+      </tr>
+      <tr>
+        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+        <td>Lorem ipsum dolor sit amet.
+          <div class="kss-unit-document__scrollable-table">
+            <table>
+              <tr>
+                <th scope="row">Lorem ipsum dolor sit amet.</th>
+                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+              </tr>
+              <tr>
+                <th scope="row">Lorem ipsum dolor sit amet.</th>
+                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <hr />
+  <!-- blockquote -->
+  <blockquote>
+    <!-- heading -->
+    <h1>Lorem ipsum dolor sit amet.</h1>
+    <h2>Lorem ipsum dolor sit amet.</h2>
+    <h3>Lorem ipsum dolor sit amet.</h3>
+    <h4>Lorem ipsum dolor sit amet.</h4>
+    <h5>Lorem ipsum dolor sit amet.</h5>
+    <h6>Lorem ipsum dolor sit amet.</h6>
+    <hr />
+    <!-- paragraph -->
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br />sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <hr />
+    <!-- inline markup -->
+    <p>Lorem ipsum <strong>dolor sit amet</strong>, consectetur <b>adipiscing elit</b>,sed do eiusmod <em>tempor incididunt</em> ut labore et dolore <i>magna aliqua</i>.</p>
+    <p>Lorem ipsum <u>dolor sit amet</u>, consectetur <del>adipiscing elit</del>,sed do eiusmod <s>tempor incididunt</s> ut labore et dolore <code>magna aliqua</code>.</p>
+    <p>Lorem ipsum <span>dolor sit amet</span>, consectetur <a href="javascript:;">adipiscing elit</a>.</p>
+    <hr />
+    <!-- list -->
+    <ul>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        <ul>
+          <li>Lorem ipsum dolor sit amet.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        </ul>
+      </li>
+    </ul>
+    <ol>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        <ol>
+          <li>Lorem ipsum dolor sit amet.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        </ol>
+      </li>
+    </ol>
+    <hr />
+    <!-- embedded image -->
+    <p><img src="https://picsum.photos/600/400/?grayscale&amp;blur=10" /></p>
+    <hr />
+    <!-- embedded image (extended markup) -->
+    <figure class="kss-unit-document__pict  kss-unit-document__pict--copy-protect-true" style="width: 400px;">
+      <img src="https://picsum.photos/400/300/?grayscale&amp;blur=10" alt="" width="400" height="300" />
+      <figcaption>Lorem ipsum dolor sit amet.</figcaption>
+    </figure>
+    <hr />
+    <!-- embedded video -->
+    <p>
+      <iframe title="vimeo-player" src="https://player.vimeo.com/video/76979871" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+    </p>
+    <hr />
+    <!-- embedded video (extended markup) -->
+    <p>
+      <span class="kss-unit-document__pict  kss-unit-document__pict--aspect-ratio-16-9">
+        <iframe title="vimeo-player" src="https://player.vimeo.com/video/76979871" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+      </span>
+    </p>
+    <hr />
+    <!-- table -->
+    <table>
+      <tr>
+        <th scope="row">Lorem ipsum dolor sit amet.</th>
+        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+      </tr>
+      <tr>
+        <th scope="row">Lorem ipsum dolor sit amet.</th>
+        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+      </tr>
+    </table>
+    <hr />
+    <!-- table (extended markup) -->
+    <div class="kss-unit-document__scrollable-table">
+      <table>
+        <tr>
+          <th scope="col">Lorem ipsum dolor sit amet.</th>
+          <th scope="col">Lorem ipsum dolor sit amet.</th>
+          <th scope="col">Lorem ipsum dolor sit amet.</th>
+          <th scope="col">Lorem ipsum dolor sit amet.</th>
+          <th scope="col">Lorem ipsum dolor sit amet.</th>
+          <th scope="col">Lorem ipsum dolor sit amet.</th>
+        </tr>
+        <tr>
+          <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+          <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+          <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+          <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+          <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+          <td>Lorem ipsum dolor sit amet.
+            <div class="kss-unit-document__scrollable-table">
+              <table>
+                <tr>
+                  <th scope="row">Lorem ipsum dolor sit amet.</th>
+                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Lorem ipsum dolor sit amet.</th>
+                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </blockquote>
+  <hr />
+  <pre>
+&lt;!-- heading --&gt;
+&lt;h1&gt;Lorem ipsum dolor sit amet.&lt;/h1&gt;
+&lt;h2&gt;Lorem ipsum dolor sit amet.&lt;/h2&gt;
+&lt;h3&gt;Lorem ipsum dolor sit amet.&lt;/h3&gt;
+&lt;h4&gt;Lorem ipsum dolor sit amet.&lt;/h4&gt;
+&lt;h5&gt;Lorem ipsum dolor sit amet.&lt;/h5&gt;
+&lt;h6&gt;Lorem ipsum dolor sit amet.&lt;/h6&gt;
+&lt;hr /&gt;
+&lt;!-- paragraph --&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit,&lt;br /&gt;sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;!-- inline markup --&gt;
+&lt;p&gt;Lorem ipsum &lt;strong&gt;dolor sit amet&lt;/strong&gt;, consectetur &lt;b&gt;adipiscing elit&lt;/b&gt;,sed do eiusmod &lt;em&gt;tempor incididunt&lt;/em&gt; ut labore et dolore &lt;i&gt;magna aliqua&lt;/i&gt;.&lt;/p&gt;
+&lt;p&gt;Lorem ipsum &lt;u&gt;dolor sit amet&lt;/u&gt;, consectetur &lt;del&gt;adipiscing elit&lt;/del&gt;,sed do eiusmod &lt;s&gt;tempor incididunt&lt;/s&gt; ut labore et dolore &lt;code&gt;magna aliqua&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Lorem ipsum &lt;span&gt;dolor sit amet&lt;/span&gt;, consectetur &lt;a href="javascript:;"&gt;adipiscing elit&lt;/a&gt;.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;!-- list --&gt;
+&lt;ul&gt;
+  &lt;li&gt;Lorem ipsum dolor sit amet.&lt;/li&gt;
+  &lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    &lt;ul&gt;
+      &lt;li&gt;Lorem ipsum dolor sit amet.&lt;/li&gt;
+      &lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+  &lt;li&gt;Lorem ipsum dolor sit amet.&lt;/li&gt;
+  &lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    &lt;ol&gt;
+      &lt;li&gt;Lorem ipsum dolor sit amet.&lt;/li&gt;
+      &lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+  </pre>
+</div>
+
+kss-unit-document--theme-a-a-a - generic document (themeable)
+
+Style guide: kss-unit-document.theme.extend
+*/
+.kss-unit-document--theme {
+  &-a-a-a {
+    @include on-theme("light") {
+      $theme: map-get($kss-theme-color-scheme, "light");
+
+      color: map-get($theme, "color");
+    }
+
+    @include on-theme("dark") {
+      $theme: map-get($kss-theme-color-scheme, "dark");
+
+      color: map-get($theme, "color");
+    }
+
+    code {
+      // settings for simple <code>
+      &:not([class^="language"]) {
+        padding: 2px 4px;
+        white-space: nowrap;
+        border: 0;
+        border-radius: 2px;
+
+        @include on-theme("light") {
+          $theme: map-get($kss-theme-color-scheme, "light");
+
+          color: map-get($theme, "color-focus");
+          background-color: map-get($theme, "background-color-focus");
+        }
+
+        @include on-theme("dark") {
+          $theme: map-get($kss-theme-color-scheme, "dark");
+
+          color: map-get($theme, "color-focus");
+          background-color: map-get($theme, "background-color-focus");
+        }
+      }
+    }
+
+    a {
+      @include on-link() {
+        text-decoration: underline;
+
+        @include on-theme("light") {
+          $theme: map-get($kss-theme-color-scheme, "light");
+
+          color: map-get($theme, "color");
+        }
+
+        @include on-theme("dark") {
+          $theme: map-get($kss-theme-color-scheme, "dark");
+
+          color: map-get($theme, "color");
+        }
+      }
+
+      @include on-focus() {
+        text-decoration: underline;
+
+        @include on-theme("light") {
+          $theme: map-get($kss-theme-color-scheme, "light");
+
+          color: map-get($theme, "color-focus");
+        }
+
+        @include on-theme("dark") {
+          $theme: map-get($kss-theme-color-scheme, "dark");
+
+          color: map-get($theme, "color-focus");
+        }
+      }
+    }
+
+    blockquote {
+      @include on-theme("light") {
+        $theme: map-get($kss-theme-color-scheme, "light");
+
+        border-left-color: map-get($theme, "border-color");
+      }
+
+      @include on-theme("dark") {
+        $theme: map-get($kss-theme-color-scheme, "dark");
+
+        border-left-color: map-get($theme, "border-color");
+      }
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-left: 0;
+      border-right: 0;
+    }
+
+    th,
+    td {
+      border-style: solid;
+      border-width: 1px;
+      border-left: 0;
+      border-right: 0;
+
+      @include on-theme("light") {
+        $theme: map-get($kss-theme-color-scheme, "light");
+
+        border-color: map-get($theme, "border-color");
+      }
+
+      @include on-theme("dark") {
+        $theme: map-get($kss-theme-color-scheme, "dark");
+
+        border-color: map-get($theme, "border-color");
+      }
+    }
+
+    th {
+      font-weight: 500;
+    }
+
+    hr {
+      @include on-theme("light") {
+        $theme: map-get($kss-theme-color-scheme, "light");
+
+        border-color: map-get($theme, "border-color");
+      }
+
+      @include on-theme("dark") {
+        $theme: map-get($kss-theme-color-scheme, "dark");
+
+        border-color: map-get($theme, "border-color");
+      }
+    }
+  }
+}

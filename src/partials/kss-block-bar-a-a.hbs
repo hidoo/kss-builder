@@ -1,0 +1,45 @@
+<nav class="kss-block-bar-a-a{{#if modifier_class}}  {{modifier_class}}{{/if}}  kss-unit-box  kss-unit-box--theme-a-a-a{{#if this.utils}}  {{this.utils}}{{/if}}" rol="navigation" id="js-kss-tool-bar">
+  <div class="kss-block-bar-a-a__container  kss-unit-box__container">
+    <div class="kss-block-bar-a-a__grid  kss-unit-table-grid">
+      <div class="kss-block-bar-a-a__grid__button-drawer  kss-unit-table-grid__column">
+        <a class="kss-block-bar-a-a__button-drawer  kss-unit-button  js-kss-styleguide-drawer__toggle" href="javascript:;">
+          <span class="kss-unit-icon  kss-unit-icon--type-drawer"></span>
+        </a>
+      </div>
+      <div class="kss-block-bar-a-a__grid__tools  kss-unit-table-grid__column">
+
+        {{!--
+          example switcher
+        --}}
+        {{> kss-block-navi-b-a
+          label='THEME'
+          items=(fromJson '[
+            {"theme": "light", "label": "light"},
+            {"theme": "dark", "label": "dark"}
+          ]')
+          modifier_class='kss-block-navi-b-a--inline-true'
+          utils='js-kss-theme-switcher'
+        }}
+
+        {{!--
+          example switcher
+        --}}
+        {{#unless @root.homepage}}
+        {{> kss-block-navi-b-a
+          label='EXAMPLE'
+          items=(fromJson '[
+            {"theme": "light", "label": "light"},
+            {"theme": "dark", "label": "dark"},
+            {"theme": "light-transparent", "label": "light (transparent)"},
+            {"theme": "dark-transparent", "label": "dark (transparent)"},
+            {"theme": "themeable", "label": "expand", "icon": "expand", "className": "js-kss-example-expand"}
+          ]')
+          modifier_class='kss-block-navi-b-a--inline-true'
+          utils='js-kss-example-theme-switcher kss-util--padding-left-10'
+        }}
+        {{/unless}}
+
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,147 @@
+/*
+kss-layout-drawer
+
+kss layouts for drawer.
+
+Weight: -100
+
+Style guide: kss-layout-drawer
+*/
+
+/*
+kss-layout-drawer-a-a
+
+main drawer (a)
+
+Markup: <div class="kss-layout-drawer-a-a{{#if modifier_class}}  {{modifier_class}}{{/if}}  kss-unit-box{{#if this.utils}}  {{this.utils}}{{/if}}  js-kss-styleguide-drawer">
+  <div class="kss-layout-drawer-a-a__container  kss-unit-box__container">
+    <div class="kss-layout-drawer-a-a__contents  kss-unit-box  kss-unit-box--theme-a-a-a">
+      <div class="kss-layout-drawer-a-a__contents__drawer  kss-unit-box__container  js-kss-styleguide-drawer__drawer">
+        drawer content
+      </div>
+      <div class="kss-layout-drawer-a-a__contents__main  kss-unit-box__container">
+        main contents
+        <a class="js-kss-styleguide-drawer__toggle" href="javascript:;">toggle</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+Style guide: kss-layout-drawer.a.a
+*/
+.kss-layout-drawer-a-a {
+  $drawer-width: 240px;
+  $drawer-z-index: 60000;
+  $tool-bar-height: 46px;
+  $viewport-height: 100vh; // stylelint-disable-line plugin/no-unsupported-browser-features
+  $selector-transition: unique-id();
+
+  @include define-placeholder($name: $selector-transition) {
+    transform-origin: 0 0;
+    transition-duration: 0.3s;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.09, 0.58, 0.2, 0.95);
+  }
+
+  &__container {
+    // has no settings
+  }
+
+  &__contents {
+    overflow: hidden;
+    background-color: inherit;
+
+    &__drawer {
+      @extend %#{$selector-transition};
+
+      overflow: auto;
+      box-sizing: border-box;
+      position: fixed;
+      z-index: $drawer-z-index;
+      top: 0;
+      left: 0;
+      width: $drawer-width;
+      height: $viewport-height;
+      background-color: inherit;
+      border-right-style: solid;
+      border-right-width: 1px;
+      transform: translate(-$drawer-width, 0);
+
+      // for smooth scrolling
+      -webkit-overflow-scrolling: touch;
+
+      @include on-theme("light") {
+        $theme: map-get($kss-theme-color-scheme, "light");
+
+        border-color: map-get($theme, "border-color");
+      }
+
+      @include on-theme("dark") {
+        $theme: map-get($kss-theme-color-scheme, "dark");
+
+        border-color: map-get($theme, "border-color");
+      }
+
+      @include on($selectors: $kss-state-selectors-open, $capturing-selectors: (".kss-layout-drawer-a-a")) {
+        transform: translate(0, 0);
+      }
+    }
+
+    &__main {
+      @extend %#{$selector-transition};
+
+      $padding: 60px;
+
+      box-sizing: border-box;
+      z-index: $drawer-z-index - 2;
+      left: 0;
+      width: 100%;
+      min-height: $viewport-height;
+      padding-top: $padding + $tool-bar-height;
+      padding-right: $padding;
+      padding-bottom: $padding;
+      padding-left: $padding;
+      background-color: inherit;
+      transform: translate(0, 0);
+
+      @include on($selectors: $kss-state-selectors-open, $capturing-selectors: (".kss-layout-drawer-a-a")) {
+        transform: translate($drawer-width, 0);
+      }
+
+      @include define-breakpoint($from: "mobile", $until: "desktop") {
+        $padding: 40px;
+
+        padding-top: $padding + $tool-bar-height;
+        padding-right: $padding;
+        padding-bottom: $padding;
+        padding-left: $padding;
+      }
+
+      @include define-breakpoint($until: "mobile") {
+        $padding-vertical: 40px;
+        $padding-horizontal: 20px;
+
+        padding-top: $padding-vertical + $tool-bar-height;
+        padding-right: $padding-horizontal;
+        padding-bottom: $padding-vertical;
+        padding-left: $padding-horizontal;
+      }
+    }
+
+    > .kss-block-bar-a-a {
+      @extend %#{$selector-transition};
+
+      position: fixed;
+      z-index: $drawer-z-index;
+      top: 0;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+      transform: translate(0, 0);
+
+      @include on($selectors: $kss-state-selectors-open, $capturing-selectors: (".kss-layout-drawer-a-a")) {
+        transform: translate($drawer-width, 0);
+      }
+    }
+  }
+}

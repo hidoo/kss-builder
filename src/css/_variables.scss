@@ -1,0 +1,82 @@
+// stylelint-disable scss/dollar-variable-default, scss/at-function-named-arguments
+
+/// font-family for heading
+/// @type List
+///
+$kss-font-family-heading: append(
+  (
+    HelveticaNeue-Light,
+    "Helvetica Neue Light",
+    "Helvetica Neue",
+    ".HiraKakuInterface-W2"
+  ),
+  $unit-font-family,
+  $separator: comma
+);
+
+/// font-family for number
+/// @type List
+///
+$kss-font-family-number: append(
+  (
+    Futura,
+    "Century Gothic"
+  ),
+  $unit-font-family,
+  $separator: comma
+);
+
+/// settings of root selectors for on-theme
+/// @type List
+///
+$kss-root-selectors: (".kss-document");
+
+/// settings of selector for expressing of state like `.is-open`.
+/// @type List
+///
+$kss-state-selectors-open: (".is-open");
+
+/// settings of selector for expressing of state like `.is-expanded`.
+/// @type List
+///
+$kss-state-selectors-expanded: (".is-expanded");
+
+/// settings of selector for expressing of theme state.
+/// @type Map
+///
+$kss-state-selectors-theme: (
+  "light": (".is-theme-light"),
+  "dark": (".is-theme-dark"),
+  "example-light": (".is-example-theme-light"),
+  "example-dark": (".is-example-theme-dark"),
+  "example-light-transparent": (".is-example-theme-light-transparent"),
+  "example-dark-transparent": (".is-example-theme-dark-transparent")
+);
+
+/// settings of color scheme for theme.
+/// @type Map
+///
+$kss-theme-color-scheme: (
+  "light": (
+    "color": #1e1e1e,
+    "color-focus": #5e5e5e,
+    "background-color": #fff,
+    "background-color-focus": #e1e1e1,
+    "border-color": #ddd,
+    "border-color-focus": #b1b1b1,
+    "accent-color": #09c,
+    "alert-color": #90c,
+    "warning-color": #c90
+  ),
+  "dark": (
+    "color": #ccc,
+    "color-focus": #919191,
+    "background-color": #1e1e1e,
+    "background-color-focus": #3e3e3e,
+    "border-color": #444,
+    "border-color-focus": #777,
+    "accent-color": #09c,
+    "alert-color": #a0d,
+    "warning-color": #b80
+  )
+);

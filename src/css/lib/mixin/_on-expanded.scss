@@ -1,0 +1,43 @@
+////
+/// (c) hidoo | MIT Lisence
+/// @group kssbuilder
+////
+
+/// wrappper of theme state class like `is-expanded`
+/// @param {List} $capturing-selectors [()] - capturing parent selectors
+///
+/// @require {variable} $kss-state-selectors-expanded
+/// @require {variable} $kss-root-selectors
+/// @require {mixin} on
+///
+/// @example scss - scss inputs
+///   .selector {
+///     @include on-expanded() {
+///       font-size: 16px;
+///     }
+///   }
+///
+/// @example css - css outputs
+///   .selector.is-expanded {
+///     font-size: 16px;
+///   }
+///
+@mixin on-expanded(
+  $capturing-selectors: ()
+) {
+  @if not global-variable-exists("kss-state-selectors-expanded") {
+    @error "@mixin on-theme: Global variable $kss-state-selectors-expanded is undefined.";
+  }
+
+  @if not global-variable-exists("kss-root-selectors") {
+    @error "@mixin on-theme: Global variable $kss-root-selectors is undefined.";
+  }
+
+  @if length($capturing-selectors) == 0 {
+    $capturing-selectors: $kss-root-selectors;
+  }
+
+  @include on($selectors: $kss-state-selectors-expanded, $capturing-selectors: $capturing-selectors) {
+    @content;
+  }
+}

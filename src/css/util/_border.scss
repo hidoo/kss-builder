@@ -1,0 +1,35 @@
+/*
+utilities: border
+
+utility modifiers of border.
+
+Weight: -99
+
+Markup: <div style="position:relative; padding: 50px;">
+  <div class="{{modifier_class}}" style="position:relative; width:50px; height:50px; background:#999;"></div>
+</div>
+
+kss-util--border-top-a-a-a - generic border style (themeable)
+
+Style guide: kss-util.border.extend
+*/
+.kss-util--border {
+  &-top-a-a {
+    &-a {
+      border-top-style: solid;
+      border-top-width: 1px;
+
+      @include on-theme("light") {
+        $theme: map-get($kss-theme-color-scheme, "light");
+
+        border-top-color: map-get($theme, "border-color");
+      }
+
+      @include on-theme("dark") {
+        $theme: map-get($kss-theme-color-scheme, "dark");
+
+        border-top-color: map-get($theme, "border-color");
+      }
+    }
+  }
+}

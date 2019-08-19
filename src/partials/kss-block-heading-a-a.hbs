@@ -1,0 +1,25 @@
+<header class="kss-block-heading-a-a  kss-block-heading-a-a--depth-{{or this.depth 2}}  kss-unit-box{{#if this.utils}}  {{this.utils}}{{/if}}" id="kss-section-{{this.referenceURI}}">
+  <div class="kss-block-heading-a-a__container  kss-unit-box__container">
+    <div class="kss-block-heading-a-a__header  kss-unit-table-grid">
+      <div class="kss-block-heading-a-a__header__reference  kss-unit-table-grid__column">
+        <p class="kss-block-heading-a-a__reference  kss-unit-text  kss-unit-text--theme-a-a-b">{{this.referenceNumber}}</p>
+      </div>
+      <div class="kss-block-heading-a-a__header__label  kss-unit-table-grid__column">
+        <h{{this.depth}} class="kss-block-heading-a-a__label  kss-unit-text">
+          <a class="kss-block-heading-a-a__label__link  kss-unit-text__link  kss-unit-text__link--theme-a-a-a  js-kss-smooth-scroll" href="#kss-section-{{this.referenceURI}}">{{this.header}}</a>
+        </h{{this.depth}}>
+      </div>
+    </div>
+    {{#if this.deprecated}}
+    <p class="kss-block-heading-a-a__deprecated  kss-unit-text  kss-unit-text--theme-a-a-c">DEPRECATED!</p>
+    {{/if}}
+    {{#if this.experimental}}
+    <p class="kss-block-heading-a-a__experimental  kss-unit-text  kss-unit-text--theme-a-a-d">EXPERIMENTAL!</p>
+    {{/if}}
+    {{#if this.description}}
+    <div class="kss-block-heading-a-a__description  kss-unit-document  kss-unit-document--theme-a-a-a">
+      {{{this.description}}}
+    </div>
+    {{/if}}
+  </div>
+</header>

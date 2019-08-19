@@ -1,0 +1,51 @@
+/*
+modifiers: link-theme
+
+modifiers of link-theme for kss-unit-text
+
+Weight: -99
+
+Markup: <h1 class="kss-unit-text">Lorem ipsum dolor <a class="kss-unit-text__link  {{modifier_class}}" href="javascript:;">sit amet</a>.</h1>
+<p class="kss-unit-text">あのイーハトーヴォのすきとおった風、<a class="kss-unit-text__link  {{modifier_class}}" href="javascript:;">夏でも底に冷たさをもつ青いそら、</a>うつくしい森で飾られたモーリオ市、郊外のぎらぎらひかる草の波。</p>
+
+kss-unit-text__link--theme-a-a-a - generic text color (themeable)
+
+Style guide: kss-unit-text.link-theme.extend
+*/
+.kss-unit-text__link--theme {
+  &-a-a {
+    &-a {
+      @include on-link() {
+        text-decoration: none;
+
+        @include on-theme("light") {
+          $theme: map-get($kss-theme-color-scheme, "light");
+
+          color: map-get($theme, "color");
+        }
+
+        @include on-theme("dark") {
+          $theme: map-get($kss-theme-color-scheme, "dark");
+
+          color: map-get($theme, "color");
+        }
+      }
+
+      @include on-focus() {
+        text-decoration: none;
+
+        @include on-theme("light") {
+          $theme: map-get($kss-theme-color-scheme, "light");
+
+          color: map-get($theme, "color-focus");
+        }
+
+        @include on-theme("dark") {
+          $theme: map-get($kss-theme-color-scheme, "dark");
+
+          color: map-get($theme, "color-focus");
+        }
+      }
+    }
+  }
+}

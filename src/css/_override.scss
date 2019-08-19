@@ -1,0 +1,30 @@
+// override all targets
+@each $target in $unit-font-override-targets {
+  [class^="#{$unit-prefix}-#{$target}"],
+  [class*=" #{$unit-prefix}-#{$target}"] {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+// define root settings
+.kss-document {
+  @include on-theme("light") {
+    $theme: map-get($kss-theme-color-scheme, "light");
+
+    background-color: map-get($theme, "background-color");
+
+    @import "~highlight.js/scss/atom-one-light";
+  }
+
+  @include on-theme("dark") {
+    $theme: map-get($kss-theme-color-scheme, "dark");
+
+    background-color: map-get($theme, "background-color");
+
+    @import "~highlight.js/scss/atom-one-dark";
+  }
+
+  margin: 0;
+  padding: 0;
+}

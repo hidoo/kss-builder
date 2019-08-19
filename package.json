@@ -1,0 +1,51 @@
+{
+  "name": "@hidoo/kss-builder",
+  "version": "0.0.0",
+  "description": "Custom builder for kss-node.",
+  "main": "index.js",
+  "files": [
+    "kss-assets/",
+    "index.hbs",
+    "index.js"
+  ],
+  "scripts": {
+    "start": "cross-env NODE_ENV=kss-builder-development gulp",
+    "prebuild": "rimraf ./kss-assets/{css,js}",
+    "build": "cross-env NODE_ENV=production gulp build"
+  },
+  "keywords": [
+    "kss",
+    "styleguide",
+    "documentation"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "hidoo",
+  "license": "MIT",
+  "dependencies": {
+    "@hidoo/handlebars-helpers": "0.6.0",
+    "@hidoo/unit": "^0.2.0",
+    "glob": "7.1.4",
+    "highlight.js": "9.15.9"
+  },
+  "devDependencies": {
+    "@babel/core": "7.5.5",
+    "@babel/preset-env": "7.5.5",
+    "@babel/register": "7.5.5",
+    "@hidoo/gulp-task-build-css-sass": "0.12.0",
+    "@hidoo/gulp-task-build-js-rollup": "0.12.0",
+    "@hidoo/gulp-task-build-styleguide-kss": "0.12.0",
+    "@hidoo/gulp-task-copy": "0.12.0",
+    "@hidoo/util-fancy-print": "0.12.0",
+    "browser-sync": "2.26.7",
+    "commander": "3.0.0",
+    "cross-env": "5.2.0",
+    "gulp": "4.0.2",
+    "kss": "3.0.0-beta.25",
+    "rimraf": "3.0.0"
+  },
+  "peerDependencies": {
+    "kss": "3.0.0-beta.25"
+  }
+}

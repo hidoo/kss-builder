@@ -1,0 +1,23 @@
+<div class="kss-block-example-b-a  kss-unit-box{{#if this.utils}}  {{this.utils}}{{/if}}">
+  <div class="kss-block-example-b-a__container-header  kss-unit-box__container">
+    <div class="kss-block-example-b-a__header  kss-unit-table-grid">
+      <div class="kss-block-example-b-a__header__name  kss-unit-table-grid__column">
+        <code class="kss-block-example-b-a__name  kss-unit-text  kss-unit-text--theme-b-a-a">{{or this.className 'default'}}</code>
+      </div>
+      {{#if this.description}}
+      <div class="kss-block-example-b-a__header__description  kss-unit-table-grid__column">
+        <div class="kss-block-example-b-a__description  kss-unit-document  kss-unit-document--theme-a-a-a">
+          {{{this.description}}}
+        </div>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+  <div class="kss-block-example-b-a__container-canvas  kss-unit-box__container">
+    <div class="kss-block-example-b-a__canvas  kss-unit-box  kss-unit-box--texture-transparent">
+      <div class="kss-block-example-b-a__canvas__container  kss-unit-box__container">
+        {{{this.markup}}}
+      </div>
+    </div>
+  </div>
+</div>

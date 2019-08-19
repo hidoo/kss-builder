@@ -1,0 +1,55 @@
+<div class="kss-layout-drawer-a-a  kss-unit-box  js-kss-styleguide-drawer{{#if this.utils}}  {{this.utils}}{{/if}}">
+  <div class="kss-layout-drawer-a-a__container  kss-unit-box__container">
+    <div class="kss-layout-drawer-a-a__contents  kss-unit-box  kss-unit-box--theme-a-a-a  js-kss-styleguide-drawer-container">
+
+      {{!--
+        Tool bar
+      --}}
+      {{> kss-block-bar-a-a utils=''}}
+
+      <div class="kss-layout-drawer-a-a__contents__drawer  kss-unit-box__container  js-kss-styleguide-drawer__drawer">
+
+        {{!--
+          heading
+        --}}
+        {{> kss-block-heading-b-a
+          utils='kss-util--padding-top-40 kss-util--padding-right-15 kss-util--padding-left-15'
+        }}
+
+        {{!--
+          widget
+        --}}
+        {{#if @root.options.homepage}}
+          {{#> kss-block-section-b-a label='OVERVIEW' utils='kss-util--padding-top-40  kss-util--padding-horizontal-25'}}
+
+            {{!--
+              navigation
+            --}}
+            {{> kss-block-navi-a-a
+              homepage=@root.options.homepage
+              body=@root.homepage
+              utils=''
+            }}
+
+          {{/kss-block-section-b-a}}
+        {{/if}}
+
+        {{!--
+          widget
+        --}}
+        {{#> kss-block-section-b-a label='COMPONENTS' utils='kss-util--padding-top-40  kss-util--padding-bottom-40  kss-util--padding-horizontal-25'}}
+
+          {{!--
+            navigation
+          --}}
+          {{> kss-block-navi-a-a items=@root.menu utils='kss-util--padding-bottom-40'}}
+
+        {{/kss-block-section-b-a}}
+
+      </div>
+      <div class="kss-layout-drawer-a-a__contents__main  kss-unit-box__container">
+        {{~> @partial-block}}
+      </div>
+    </div>
+  </div>
+</div>

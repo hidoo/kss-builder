@@ -1,0 +1,91 @@
+/*
+kss-block-bar
+
+kss blocks for bar.
+
+Weight: -100
+
+Style guide: kss-block-bar
+*/
+
+/*
+kss-block-bar-a-a
+
+Tool bar (a)
+
+Markup: <nav class="kss-block-bar-a-a{{#if modifier_class}}  {{modifier_class}}{{/if}}  kss-unit-box  kss-unit-box--theme-a-a-a{{#if this.utils}}  {{this.utils}}{{/if}}" rol="navigation">
+  <div class="kss-block-bar-a-a__container  kss-unit-box__container">
+    <div class="kss-block-bar-a-a__grid  kss-unit-table-grid">
+      <div class="kss-block-bar-a-a__grid__button-drawer  kss-unit-table-grid__column">
+        <a class="kss-block-bar-a-a__button-drawer  kss-unit-button" href="javascript:;">
+          <span class="kss-unit-icon  kss-unit-icon--type-drawer"></span>
+        </a>
+      </div>
+      <div class="kss-block-bar-a-a__grid__tools  kss-unit-table-grid__column">
+        <!-- nest -->
+        {{> kss-block-navi.b.a
+          label='THEME'
+          items=(fromJson '[
+            {"theme": "light", "label": "light"},
+            {"theme": "dark", "label": "dark"}
+          ]')
+          modifier_class='kss-block-navi-b-a--inline-true'
+          utils='kss-util--padding-right-10'
+        ~}}
+        <!-- nest -->
+        {{> kss-block-navi.b.a label='EXAMPLE' modifier_class='kss-block-navi-b-a--inline-true' utils=''~}}
+        <!-- nest -->
+      </div>
+    </div>
+  </div>
+</nav>
+
+Style guide: kss-block-bar.a.a
+*/
+.kss-block-bar-a-a {
+  &__container {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+
+    @include on-theme("light") {
+      $theme: map-get($kss-theme-color-scheme, "light");
+
+      border-bottom-color: map-get($theme, "border-color");
+    }
+
+    @include on-theme("dark") {
+      $theme: map-get($kss-theme-color-scheme, "dark");
+
+      border-bottom-color: map-get($theme, "border-color");
+    }
+  }
+
+  &__grid {
+    &__button-drawer {
+      width: 45px;
+    }
+
+    &__tools {
+      @include use-font-size($value: 0);
+
+      padding-right: 10px;
+      text-align: right;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+  }
+
+  &__button-drawer {
+    width: 45px;
+    height: 45px;
+
+    > .kss-unit-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+    }
+  }
+}

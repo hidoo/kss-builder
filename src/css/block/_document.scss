@@ -1,0 +1,234 @@
+/*
+kss-block-document
+
+kss blocks for document.
+
+Weight: -100
+
+Style guide: kss-block-document
+*/
+
+/*
+kss-block-document-a-a
+
+Overview document (a)
+
+Markup: <article class="kss-block-document-a-a{{#if modifier_class}}  {{modifier_class}}{{/if}}  kss-unit-box{{#if this.utils}}  {{this.utils}}{{/if}}">
+  <div class="kss-block-document-a-a__container  kss-unit-box__container">
+    <div class="kss-block-document-a-a__body  kss-unit-document  kss-unit-document--theme-a-a-a">
+      <!-- heading -->
+      <h1>Lorem ipsum dolor sit amet.</h1>
+      <h2>Lorem ipsum dolor sit amet.</h2>
+      <h3>Lorem ipsum dolor sit amet.</h3>
+      <h4>Lorem ipsum dolor sit amet.</h4>
+      <h5>Lorem ipsum dolor sit amet.</h5>
+      <h6>Lorem ipsum dolor sit amet.</h6>
+      <hr />
+      <!-- paragraph -->
+      <p>Lorem ipsum dolor sit amet.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br />sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <hr />
+      <!-- inline markup -->
+      <p>Lorem ipsum <strong>dolor sit amet</strong>, consectetur <b>adipiscing elit</b>,sed do eiusmod <em>tempor incididunt</em> ut labore et dolore <i>magna aliqua</i>.</p>
+      <p>Lorem ipsum <u>dolor sit amet</u>, consectetur <del>adipiscing elit</del>,sed do eiusmod <s>tempor incididunt</s> ut labore et dolore <code>magna aliqua</code>.</p>
+      <p>Lorem ipsum <span>dolor sit amet</span>, consectetur <a href="javascript:;">adipiscing elit</a>.</p>
+      <hr />
+      <!-- list -->
+      <ul>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <ul>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+          </ul>
+        </li>
+      </ul>
+      <ol>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <ol>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+          </ol>
+        </li>
+      </ol>
+      <hr />
+      <!-- embedded image -->
+      <p><img src="https://picsum.photos/600/400/?grayscale&amp;blur=10" /></p>
+      <hr />
+      <!-- table -->
+      <table>
+        <tr>
+          <th scope="row">Lorem ipsum dolor sit amet.</th>
+          <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+        </tr>
+        <tr>
+          <th scope="row">Lorem ipsum dolor sit amet.</th>
+          <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+        </tr>
+      </table>
+      <hr />
+      <!-- blockquote -->
+      <blockquote>
+        <!-- heading -->
+        <h1>Lorem ipsum dolor sit amet.</h1>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <h3>Lorem ipsum dolor sit amet.</h3>
+        <h4>Lorem ipsum dolor sit amet.</h4>
+        <h5>Lorem ipsum dolor sit amet.</h5>
+        <h6>Lorem ipsum dolor sit amet.</h6>
+        <hr />
+        <!-- paragraph -->
+        <p>Lorem ipsum dolor sit amet.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br />sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <hr />
+        <!-- inline markup -->
+        <p>Lorem ipsum <strong>dolor sit amet</strong>, consectetur <b>adipiscing elit</b>,sed do eiusmod <em>tempor incididunt</em> ut labore et dolore <i>magna aliqua</i>.</p>
+        <p>Lorem ipsum <u>dolor sit amet</u>, consectetur <del>adipiscing elit</del>,sed do eiusmod <s>tempor incididunt</s> ut labore et dolore <code>magna aliqua</code>.</p>
+        <p>Lorem ipsum <span>dolor sit amet</span>, consectetur <a href="javascript:;">adipiscing elit</a>.</p>
+        <hr />
+        <!-- list -->
+        <ul>
+          <li>Lorem ipsum dolor sit amet.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            <ul>
+              <li>Lorem ipsum dolor sit amet.</li>
+              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+            </ul>
+          </li>
+        </ul>
+        <ol>
+          <li>Lorem ipsum dolor sit amet.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            <ol>
+              <li>Lorem ipsum dolor sit amet.</li>
+              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+            </ol>
+          </li>
+        </ol>
+        <hr />
+        <!-- embedded image -->
+        <p><img src="https://picsum.photos/600/400/?grayscale&amp;blur=10" /></p>
+        <hr />
+        <!-- table -->
+        <table>
+          <tr>
+            <th scope="row">Lorem ipsum dolor sit amet.</th>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+          </tr>
+          <tr>
+            <th scope="row">Lorem ipsum dolor sit amet.</th>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+          </tr>
+        </table>
+      </blockquote>
+    </div>
+  </div>
+</article>
+
+Style guide: kss-block-document.a.a
+*/
+.kss-block-document-a-a {
+  &__container {
+    // some settings
+  }
+
+  // stylelint-disable selector-list-comma-newline-after
+  &__body {
+    $top-margin: 25px;
+    $heading-settings: (
+      "h1": ("size": 34px, "weight": 300),
+      "h2": ("size": 28px, "weight": 300),
+      "h3": ("size": 22px, "weight": 300),
+      "h4": ("size": 20px, "weight": 300),
+      "h5": ("size": 18px, "weight": 400),
+      "h6": ("size": 16px, "weight": 500)
+    );
+
+    @each $key, $settings in $heading-settings {
+      $selector: unique-id();
+
+      @include define-placeholder($name: $selector) {
+        @include use-font-family($value: $kss-font-family-heading);
+      }
+
+      #{$key} {
+        @extend %#{$selector};
+
+        font-size: map-get($settings, "size");
+        font-weight: map-get($settings, "weight");
+      }
+    }
+
+    h1, h2, h3, h4, h5, h6, p, ul, ol {
+      padding-top: $top-margin;
+
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+
+    code {
+      // settings for highlight.js
+      &[class^="language"] {
+        display: block;
+        padding: 20px !important;
+        line-height: 1.5;
+        border: 0;
+        border-radius: 0;
+
+        // for smooth scrolling
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+
+    blockquote {
+      padding-left: 25px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    table {
+      margin-top: $top-margin;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    pre {
+      margin-top: $top-margin;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      // settings for highlight.js
+      &.hljs {
+        padding: 0 !important;
+        border-style: solid;
+        border-radius: 0;
+        border-width: 1px;
+
+        @include on-theme("light") {
+          $theme: map-get($kss-theme-color-scheme, "light");
+
+          border-color: map-get($theme, "border-color");
+        }
+
+        @include on-theme("dark") {
+          $theme: map-get($kss-theme-color-scheme, "dark");
+
+          border-color: map-get($theme, "border-color");
+        }
+      }
+    }
+
+    hr {
+      padding-top: $top-margin;
+    }
+  }
+  // stylelint-enable selector-list-comma-newline-after
+}

@@ -1,0 +1,80 @@
+
+/*
+extended style
+
+extended style of `#{$unit-prefix}-table`
+
+Weight: -100
+
+Markup: <table class="{{modifier_class}}">
+  <tr>
+    <th class="{{modifier_class}}__column  {{modifier_class}}__column--head" scope="row">Lorem ipsum dolor sit amet.</th>
+    <td class="{{modifier_class}}__column">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+  </tr>
+  <tr>
+    <th class="{{modifier_class}}__column  {{modifier_class}}__column--head" scope="row">Lorem ipsum dolor sit amet.</th>
+    <td class="{{modifier_class}}__column">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+  </tr>
+</table>
+
+#{$unit-prefix}-table-a-a-a - generic style (themeable)
+
+Style guide: #{$unit-prefix}-table.core.extend
+*/
+.#{$unit-prefix}-table {
+  &-a-a {
+    &-a {
+      @include use-table-base();
+
+      border-left: 0;
+      border-right: 0;
+
+      @include on-theme("light") {
+        $theme: map-get($kss-theme-color-scheme, "light");
+
+        border-color: map-get($theme, "border-color");
+      }
+
+      @include on-theme("dark") {
+        $theme: map-get($kss-theme-color-scheme, "dark");
+
+        border-color: map-get($theme, "border-color");
+      }
+
+      &__column {
+        @include use-table-column-base(
+          $padding: 10px 15px (10px * 1.2)
+        );
+        @include use-text-base(
+          $line-height: 1.2
+        );
+        @include use-font-base();
+        @include use-font-size(
+          $value: "medium"
+        );
+
+        vertical-align: top;
+        border-left: 0;
+        border-right: 0;
+
+        @include on-theme("light") {
+          $theme: map-get($kss-theme-color-scheme, "light");
+
+          color: map-get($theme, "color");
+          border-color: map-get($theme, "border-color");
+        }
+
+        @include on-theme("dark") {
+          $theme: map-get($kss-theme-color-scheme, "dark");
+
+          color: map-get($theme, "color");
+          border-color: map-get($theme, "border-color");
+        }
+
+        &--head {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

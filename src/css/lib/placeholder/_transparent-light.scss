@@ -1,0 +1,23 @@
+/// texture light transparent
+///
+/// @example scss - scss inputs
+///   .selector {
+///     @extend %transparent-light;
+///   }
+///
+/// @example css - css outputs
+///   .selector {
+///     background-image: url(data:image/png;base64,...);
+///     background-position: 0 0;
+///     background-size: 16px 16px;
+///     background-repeat: repeat;
+///   }
+///
+%transparent-light {
+  $base64: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIUlEQVR4AWNwL/DBi4HAGB8eFgaMGkBQASELhoUBowYAAAaFmwHZ5+CIAAAAAElFTkSuQmCC";
+
+  background-image: url(#{$base64});
+  background-position: 0 0;
+  background-size: 16px 16px;
+  background-repeat: repeat;
+}

@@ -1,0 +1,97 @@
+/*
+kss-block-section
+
+kss blocks for section.
+
+Weight: -100
+
+Style guide: kss-block-section
+*/
+
+/*
+kss-block-section-a-a
+
+Main contents section
+
+Markup: <article class="kss-block-section-a-a{{#if modifier_class}}  {{modifier_class}}{{/if}}  kss-unit-box{{#if this.utils}}  {{this.utils}}{{/if}}">
+  <div class="kss-block-section-a-a__container  kss-unit-box__container">
+    <!-- nest -->
+    {{> kss-block-heading.a.a modifier_class='kss-block-heading-a-a--depth-3' utils=''~}}
+    <!-- nest -->
+    {{#if @partial-block}}{{> @partial-block}}{{else}}<!-- contents -->{{/if}}
+  </div>
+</article>
+
+Style guide: kss-block-section.a.a
+*/
+.kss-block-section-a-a {
+  &__container {
+    // has no settings
+  }
+}
+
+/*
+kss-block-section-b-a
+
+Drawer contents widget section
+
+Markup: <aside class="kss-block-section-b-a{{#if modifier_class}}  {{modifier_class}}{{/if}}  kss-unit-box{{#if this.utils}}  {{this.utils}}{{/if}}">
+  <header class="kss-block-section-b-a__header  kss-unit-table-grid">
+    <div class="kss-block-section-b-a__header__label  kss-unit-table-grid__column">
+      <h2 class="kss-block-section-b-a__label  kss-unit-text  kss-unit-text--theme-a-a-a  kss-unit-text--truncate-true">COMPONENTS</h2>
+    </div>
+    <div class="kss-block-section-b-a__header__data  kss-unit-table-grid__column">
+      <!-- contents -->
+    </div>
+  </header>
+  <div class="kss-block-section-b-a__container  kss-unit-box__container">
+    {{#if @partial-block}}
+    {{> @partial-block}}
+    {{else}}
+    {{> kss-block-navi.a.a utils=''}}
+    {{/if~}}
+  </div>
+</aside>
+
+Style guide: kss-block-section.b.a
+*/
+.kss-block-section-b-a {
+  &__header {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+
+    @include on-theme("light") {
+      $theme: map-get($kss-theme-color-scheme, "light");
+
+      border-bottom-color: map-get($theme, "border-color");
+    }
+
+    @include on-theme("dark") {
+      $theme: map-get($kss-theme-color-scheme, "dark");
+
+      border-bottom-color: map-get($theme, "border-color");
+    }
+
+    &__label {
+      vertical-align: baseline;
+    }
+
+    &__data {
+      vertical-align: baseline;
+    }
+  }
+
+  &__container {
+    // has no settings
+  }
+
+  &__header + &__container {
+    padding-top: 10px;
+  }
+
+  &__label {
+    @include use-font-size($value: "small");
+
+    font-weight: 600;
+  }
+}

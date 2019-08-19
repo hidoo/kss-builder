@@ -1,0 +1,24 @@
+<div class="kss-block-navi-b-a{{#if modifier_class}}  {{modifier_class}}{{/if}}  kss-unit-box{{#if this.utils}}  {{this.utils}}{{/if}}">
+  <div class="kss-block-navi-b-a__container  kss-unit-box__container">
+    <dl class="kss-block-navi-b-a__grid  kss-unit-table-grid">
+      <dt class="kss-block-navi-b-a__grid__label  kss-unit-table-grid__column">
+        <p class="kss-block-navi-b-a__label  kss-unit-text  kss-unit-text--theme-a-a-b  kss-unit-text--truncate-true">{{this.label}}</p>
+      </dt>
+      <dd class="kss-block-navi-b-a__grid__list  kss-unit-table-grid__column">
+        <ul class="kss-block-navi-b-a__list  kss-unit-table-grid">
+        {{#each this.items}}
+          <li class="kss-block-navi-b-a__list__item  kss-unit-table-grid__column">
+            <a class="kss-block-navi-b-a__button  kss-block-navi-b-a__button--{{this.theme}}  kss-unit-button{{#if this.className}}  {{this.className}}{{/if}}" href="javascript:;"{{#unless this.icon}} data-kss-switch-theme="{{this.theme}}"{{/unless}}>
+              {{#if this.icon}}
+              <span class="kss-unit-icon  kss-unit-icon--type-expand">{{this.label}}</span>
+              {{else}}
+              <span class="kss-unit-button__label  kss-unit-text">{{this.label}}</span>
+              {{/if}}
+            </a>
+          </li>
+        {{/each}}
+        </ul>
+      </dd>
+    </dl>
+  </div>
+</div>
