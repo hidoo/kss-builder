@@ -14,6 +14,16 @@ $ npm install --save-dev kss @hidoo/kss-builder
 $ kss path/to/css path/to/dest --builder @hidoo/kss-builder
 ```
 
+## Screenshots
+
+Light theme
+
+![light theme](./src/screenshots/screenshot-light.png)
+
+Dark theme
+
+![dark theme](./src/screenshots/screenshot-dark.png)
+
 ## License
 
 MIT
