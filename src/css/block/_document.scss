@@ -169,6 +169,11 @@ Style guide: kss-block-document.a.a
     }
 
     code {
+      // settings for simple <code>
+      &:not([class^="language"]) {
+        white-space: normal;
+      }
+
       // settings for highlight.js
       &[class^="language"] {
         display: block;
