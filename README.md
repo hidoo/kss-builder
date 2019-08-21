@@ -18,11 +18,11 @@ $ kss path/to/css path/to/dest --builder @hidoo/kss-builder
 
 Light theme
 
-![light theme](./src/screenshots/screenshot-light.png)
+![light theme](https://raw.githubusercontent.com/hidoo/unit-sass/master/packages/kss-builder/src/screenshots/screenshot-light.png)
 
 Dark theme
 
-![dark theme](./src/screenshots/screenshot-dark.png)
+![dark theme](https://raw.githubusercontent.com/hidoo/unit-sass/master/packages/kss-builder/src/screenshots/screenshot-dark.png)
 
 ## License
 
