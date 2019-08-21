@@ -1,6 +1,6 @@
 {
   "name": "@hidoo/kss-builder",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Custom builder for kss-node.",
   "main": "index.js",
   "files": [
