@@ -5,6 +5,7 @@
   "main": "index.js",
   "files": [
     "kss-assets/",
+    "src/partials/",
     "index.hbs",
     "index.js"
   ],
