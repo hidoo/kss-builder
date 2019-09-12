@@ -1,5 +1,6 @@
 /**
  * ponyfill of Element.matches
+ *
  * @param {HTMLElement} element target element
  * @param {String} selector selector string
  * @return {Boolean}

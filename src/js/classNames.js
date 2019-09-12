@@ -1,5 +1,6 @@
 /**
  * get/set classNames
+ *
  * @param {HTMLElement} element target element
  * @param {Array<String>} values list of classNames
  * @return {Array<String>}
@@ -18,6 +19,7 @@ export default function classNames(element, values = []) {
 
 /**
  * return has class or not
+ *
  * @param {HTMLElement} element target element
  * @param {String} className target class name
  * @return {Boolean}
@@ -28,6 +30,7 @@ export function hasClass(element, className = '') {
 
 /**
  * add class
+ *
  * @param {HTMLElement} element target element
  * @param {String} className target class name
  * @return {void}
@@ -39,9 +42,9 @@ export function addClass(element, className = '') {
   classNames(element, classes);
 }
 
-
 /**
  * remove class
+ *
  * @param {HTMLElement} element target element
  * @param {String|RegExp} className target class name
  * @return {void}

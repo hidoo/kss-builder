@@ -28,6 +28,7 @@ export default class StyleGuide {
 
   /**
    * enable theme switcher
+   *
    * @param {String} selector selector string
    * @param {String} type type of switcher
    * @return {StyleGuide}
@@ -67,6 +68,7 @@ export default class StyleGuide {
 
   /**
    * enable drawer
+   *
    * @return {StyleGuide}
    */
   enableDrawer() {
@@ -110,6 +112,7 @@ export default class StyleGuide {
 
   /**
    * enable example expander
+   *
    * @return {StyleGuide}
    */
   enableExampleExpander() {
@@ -146,6 +149,7 @@ export default class StyleGuide {
 
   /**
    * enable smooth scroll
+   *
    * @return {StyleGuide}
    */
   enableSmoothScroll() {
@@ -181,6 +185,7 @@ export default class StyleGuide {
 
     /**
      * remove all previous .is-current
+     *
      * @param {String} className selector string
      * @return {void}
      */

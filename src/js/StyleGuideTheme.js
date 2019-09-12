@@ -7,6 +7,7 @@ export default class StyleGuideTheme {
 
   /**
    * constructor
+   *
    * @param {HTMLElement} element target element
    */
   constructor(element) {
@@ -20,8 +21,9 @@ export default class StyleGuideTheme {
 
   /**
    * return valid theme type or not
+   *
    * @param {String} type type of switcher (one of 'theme' or 'example-theme')
-   * @return {void}
+   * @return {StyleGuideTheme}
    */
   validateType(type) {
     const valid = ['theme', 'example-theme'];
@@ -29,15 +31,17 @@ export default class StyleGuideTheme {
     if (typeof type !== 'string' || valid.indexOf(type) === -1) { // eslint-disable-line no-magic-numbers
       throw new TypeError(`Argument "type" must be one of ${valid.join(' or ')}.`);
     }
+    return this;
   }
 
   /**
    * theme to className
-   * @param {String} type type of switcher
-   * @param {String} theme theme name
+   *
+   * @param {String} [type='theme'] type of switcher
+   * @param {String} [theme=''] theme name
    * @return {String}
    */
-  toClassName(type = 'theme', theme) {
+  toClassName(type = 'theme', theme = '') {
     this.validateType(type);
 
     if (typeof theme !== 'string' || theme === '') {
@@ -49,12 +53,17 @@ export default class StyleGuideTheme {
 
   /**
    * switch theme
-   * @param {String} type type of switcher
-   * @param {String} theme theme name
-   * @return {Theme}
+   *
+   * @param {String} [type='theme'] type of switcher
+   * @param {String} [theme=''] theme name
+   * @return {StyleGuideTheme}
    */
-  switch(type = 'theme', theme) {
+  switch(type = 'theme', theme = '') {
     this.validateType(type);
+
+    if (typeof theme !== 'string' || theme === '') {
+      throw new TypeError('Argument "theme" is not valid string.');
+    }
 
     const className = this.toClassName(type, theme);
     const pattern = new RegExp(`^is-${type}-`);
@@ -70,8 +79,9 @@ export default class StyleGuideTheme {
 
   /**
    * restore theme
+   *
    * @param {String} type type of switcher
-   * @return {Theme}
+   * @return {StyleGuideTheme}
    */
   restore(type = 'theme') {
     this.validateType(type);

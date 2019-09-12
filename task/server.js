@@ -10,6 +10,7 @@ import * as config from '../config';
 
 /**
  * return start local server task
+ *
  * @return {Function<Promise>}
  */
 const server = () => new Promise((resolve, reject) => {
