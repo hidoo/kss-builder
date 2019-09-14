@@ -37,7 +37,7 @@
     @error "@mixin on-theme: Global variable $kss-root-selectors is undefined.";
   }
 
-  @if index($states, $state) == null {
+  @if not index($states, $state) {
     @error "@mixin on-theme: Argument $state is one of #{join($states, $separator: comma)}.";
   }
 
