@@ -4,7 +4,12 @@
   "description": "Custom builder for kss-node.",
   "main": "index.js",
   "files": [
-    "kss-assets/",
+    "kss-assets/css/main.min.css",
+    "kss-assets/css/main.min.css.gz",
+    "kss-assets/images/favicon.ico",
+    "kss-assets/images/touchicon.png",
+    "kss-assets/js/main.min.js",
+    "kss-assets/js/main.min.js.gz",
     "src/partials/",
     "index.hbs",
     "index.js"
