@@ -36,8 +36,8 @@
     "highlight.js": "9.15.10"
   },
   "devDependencies": {
-    "@babel/core": "7.6.2",
-    "@babel/preset-env": "7.6.2",
+    "@babel/core": "7.6.4",
+    "@babel/preset-env": "7.6.3",
     "@babel/register": "7.6.2",
     "@hidoo/gulp-task-build-css-sass": "0.13.0",
     "@hidoo/gulp-task-build-js-rollup": "0.13.0",
