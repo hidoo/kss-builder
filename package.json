@@ -1,6 +1,6 @@
 {
   "name": "@hidoo/kss-builder",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Custom builder for kss-node.",
   "main": "index.js",
   "files": [
@@ -31,7 +31,7 @@
   "license": "MIT",
   "dependencies": {
     "@hidoo/handlebars-helpers": "0.6.0",
-    "@hidoo/unit": "^0.4.0",
+    "@hidoo/unit": "^0.4.1",
     "glob": "7.1.6",
     "highlight.js": "9.16.2"
   },

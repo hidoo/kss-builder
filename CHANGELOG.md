@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/hidoo/unit-sass/compare/v0.4.0...v0.4.1) (2019-11-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency glob to v7.1.5 ([f06e880](https://github.com/hidoo/unit-sass/commit/f06e880))
+* **deps:** update dependency glob to v7.1.6 ([78ddc32](https://github.com/hidoo/unit-sass/commit/78ddc32))
+* **deps:** update dependency highlight.js to v9.16.2 ([f4f4666](https://github.com/hidoo/unit-sass/commit/f4f4666))
+
+
+
+
+
 # [0.4.0](https://github.com/hidoo/unit-sass/compare/v0.3.1...v0.4.0) (2019-09-17)
 
 
