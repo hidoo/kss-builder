@@ -30,7 +30,7 @@
   "author": "hidoo",
   "license": "MIT",
   "dependencies": {
-    "@hidoo/handlebars-helpers": "0.6.0",
+    "@hidoo/handlebars-helpers": "0.6.1",
     "@hidoo/unit": "^0.4.1",
     "glob": "7.1.6",
     "highlight.js": "9.16.2"
