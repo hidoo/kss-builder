@@ -48,10 +48,6 @@
     "commander": "5.1.0",
     "cross-env": "7.0.2",
     "gulp": "4.0.2",
-    "kss": "3.0.1",
     "rimraf": "3.0.2"
-  },
-  "peerDependencies": {
-    "kss": "3.0.1"
   }
 }
