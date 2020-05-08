@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2](https://github.com/hidoo/unit-sass/compare/v0.4.1...v0.4.2) (2020-05-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @hidoo/handlebars-helpers to v0.6.1 ([60ed63e](https://github.com/hidoo/unit-sass/commit/60ed63e96f188eed69774f4e945698bca55e2b5e))
+* **deps:** update dependency @hidoo/handlebars-helpers to v0.7.0 ([1f18f1c](https://github.com/hidoo/unit-sass/commit/1f18f1cfe29fe37794de7508cb0c1256edc3ac9e))
+* **deps:** update dependency highlight.js to v10 ([9748b1e](https://github.com/hidoo/unit-sass/commit/9748b1eb73fa84e0a966f9a91f7a097dba0cb695))
+* **deps:** update dependency highlight.js to v9.17.1 ([193e43d](https://github.com/hidoo/unit-sass/commit/193e43d33d6272fdd2451bbb507a990de255b156))
+* **deps:** update dependency highlight.js to v9.18.0 ([9b54283](https://github.com/hidoo/unit-sass/commit/9b54283bf2e60c5c51ec40fcd8f729af70e54ad6))
+* **deps:** update dependency highlight.js to v9.18.1 ([7243a2b](https://github.com/hidoo/unit-sass/commit/7243a2bb609a9c715e7890ad16baf84dffa4e0d9))
+
+
+
+
+
 ## [0.4.1](https://github.com/hidoo/unit-sass/compare/v0.4.0...v0.4.1) (2019-11-11)
 
 
