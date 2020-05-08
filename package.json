@@ -42,7 +42,6 @@
     "@hidoo/gulp-task-build-css-sass": "0.15.0",
     "@hidoo/gulp-task-build-js-rollup": "0.15.0",
     "@hidoo/gulp-task-build-styleguide-kss": "0.15.0",
-    "@hidoo/gulp-task-copy": "0.15.0",
     "@hidoo/util-fancy-print": "0.15.0",
     "browser-sync": "2.26.7",
     "commander": "5.1.0",
