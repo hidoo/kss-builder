@@ -33,7 +33,7 @@
     "@hidoo/handlebars-helpers": "0.8.0",
     "@hidoo/unit": "^0.4.2",
     "glob": "7.1.6",
-    "highlight.js": "10.0.2"
+    "highlight.js": "10.0.3"
   },
   "devDependencies": {
     "@babel/core": "7.9.6",
