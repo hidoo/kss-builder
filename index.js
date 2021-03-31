@@ -110,6 +110,12 @@ class KssBuilderHandlebars extends KssBuilderBase {
         () => new this.Handlebars.SafeString(pkg.version || '')
       );
 
+      // add helpers (strip localpath)
+      this.Handlebars.registerHelper(
+        'basename',
+        (value) => new this.Handlebars.SafeString(path.basename(value) || '')
+      );
+
       // add partials
       glob.sync(`${__dirname}/src/partials/**/*.hbs`).forEach((filepath) => {
         const data = fs.readFileSync(filepath, 'utf8');
