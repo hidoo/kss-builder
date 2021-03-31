@@ -12,7 +12,7 @@ let pkg = {};
 
 // try to load package.json that on current working directory
 try {
-  // eslint-disable-next-line global-require, import/no-dynamic-require
+  // eslint-disable-next-line import/no-dynamic-require
   pkg = require(path.resolve(process.cwd(), 'package.json'));
 }
 catch (error) {
@@ -93,7 +93,7 @@ class KssBuilderHandlebars extends KssBuilderBase {
       // add helpers (NODE_ENV)
       this.Handlebars.registerHelper(
         'NODE_ENV',
-        () => process.env.NODE_ENV || 'development' // eslint-disable-line no-process-env
+        () => process.env.NODE_ENV || 'development'
       );
 
       // add helpers (package information)
@@ -112,7 +112,7 @@ class KssBuilderHandlebars extends KssBuilderBase {
 
       // add partials
       glob.sync(`${__dirname}/src/partials/**/*.hbs`).forEach((filepath) => {
-        const data = fs.readFileSync(filepath, 'utf8'); // eslint-disable-line no-sync
+        const data = fs.readFileSync(filepath, 'utf8');
 
         if (data && typeof data.toString === 'function') {
           this.Handlebars.registerPartial(path.basename(filepath, '.hbs'), data);
@@ -166,7 +166,7 @@ class KssBuilderHandlebars extends KssBuilderBase {
 
         // require() returns a cached object. We want an independent clone of
         // the object so we can make changes without affecting the original.
-        context = require(jsonpath); // eslint-disable-line global-require, import/no-dynamic-require
+        context = require(jsonpath); // eslint-disable-line import/no-dynamic-require
         context = JSON.parse(JSON.stringify(context));
       }
       catch (error) {
