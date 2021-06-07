@@ -50,6 +50,8 @@ Style guide: kss-block-example.a.a
         @include use-font-size($value: "medium", $monospace: true);
 
         // override highlight.js theme settings
+        display: block;
+        overflow-x: auto;
         padding: 20px !important;
         line-height: 1.5;
 
