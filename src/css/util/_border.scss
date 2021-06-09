@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "../lib/mixin";
+@use "../settings";
+
 /*
 modifiers: border
 
@@ -19,16 +23,16 @@ Style guide: kss-util.border.extend
       border-top-style: solid;
       border-top-width: 1px;
 
-      @include on-theme("light") {
-        $theme: map-get($kss-theme-color-scheme, "light");
+      @include mixin.on-theme("light") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-        border-top-color: map-get($theme, "border-color");
+        border-top-color: map.get($theme, "border-color");
       }
 
-      @include on-theme("dark") {
-        $theme: map-get($kss-theme-color-scheme, "dark");
+      @include mixin.on-theme("dark") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-        border-top-color: map-get($theme, "border-color");
+        border-top-color: map.get($theme, "border-color");
       }
     }
   }

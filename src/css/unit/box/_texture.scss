@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "../../lib/mixin";
+@use "../../lib/placeholder";
+@use "../../settings";
+
 /*
 modifiers: texture
 
@@ -9,7 +14,7 @@ Markup: <div class="kss-unit-box  {{modifier_class}}">
   <div class="kss-unit-box__container">
     <!-- some unit -->
     <p class="kss-unit-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <figure class="kss-unit-pict  kss-unit-pict--fit-max-width  #{$unit-util-prefix}--float-left">
+    <figure class="kss-unit-pict  kss-unit-pict--fit-max-width  util--float-left">
       <img class="kss-unit-pict__src" src="https://picsum.photos/200/150/?grayscale&amp;blur=10" alt="" width="200" height="150" />
     </figure>
     <p class="kss-unit-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -23,21 +28,21 @@ Style guide: kss-unit-box.texture.extend
 */
 .kss-unit-box--texture {
   &-transparent {
-    @include on-theme("example-light") {
+    @include mixin.on-theme("example-light") {
       background-color: #fff;
     }
 
-    @include on-theme("example-dark") {
+    @include mixin.on-theme("example-dark") {
       background-color: #000;
     }
 
-    @include on-theme("example-light-transparent") {
+    @include mixin.on-theme("example-light-transparent") {
       @extend %transparent-light;
 
       background-color: #fff;
     }
 
-    @include on-theme("example-dark-transparent") {
+    @include mixin.on-theme("example-dark-transparent") {
       @extend %transparent-dark;
 
       background-color: #000;

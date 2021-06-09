@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "../../lib/mixin";
+@use "../../settings";
+
 /*
 modifiers: theme
 
@@ -9,7 +13,7 @@ Markup: <div class="kss-unit-box  {{modifier_class}}">
   <div class="kss-unit-box__container">
     <!-- some unit -->
     <p class="kss-unit-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <figure class="kss-unit-pict  kss-unit-pict--fit-max-width  #{$unit-util-prefix}--float-left">
+    <figure class="kss-unit-pict  kss-unit-pict--fit-max-width  util--float-left">
       <img class="kss-unit-pict__src" src="https://picsum.photos/200/150/?grayscale&amp;blur=10" alt="" width="200" height="150" />
     </figure>
     <p class="kss-unit-text">あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモーリオ市、郊外のぎらぎらひかる草の波。</p>
@@ -24,16 +28,16 @@ Style guide: kss-unit-box.theme.extend
 .kss-unit-box--theme {
   &-a-a {
     &-a {
-      @include on-theme("light") {
-        $theme: map-get($kss-theme-color-scheme, "light");
+      @include mixin.on-theme("light") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-        background-color: map-get($theme, "background-color");
+        background-color: map.get($theme, "background-color");
       }
 
-      @include on-theme("dark") {
-        $theme: map-get($kss-theme-color-scheme, "dark");
+      @include mixin.on-theme("dark") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-        background-color: map-get($theme, "background-color");
+        background-color: map.get($theme, "background-color");
       }
     }
   }

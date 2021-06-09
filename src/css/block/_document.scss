@@ -1,3 +1,9 @@
+@use "sass:map";
+@use "sass:string";
+@use "@hidoo/unit/src/lib/mixin" as unit-mixin;
+@use "../lib/mixin";
+@use "../settings";
+
 /*
 kss-block-document
 
@@ -146,17 +152,17 @@ Style guide: kss-block-document.a.a
     );
 
     @each $key, $settings in $heading-settings {
-      $selector: unique-id();
+      $selector: string.unique-id();
 
-      @include define-placeholder($name: $selector) {
-        @include use-font-family($value: $kss-font-family-heading);
+      @include unit-mixin.define-placeholder($name: $selector) {
+        @include unit-mixin.use-font-family($value: settings.$kss-font-family-heading);
       }
 
       #{$key} {
         @extend %#{$selector};
 
-        font-size: map-get($settings, "size");
-        font-weight: map-get($settings, "weight");
+        font-size: map.get($settings, "size");
+        font-weight: map.get($settings, "weight");
       }
     }
 
@@ -217,16 +223,16 @@ Style guide: kss-block-document.a.a
         border-radius: 0;
         border-width: 1px;
 
-        @include on-theme("light") {
-          $theme: map-get($kss-theme-color-scheme, "light");
+        @include mixin.on-theme("light") {
+          $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-          border-color: map-get($theme, "border-color");
+          border-color: map.get($theme, "border-color");
         }
 
-        @include on-theme("dark") {
-          $theme: map-get($kss-theme-color-scheme, "dark");
+        @include mixin.on-theme("dark") {
+          $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-          border-color: map-get($theme, "border-color");
+          border-color: map.get($theme, "border-color");
         }
       }
     }

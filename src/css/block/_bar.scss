@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "@hidoo/unit/src/lib/mixin" as unit-mixin;
+@use "../lib/mixin";
+@use "../settings";
+
 /*
 kss-block-bar
 
@@ -47,16 +52,16 @@ Style guide: kss-block-bar.a.a
     border-bottom-style: solid;
     border-bottom-width: 1px;
 
-    @include on-theme("light") {
-      $theme: map-get($kss-theme-color-scheme, "light");
+    @include mixin.on-theme("light") {
+      $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-      border-bottom-color: map-get($theme, "border-color");
+      border-bottom-color: map.get($theme, "border-color");
     }
 
-    @include on-theme("dark") {
-      $theme: map-get($kss-theme-color-scheme, "dark");
+    @include mixin.on-theme("dark") {
+      $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-      border-bottom-color: map-get($theme, "border-color");
+      border-bottom-color: map.get($theme, "border-color");
     }
   }
 
@@ -66,7 +71,7 @@ Style guide: kss-block-bar.a.a
     }
 
     &__tools {
-      @include use-font-size($value: 0);
+      @include unit-mixin.use-font-size($value: 0);
 
       padding-right: 10px;
       text-align: right;

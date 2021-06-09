@@ -1,3 +1,9 @@
+@use "sass:map";
+@use "sass:string";
+@use "@hidoo/unit/src/lib/mixin" as unit-mixin;
+@use "../lib/mixin";
+@use "../settings";
+
 /*
 kss-layout-drawer
 
@@ -34,9 +40,9 @@ Style guide: kss-layout-drawer.a.a
   $drawer-z-index: 60000;
   $tool-bar-height: 46px;
   $viewport-height: 100vh; // stylelint-disable-line plugin/no-unsupported-browser-features
-  $selector-transition: unique-id();
+  $selector-transition: string.unique-id();
 
-  @include define-placeholder($name: $selector-transition) {
+  @include unit-mixin.define-placeholder($name: $selector-transition) {
     transform-origin: 0 0;
     transition-duration: 0.3s;
     transition-property: transform;
@@ -70,19 +76,19 @@ Style guide: kss-layout-drawer.a.a
       // for smooth scrolling
       -webkit-overflow-scrolling: touch;
 
-      @include on-theme("light") {
-        $theme: map-get($kss-theme-color-scheme, "light");
+      @include mixin.on-theme("light") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-        border-color: map-get($theme, "border-color");
+        border-color: map.get($theme, "border-color");
       }
 
-      @include on-theme("dark") {
-        $theme: map-get($kss-theme-color-scheme, "dark");
+      @include mixin.on-theme("dark") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-        border-color: map-get($theme, "border-color");
+        border-color: map.get($theme, "border-color");
       }
 
-      @include on($selectors: $kss-state-selectors-open, $capturing-selectors: (".kss-layout-drawer-a-a")) {
+      @include unit-mixin.on($selectors: settings.$kss-state-selectors-open, $capturing-selectors: (".kss-layout-drawer-a-a")) {
         transform: translate(0, 0);
       }
     }
@@ -104,11 +110,11 @@ Style guide: kss-layout-drawer.a.a
       background-color: inherit;
       transform: translate(0, 0);
 
-      @include on($selectors: $kss-state-selectors-open, $capturing-selectors: (".kss-layout-drawer-a-a")) {
+      @include unit-mixin.on($selectors: settings.$kss-state-selectors-open, $capturing-selectors: (".kss-layout-drawer-a-a")) {
         transform: translate($drawer-width, 0);
       }
 
-      @include define-breakpoint($from: "mobile", $until: "desktop") {
+      @include unit-mixin.define-breakpoint($from: "mobile", $until: "desktop") {
         $padding: 40px;
 
         padding-top: $padding + $tool-bar-height;
@@ -117,7 +123,7 @@ Style guide: kss-layout-drawer.a.a
         padding-left: $padding;
       }
 
-      @include define-breakpoint($until: "mobile") {
+      @include unit-mixin.define-breakpoint($until: "mobile") {
         $padding-vertical: 40px;
         $padding-horizontal: 20px;
 
@@ -139,7 +145,7 @@ Style guide: kss-layout-drawer.a.a
       margin: 0 auto;
       transform: translate(0, 0);
 
-      @include on($selectors: $kss-state-selectors-open, $capturing-selectors: (".kss-layout-drawer-a-a")) {
+      @include unit-mixin.on($selectors: settings.$kss-state-selectors-open, $capturing-selectors: (".kss-layout-drawer-a-a")) {
         transform: translate($drawer-width, 0);
       }
     }

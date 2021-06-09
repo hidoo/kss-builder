@@ -3,12 +3,14 @@
 /// @group kssbuilder
 ////
 
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+@use "@hidoo/unit/src/lib/mixin" as unit-mixin;
+@use "../../settings";
+
 /// wrappper of theme state class like `is-expanded`
 /// @param {List} $capturing-selectors [()] - capturing parent selectors
-///
-/// @require {variable} $kss-state-selectors-expanded
-/// @require {variable} $kss-root-selectors
-/// @require {mixin} on
 ///
 /// @example scss - scss inputs
 ///   .selector {
@@ -25,19 +27,22 @@
 @mixin on-expanded(
   $capturing-selectors: ()
 ) {
-  @if not global-variable-exists("kss-state-selectors-expanded") {
-    @error "@mixin on-theme: Global variable $kss-state-selectors-expanded is undefined.";
+  @if meta.type-of(settings.$kss-state-selectors-expanded) != "list" {
+    @error "@mixin on-theme: settings.$kss-state-selectors-expanded must be list.";
   }
 
-  @if not global-variable-exists("kss-root-selectors") {
-    @error "@mixin on-theme: Global variable $kss-root-selectors is undefined.";
+  @if meta.type-of(settings.$kss-root-selectors) != "list" {
+    @error "@mixin on-theme: settings.$kss-root-selectors must be list.";
   }
 
   @if length($capturing-selectors) == 0 {
-    $capturing-selectors: $kss-root-selectors;
+    $capturing-selectors: settings.$kss-root-selectors;
   }
 
-  @include on($selectors: $kss-state-selectors-expanded, $capturing-selectors: $capturing-selectors) {
+  @include unit-mixin.on(
+    $selectors: settings.$kss-state-selectors-expanded,
+    $capturing-selectors: $capturing-selectors
+  ) {
     @content;
   }
 }

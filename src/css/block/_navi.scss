@@ -1,3 +1,9 @@
+@use "sass:map";
+@use "@hidoo/unit/src/lib/mixin" as unit-mixin;
+@use "../lib/mixin";
+@use "../lib/placeholder";
+@use "../settings";
+
 /*
 kss-block-navi
 
@@ -48,11 +54,11 @@ Style guide: kss-block-navi.a.a
 
   &__list {
     &__item {
-      @include use-font-size($value: 0);
+      @include unit-mixin.use-font-size($value: 0);
 
       &__reference {
-        @include use-font-family($value: $kss-font-family-number);
-        @include use-font-size($value: "small");
+        @include unit-mixin.use-font-family($value: settings.$kss-font-family-number);
+        @include unit-mixin.use-font-size($value: "small");
 
         min-width: 28px;
         padding-right: 3px;
@@ -70,12 +76,12 @@ Style guide: kss-block-navi.a.a
       }
 
       &__name {
-        @include use-font-size($value: 13px);
+        @include unit-mixin.use-font-size($value: 13px);
       }
 
       &__deprecated,
       &__experimental {
-        @include use-font-size($value: "xsmall");
+        @include unit-mixin.use-font-size($value: "xsmall");
 
         letter-spacing: 0;
         font-weight: 600;
@@ -99,7 +105,7 @@ Style guide: kss-block-navi.a.a
   }
 
   &__list__item > & &__list__item__reference {
-    @include use-font-size($value: "xsmall");
+    @include unit-mixin.use-font-size($value: "xsmall");
   }
 }
 
@@ -165,7 +171,7 @@ Style guide: kss-block-navi.b.a
   }
 
   &__label {
-    @include use-font-size($value: "xsmall");
+    @include unit-mixin.use-font-size($value: "xsmall");
   }
 
   &__list {
@@ -191,43 +197,43 @@ Style guide: kss-block-navi.b.a
     transition-property: border-color;
     transition-timing-function: ease-out;
 
-    @include on-theme("light") {
-      $theme: map-get($kss-theme-color-scheme, "light");
+    @include mixin.on-theme("light") {
+      $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-      border-color: map-get($theme, "border-color");
+      border-color: map.get($theme, "border-color");
     }
 
-    @include on-theme("dark") {
-      $theme: map-get($kss-theme-color-scheme, "dark");
+    @include mixin.on-theme("dark") {
+      $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-      border-color: map-get($theme, "border-color");
+      border-color: map.get($theme, "border-color");
     }
 
-    @include on-focus() {
-      @include on-theme("light") {
-        $theme: map-get($kss-theme-color-scheme, "light");
+    @include unit-mixin.on-focus() {
+      @include mixin.on-theme("light") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-        border-color: map-get($theme, "border-color-focus");
+        border-color: map.get($theme, "border-color-focus");
       }
 
-      @include on-theme("dark") {
-        $theme: map-get($kss-theme-color-scheme, "dark");
+      @include mixin.on-theme("dark") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-        border-color: map-get($theme, "border-color-focus");
+        border-color: map.get($theme, "border-color-focus");
       }
     }
 
-    @include on-current() {
-      @include on-theme("light") {
-        $theme: map-get($kss-theme-color-scheme, "light");
+    @include unit-mixin.on-current() {
+      @include mixin.on-theme("light") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-        border-color: map-get($theme, "accent-color");
+        border-color: map.get($theme, "accent-color");
       }
 
-      @include on-theme("dark") {
-        $theme: map-get($kss-theme-color-scheme, "dark");
+      @include mixin.on-theme("dark") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-        border-color: map-get($theme, "accent-color");
+        border-color: map.get($theme, "accent-color");
       }
     }
 
@@ -271,16 +277,16 @@ Style guide: kss-block-navi.b.a
     }
 
     &--themeable {
-      @include on-theme("light") {
-        $theme: map-get($kss-theme-color-scheme, "light");
+      @include mixin.on-theme("light") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-        background-color: map-get($theme, "background-color");
+        background-color: map.get($theme, "background-color");
       }
 
-      @include on-theme("dark") {
-        $theme: map-get($kss-theme-color-scheme, "dark");
+      @include mixin.on-theme("dark") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-        background-color: map-get($theme, "background-color");
+        background-color: map.get($theme, "background-color");
       }
     }
   }

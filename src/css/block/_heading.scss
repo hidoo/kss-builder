@@ -1,3 +1,9 @@
+@use "sass:map";
+@use "@hidoo/unit/src/lib/function" as unit-function;
+@use "@hidoo/unit/src/lib/mixin" as unit-mixin;
+@use "../lib/mixin";
+@use "../settings";
+
 /*
 kss-block-heading
 
@@ -42,7 +48,7 @@ kss-block-heading-a-a--depth-3 - with depth 3
 Style guide: kss-block-heading.a.a
 */
 .kss-block-heading-a-a {
-  $current-selectors: merge-state-selectors("current");
+  $current-selectors: unit-function.merge-state-selectors("current");
 
   &__container {
     transition-duration: 0.2s;
@@ -67,7 +73,7 @@ Style guide: kss-block-heading.a.a
   }
 
   &__reference {
-    @include use-font-family($value: $kss-font-family-number);
+    @include unit-mixin.use-font-family($value: settings.$kss-font-family-number);
 
     line-height: 1.2;
     white-space: nowrap;
@@ -86,16 +92,16 @@ Style guide: kss-block-heading.a.a
 
   @each $selector in $current-selectors {
     &#{$selector} &__reference {
-      @include on-theme("light") {
-        $theme: map-get($kss-theme-color-scheme, "light");
+      @include mixin.on-theme("light") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-        color: map-get($theme, "accent-color");
+        color: map.get($theme, "accent-color");
       }
 
-      @include on-theme("dark") {
-        $theme: map-get($kss-theme-color-scheme, "dark");
+      @include mixin.on-theme("dark") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-        color: map-get($theme, "accent-color");
+        color: map.get($theme, "accent-color");
       }
     }
   }
@@ -104,7 +110,7 @@ Style guide: kss-block-heading.a.a
     line-height: 1.2;
 
     &__link {
-      @include use-font-family($value: $kss-font-family-heading);
+      @include unit-mixin.use-font-family($value: settings.$kss-font-family-heading);
 
       font-weight: 300;
     }
@@ -112,7 +118,7 @@ Style guide: kss-block-heading.a.a
 
   &__deprecated,
   &__experimental {
-    @include use-font-size($value: "large");
+    @include unit-mixin.use-font-size($value: "large");
 
     font-weight: 800;
   }
@@ -158,18 +164,18 @@ Style guide: kss-block-heading.a.a
 
   &--depth-1 &__label,
   &--depth-1 &__reference {
-    @include use-font-size($value: 34px);
+    @include unit-mixin.use-font-size($value: 34px);
 
-    @include define-breakpoint($until: "mobile") {
-      @include use-font-size($value: 30px);
+    @include unit-mixin.define-breakpoint($until: "mobile") {
+      @include unit-mixin.use-font-size($value: 30px);
     }
   }
 
   &--depth-1 &__description {
-    @include use-font-size($value: "large");
+    @include unit-mixin.use-font-size($value: "large");
 
-    @include define-breakpoint($until: "mobile") {
-      @include use-font-size($value: "medium");
+    @include unit-mixin.define-breakpoint($until: "mobile") {
+      @include unit-mixin.use-font-size($value: "medium");
     }
   }
 
@@ -184,44 +190,44 @@ Style guide: kss-block-heading.a.a
     border-left-style: solid;
     border-left-width: 3px;
 
-    @include on-theme("light") {
-      $theme: map-get($kss-theme-color-scheme, "light");
+    @include mixin.on-theme("light") {
+      $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-      border-left-color: map-get($theme, "border-color-focus");
+      border-left-color: map.get($theme, "border-color-focus");
     }
 
-    @include on-theme("dark") {
-      $theme: map-get($kss-theme-color-scheme, "dark");
+    @include mixin.on-theme("dark") {
+      $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-      border-left-color: map-get($theme, "border-color-focus");
+      border-left-color: map.get($theme, "border-color-focus");
     }
 
-    @include define-breakpoint($until: "mobile") {
+    @include unit-mixin.define-breakpoint($until: "mobile") {
       padding-left: 15px;
     }
   }
 
   &--depth-2 &__label,
   &--depth-2 &__reference {
-    @include use-font-size($value: 28px);
+    @include unit-mixin.use-font-size($value: 28px);
 
-    @include define-breakpoint($until: "mobile") {
-      @include use-font-size($value: 24px);
+    @include unit-mixin.define-breakpoint($until: "mobile") {
+      @include unit-mixin.use-font-size($value: 24px);
     }
   }
 
   @each $selector in $current-selectors {
     &--depth-2#{$selector} &__container {
-      @include on-theme("light") {
-        $theme: map-get($kss-theme-color-scheme, "light");
+      @include mixin.on-theme("light") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-        border-left-color: map-get($theme, "accent-color");
+        border-left-color: map.get($theme, "accent-color");
       }
 
-      @include on-theme("dark") {
-        $theme: map-get($kss-theme-color-scheme, "dark");
+      @include mixin.on-theme("dark") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-        border-left-color: map-get($theme, "accent-color");
+        border-left-color: map.get($theme, "accent-color");
       }
     }
   }
@@ -237,45 +243,45 @@ Style guide: kss-block-heading.a.a
     border-left-style: solid;
     border-left-width: 2px;
 
-    @include on-theme("light") {
-      $theme: map-get($kss-theme-color-scheme, "light");
+    @include mixin.on-theme("light") {
+      $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-      border-left-color: map-get($theme, "border-color-focus");
+      border-left-color: map.get($theme, "border-color-focus");
     }
 
-    @include on-theme("dark") {
-      $theme: map-get($kss-theme-color-scheme, "dark");
+    @include mixin.on-theme("dark") {
+      $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-      border-left-color: map-get($theme, "border-color-focus");
+      border-left-color: map.get($theme, "border-color-focus");
     }
 
-    @include define-breakpoint($until: "mobile") {
+    @include unit-mixin.define-breakpoint($until: "mobile") {
       padding-left: 15px;
     }
   }
 
   @each $selector in $current-selectors {
     &--depth-3#{$selector} &__container {
-      @include on-theme("light") {
-        $theme: map-get($kss-theme-color-scheme, "light");
+      @include mixin.on-theme("light") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-        border-left-color: map-get($theme, "accent-color");
+        border-left-color: map.get($theme, "accent-color");
       }
 
-      @include on-theme("dark") {
-        $theme: map-get($kss-theme-color-scheme, "dark");
+      @include mixin.on-theme("dark") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-        border-left-color: map-get($theme, "accent-color");
+        border-left-color: map.get($theme, "accent-color");
       }
     }
   }
 
   &--depth-3 &__label,
   &--depth-3 &__reference {
-    @include use-font-size($value: 22px);
+    @include unit-mixin.use-font-size($value: 22px);
 
-    @include define-breakpoint($until: "mobile") {
-      @include use-font-size($value: 18px);
+    @include unit-mixin.define-breakpoint($until: "mobile") {
+      @include unit-mixin.use-font-size($value: 18px);
     }
   }
 }
@@ -301,22 +307,22 @@ Style guide: kss-block-heading.b.a
   }
 
   &__name {
-    @include use-font-family($value: $kss-font-family-heading);
-    @include use-font-size($value: "2xlarge");
+    @include unit-mixin.use-font-family($value: settings.$kss-font-family-heading);
+    @include unit-mixin.use-font-size($value: "2xlarge");
 
     text-align: center;
     font-weight: 300;
   }
 
   &__version {
-    @include use-font-family($value: $kss-font-family-number);
-    @include use-font-size($value: "small");
+    @include unit-mixin.use-font-family($value: settings.$kss-font-family-number);
+    @include unit-mixin.use-font-size($value: "small");
 
     text-align: center;
   }
 
   &__description {
-    @include use-font-size($value: "small");
+    @include unit-mixin.use-font-size($value: "small");
 
     text-align: center;
   }

@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "@hidoo/unit/src/lib/mixin" as unit-mixin;
+@use "../../lib/mixin";
+@use "../../settings";
+
 /*
 modifiers: type
 
@@ -42,34 +47,34 @@ Style guide: kss-unit-icon.type.extend
       bottom: 3px;
     }
 
-    @include on-theme("light") {
-      $theme: map-get($kss-theme-color-scheme, "light");
+    @include mixin.on-theme("light") {
+      $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
       &::before,
       &::after {
-        background-color: map-get($theme, "color");
+        background-color: map.get($theme, "color");
       }
 
-      @include on-focus($capturing-selectors: ("a", "button")) {
+      @include unit-mixin.on-focus($capturing-selectors: ("a", "button")) {
         &::before,
         &::after {
-          background-color: map-get($theme, "color-focus");
+          background-color: map.get($theme, "color-focus");
         }
       }
     }
 
-    @include on-theme("dark") {
-      $theme: map-get($kss-theme-color-scheme, "dark");
+    @include mixin.on-theme("dark") {
+      $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
       &::before,
       &::after {
-        background-color: map-get($theme, "color");
+        background-color: map.get($theme, "color");
       }
 
-      @include on-focus($capturing-selectors: ("a", "button")) {
+      @include unit-mixin.on-focus($capturing-selectors: ("a", "button")) {
         &::before,
         &::after {
-          background-color: map-get($theme, "color-focus");
+          background-color: map.get($theme, "color-focus");
         }
       }
     }
@@ -112,7 +117,7 @@ Style guide: kss-unit-icon.type.extend
       transform: rotate(-135deg);
     }
 
-    @include on-expanded() {
+    @include mixin.on-expanded() {
       &::before {
         right: auto;
         left: 1px;
@@ -124,34 +129,34 @@ Style guide: kss-unit-icon.type.extend
       }
     }
 
-    @include on-theme("light") {
-      $theme: map-get($kss-theme-color-scheme, "light");
+    @include mixin.on-theme("light") {
+      $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
       &::before,
       &::after {
-        border-color: map-get($theme, "color");
+        border-color: map.get($theme, "color");
       }
 
-      @include on-focus($capturing-selectors: ("a", "button")) {
+      @include unit-mixin.on-focus($capturing-selectors: ("a", "button")) {
         &::before,
         &::after {
-          border-color: map-get($theme, "color-focus");
+          border-color: map.get($theme, "color-focus");
         }
       }
     }
 
-    @include on-theme("dark") {
-      $theme: map-get($kss-theme-color-scheme, "dark");
+    @include mixin.on-theme("dark") {
+      $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
       &::before,
       &::after {
-        border-color: map-get($theme, "color");
+        border-color: map.get($theme, "color");
       }
 
-      @include on-focus($capturing-selectors: ("a", "button")) {
+      @include unit-mixin.on-focus($capturing-selectors: ("a", "button")) {
         &::before,
         &::after {
-          border-color: map-get($theme, "color-focus");
+          border-color: map.get($theme, "color-focus");
         }
       }
     }

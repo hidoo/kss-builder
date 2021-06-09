@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "@hidoo/unit/src/lib/mixin" as unit-mixin;
+@use "../lib/mixin";
+@use "../settings";
+
 /*
 kss-block-example
 
@@ -33,21 +38,21 @@ Style guide: kss-block-example.a.a
       border-style: solid;
       border-width: 1px;
 
-      @include on-theme("light") {
-        $theme: map-get($kss-theme-color-scheme, "light");
+      @include mixin.on-theme("light") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-        border-color: map-get($theme, "border-color");
+        border-color: map.get($theme, "border-color");
       }
 
-      @include on-theme("dark") {
-        $theme: map-get($kss-theme-color-scheme, "dark");
+      @include mixin.on-theme("dark") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-        border-color: map-get($theme, "border-color");
+        border-color: map.get($theme, "border-color");
       }
 
       .hljs {
-        @include use-font-family($value: "monospace");
-        @include use-font-size($value: "medium", $monospace: true);
+        @include unit-mixin.use-font-family($value: "monospace");
+        @include unit-mixin.use-font-size($value: "medium", $monospace: true);
 
         // override highlight.js theme settings
         display: block;
@@ -129,15 +134,15 @@ Style guide: kss-block-example.b.a
   }
 
   &__name {
-    @include use-font-family($value: "monospace");
-    @include use-font-size($value: "small", $monospace: true);
+    @include unit-mixin.use-font-family($value: "monospace");
+    @include unit-mixin.use-font-size($value: "small", $monospace: true);
 
     width: auto;
   }
 
   // stylelint-disable selector-list-comma-newline-after
   &__description {
-    @include use-font-size($value: "small");
+    @include unit-mixin.use-font-size($value: "small");
 
     white-space: nowrap;
 
@@ -163,8 +168,8 @@ Style guide: kss-block-example.b.a
       padding-top: $top-margin;
     }
 
-    @include define-breakpoint($until: "mobile") {
-      @include use-font-size($value: 12px);
+    @include unit-mixin.define-breakpoint($until: "mobile") {
+      @include unit-mixin.use-font-size($value: 12px);
     }
   }
   // stylelint-enable selector-list-comma-newline-after
@@ -173,7 +178,7 @@ Style guide: kss-block-example.b.a
     border-style: solid;
     border-width: 1px;
 
-    @include on-expanded() {
+    @include mixin.on-expanded() {
       $margin: -60px;
 
       margin-right: $margin;
@@ -181,14 +186,14 @@ Style guide: kss-block-example.b.a
       border-right: 0;
       border-left: 0;
 
-      @include define-breakpoint($from: "mobile", $until: "desktop") {
+      @include unit-mixin.define-breakpoint($from: "mobile", $until: "desktop") {
         $margin: -40px;
 
         margin-right: $margin;
         margin-left: $margin;
       }
 
-      @include define-breakpoint($until: "mobile") {
+      @include unit-mixin.define-breakpoint($until: "mobile") {
         $margin: -20px;
 
         margin-right: $margin;
@@ -196,16 +201,16 @@ Style guide: kss-block-example.b.a
       }
     }
 
-    @include on-theme("light") {
-      $theme: map-get($kss-theme-color-scheme, "light");
+    @include mixin.on-theme("light") {
+      $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-      border-color: map-get($theme, "border-color");
+      border-color: map.get($theme, "border-color");
     }
 
-    @include on-theme("dark") {
-      $theme: map-get($kss-theme-color-scheme, "dark");
+    @include mixin.on-theme("dark") {
+      $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-      border-color: map-get($theme, "border-color");
+      border-color: map.get($theme, "border-color");
     }
 
     &__container {
@@ -216,7 +221,7 @@ Style guide: kss-block-example.b.a
       // for smooth scrolling
       -webkit-overflow-scrolling: touch;
 
-      @include on-expanded() {
+      @include mixin.on-expanded() {
         padding-right: 0;
         padding-left: 0;
       }

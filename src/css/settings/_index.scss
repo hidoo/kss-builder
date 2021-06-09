@@ -1,45 +1,54 @@
 // stylelint-disable scss/dollar-variable-default, scss/at-function-named-arguments
 
+@use "sass:list";
+@use "@hidoo/unit/src/settings";
+
 /// font-family for heading
 /// @type List
 ///
-$kss-font-family-heading: append(
+$kss-font-family-heading: list.append(
   (
     HelveticaNeue-Light,
     "Helvetica Neue Light",
     "Helvetica Neue",
     ".HiraKakuInterface-W2"
   ),
-  $unit-font-family,
+  settings.$font-family,
   $separator: comma
 );
 
 /// font-family for number
 /// @type List
 ///
-$kss-font-family-number: append(
+$kss-font-family-number: list.append(
   (
     Futura,
     "Century Gothic"
   ),
-  $unit-font-family,
+  settings.$font-family,
   $separator: comma
 );
 
 /// settings of root selectors for on-theme
 /// @type List
 ///
-$kss-root-selectors: (".kss-document");
+$kss-root-selectors: (
+  ".kss-document",
+);
 
 /// settings of selector for expressing of state like `.is-open`.
 /// @type List
 ///
-$kss-state-selectors-open: (".is-open");
+$kss-state-selectors-open: (
+  ".is-open",
+);
 
 /// settings of selector for expressing of state like `.is-expanded`.
 /// @type List
 ///
-$kss-state-selectors-expanded: (".is-expanded");
+$kss-state-selectors-expanded: (
+  ".is-expanded",
+);
 
 /// settings of selector for expressing of theme state.
 /// @type Map

@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "@hidoo/unit/src/lib/mixin" as unit-mixin;
+@use "../../lib/mixin";
+@use "../../settings";
+
 /*
 modifiers: theme
 
@@ -20,86 +25,86 @@ Style guide: kss-unit-text.theme.extend
 .kss-unit-text--theme {
   &-a-a {
     &-a {
-      @include on-theme("light") {
-        $theme: map-get($kss-theme-color-scheme, "light");
+      @include mixin.on-theme("light") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-        color: map-get($theme, "color");
+        color: map.get($theme, "color");
       }
 
-      @include on-theme("dark") {
-        $theme: map-get($kss-theme-color-scheme, "dark");
+      @include mixin.on-theme("dark") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-        color: map-get($theme, "color");
+        color: map.get($theme, "color");
       }
     }
 
     &-b {
-      @include on-theme("light") {
-        $theme: map-get($kss-theme-color-scheme, "light");
+      @include mixin.on-theme("light") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-        color: map-get($theme, "border-color-focus");
+        color: map.get($theme, "border-color-focus");
       }
 
-      @include on-theme("dark") {
-        $theme: map-get($kss-theme-color-scheme, "dark");
+      @include mixin.on-theme("dark") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-        color: map-get($theme, "border-color-focus");
+        color: map.get($theme, "border-color-focus");
       }
 
-      @include on-current() {
-        @include on-theme("light") {
-          $theme: map-get($kss-theme-color-scheme, "light");
+      @include unit-mixin.on-current() {
+        @include mixin.on-theme("light") {
+          $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-          color: map-get($theme, "accent-color");
+          color: map.get($theme, "accent-color");
         }
 
-        @include on-theme("dark") {
-          $theme: map-get($kss-theme-color-scheme, "dark");
+        @include mixin.on-theme("dark") {
+          $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-          color: map-get($theme, "accent-color");
+          color: map.get($theme, "accent-color");
         }
       }
     }
 
     &-c {
-      @include on-theme("light") {
-        $theme: map-get($kss-theme-color-scheme, "light");
+      @include mixin.on-theme("light") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-        color: map-get($theme, "alert-color");
+        color: map.get($theme, "alert-color");
       }
 
-      @include on-theme("dark") {
-        $theme: map-get($kss-theme-color-scheme, "dark");
+      @include mixin.on-theme("dark") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-        color: map-get($theme, "alert-color");
+        color: map.get($theme, "alert-color");
       }
     }
 
     &-d {
-      @include on-theme("light") {
-        $theme: map-get($kss-theme-color-scheme, "light");
+      @include mixin.on-theme("light") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-        color: map-get($theme, "warning-color");
+        color: map.get($theme, "warning-color");
       }
 
-      @include on-theme("dark") {
-        $theme: map-get($kss-theme-color-scheme, "dark");
+      @include mixin.on-theme("dark") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-        color: map-get($theme, "warning-color");
+        color: map.get($theme, "warning-color");
       }
     }
 
     &-e {
-      @include on-theme("light") {
-        $theme: map-get($kss-theme-color-scheme, "light");
+      @include mixin.on-theme("light") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-        color: map-get($theme, "accent-color");
+        color: map.get($theme, "accent-color");
       }
 
-      @include on-theme("dark") {
-        $theme: map-get($kss-theme-color-scheme, "dark");
+      @include mixin.on-theme("dark") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-        color: map-get($theme, "accent-color");
+        color: map.get($theme, "accent-color");
       }
     }
   }
@@ -111,18 +116,18 @@ Style guide: kss-unit-text.theme.extend
       border: 0;
       border-radius: 2px;
 
-      @include on-theme("light") {
-        $theme: map-get($kss-theme-color-scheme, "light");
+      @include mixin.on-theme("light") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-        color: map-get($theme, "color-focus");
-        background-color: map-get($theme, "background-color-focus");
+        color: map.get($theme, "color-focus");
+        background-color: map.get($theme, "background-color-focus");
       }
 
-      @include on-theme("dark") {
-        $theme: map-get($kss-theme-color-scheme, "dark");
+      @include mixin.on-theme("dark") {
+        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-        color: map-get($theme, "color-focus");
-        background-color: map-get($theme, "background-color-focus");
+        color: map.get($theme, "color-focus");
+        background-color: map.get($theme, "background-color-focus");
       }
     }
   }

@@ -1,0 +1,33 @@
+@use "sass:map";
+@use "@hidoo/unit/src/lib/mixin" as unit-mixin;
+@use "./lib/mixin";
+@use "./settings";
+
+@include unit-mixin.bootstrap() {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// define root settings
+.kss-document {
+  @include mixin.on-theme("light") {
+    $theme: map.get(settings.$kss-theme-color-scheme, "light");
+
+    background-color: map.get($theme, "background-color");
+
+    // work arounds for meta.load-css
+    @import "highlight.js/scss/atom-one-light";
+  }
+
+  @include mixin.on-theme("dark") {
+    $theme: map.get(settings.$kss-theme-color-scheme, "dark");
+
+    background-color: map.get($theme, "background-color");
+
+    // work arounds for meta.load-css
+    @import "highlight.js/scss/atom-one-dark";
+  }
+
+  margin: 0;
+  padding: 0;
+}

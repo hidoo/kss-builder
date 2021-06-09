@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "@hidoo/unit/src/lib/mixin" as unit-mixin;
+@use "../../lib/mixin";
+@use "../../settings";
+
 /*
 modifiers: link-theme
 
@@ -15,35 +20,35 @@ Style guide: kss-unit-text.link-theme.extend
 .kss-unit-text__link--theme {
   &-a-a {
     &-a {
-      @include on-link() {
+      @include unit-mixin.on-link() {
         text-decoration: none;
 
-        @include on-theme("light") {
-          $theme: map-get($kss-theme-color-scheme, "light");
+        @include mixin.on-theme("light") {
+          $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-          color: map-get($theme, "color");
+          color: map.get($theme, "color");
         }
 
-        @include on-theme("dark") {
-          $theme: map-get($kss-theme-color-scheme, "dark");
+        @include mixin.on-theme("dark") {
+          $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-          color: map-get($theme, "color");
+          color: map.get($theme, "color");
         }
       }
 
-      @include on-focus() {
+      @include unit-mixin.on-focus() {
         text-decoration: none;
 
-        @include on-theme("light") {
-          $theme: map-get($kss-theme-color-scheme, "light");
+        @include mixin.on-theme("light") {
+          $theme: map.get(settings.$kss-theme-color-scheme, "light");
 
-          color: map-get($theme, "color-focus");
+          color: map.get($theme, "color-focus");
         }
 
-        @include on-theme("dark") {
-          $theme: map-get($kss-theme-color-scheme, "dark");
+        @include mixin.on-theme("dark") {
+          $theme: map.get(settings.$kss-theme-color-scheme, "dark");
 
-          color: map-get($theme, "color-focus");
+          color: map.get($theme, "color-focus");
         }
       }
     }

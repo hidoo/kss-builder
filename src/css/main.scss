@@ -1,49 +1,33 @@
 @charset "utf-8";
 
-// import override default settings
-@import "settings";
+// use settings with configure
+@use "@hidoo/unit/src/settings" with (
+  $prefix: "kss-unit",
+  $util-prefix: "kss-util",
+  $font-enable-relative-size: false
+);
 
-// import packages (required files)
-@import "~@hidoo/unit/src/settings";
-@import "~@hidoo/unit/src/lib";
+// use units
+@use "./unit/icon";
+@use "./unit/text";
+@use "./unit/list";
+@use "./unit/button";
+@use "./unit/document";
+@use "./unit/table";
+@use "./unit/box";
+@use "./unit/table-grid";
 
-// import packages (components)
-@import "~@hidoo/unit/src/unit/icon";
-@import "~@hidoo/unit/src/unit/text";
-@import "~@hidoo/unit/src/unit/list";
-@import "~@hidoo/unit/src/unit/button";
-@import "~@hidoo/unit/src/unit/document";
-@import "~@hidoo/unit/src/unit/table";
-@import "~@hidoo/unit/src/unit/box";
-@import "~@hidoo/unit/src/unit/table-grid";
-@import "~@hidoo/unit/src/util";
-@import "~@hidoo/unit/src/override";
+// use util
+@use "./util";
 
-// import global variables
-@import "variables";
+// use block
+@use "./block";
 
-// import extends libraries
-@import "lib/mixin/*";
-@import "lib/placeholder/*";
+// use layout
+@use "./layout";
 
-// import extends unit
-@import "unit/icon/*";
-@import "unit/text/*";
-@import "unit/document/*";
-@import "unit/table/*";
-@import "unit/box/*";
+// // import kss comment example
+// @import "lib/example/*";
 
-// import extends util
-@import "util/*";
-
-// import define blocks
-@import "block/*";
-
-// import define layouts
-@import "layout/*";
-
-// import kss comment example
-@import "lib/example/*";
-
-// import override global settings
-@import "override";
+// initialize
+@use "./bootstrap";
