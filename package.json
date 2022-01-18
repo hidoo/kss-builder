@@ -44,7 +44,7 @@
     "@hidoo/gulp-task-build-styleguide-kss": "0.19.0",
     "@hidoo/util-fancy-print": "0.19.0",
     "browser-sync": "2.27.5",
-    "commander": "7.2.0",
+    "commander": "8.3.0",
     "cross-env": "7.0.3",
     "gulp": "4.0.2",
     "rimraf": "3.0.2"
