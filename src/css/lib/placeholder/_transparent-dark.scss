@@ -14,6 +14,7 @@
 ///   }
 ///
 %transparent-dark {
+  // stylelint-disable-next-line max-line-length
   $base64: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAI0lEQVR4AWP4//+/Lz7sXuDDgA8PDwNGDSCggKAFw8KAUQMAPWEmn6ux0a0AAAAASUVORK5CYII=";
 
   background-image: url(#{$base64});

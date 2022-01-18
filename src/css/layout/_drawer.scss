@@ -88,7 +88,10 @@ Style guide: kss-layout-drawer.a.a
         border-color: map.get($theme, "border-color");
       }
 
-      @include unit-mixin.on($selectors: settings.$kss-state-selectors-open, $capturing-selectors: (".kss-layout-drawer-a-a")) {
+      @include unit-mixin.on(
+        $selectors: settings.$kss-state-selectors-open,
+        $capturing-selectors: (".kss-layout-drawer-a-a")
+      ) {
         transform: translate(0, 0);
       }
     }
@@ -110,7 +113,10 @@ Style guide: kss-layout-drawer.a.a
       background-color: inherit;
       transform: translate(0, 0);
 
-      @include unit-mixin.on($selectors: settings.$kss-state-selectors-open, $capturing-selectors: (".kss-layout-drawer-a-a")) {
+      @include unit-mixin.on(
+        $selectors: settings.$kss-state-selectors-open,
+        $capturing-selectors: (".kss-layout-drawer-a-a")
+      ) {
         transform: translate($drawer-width, 0);
       }
 
@@ -145,7 +151,10 @@ Style guide: kss-layout-drawer.a.a
       margin: 0 auto;
       transform: translate(0, 0);
 
-      @include unit-mixin.on($selectors: settings.$kss-state-selectors-open, $capturing-selectors: (".kss-layout-drawer-a-a")) {
+      @include unit-mixin.on(
+        $selectors: settings.$kss-state-selectors-open,
+        $capturing-selectors: (".kss-layout-drawer-a-a")
+      ) {
         transform: translate($drawer-width, 0);
       }
     }
