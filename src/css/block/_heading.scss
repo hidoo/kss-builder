@@ -48,7 +48,7 @@ kss-block-heading-a-a--depth-3 - with depth 3
 Style guide: kss-block-heading.a.a
 */
 .kss-block-heading-a-a {
-  $current-selectors: unit-function.merge-state-selectors("current");
+  $current-selectors: unit-function.selector-merge-state("current");
 
   &__container {
     transition-duration: 0.2s;
