@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/hidoo/unit-sass/compare/v0.6.0...v0.7.0) (2022-01-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @hidoo/handlebars-helpers to v0.8.2 ([2856a4a](https://github.com/hidoo/unit-sass/commit/2856a4a6d9d705b9c3c5f13dda17b02c9549476f))
+* **deps:** update dependency glob to v7.2.0 ([42ec58a](https://github.com/hidoo/unit-sass/commit/42ec58a515f52c9c89d3d19480315b5b99b25be9))
+* **deps:** update dependency highlight.js to v11.1.0 ([89ec765](https://github.com/hidoo/unit-sass/commit/89ec765f00931ee10488e76a67bf38d958a8468e))
+* **deps:** update dependency highlight.js to v11.4.0 ([07349bb](https://github.com/hidoo/unit-sass/commit/07349bbe1d2b62d14680dc9331c0222916e6637f))
+* **deps:** update stylelint packages and update rules ([0331e7e](https://github.com/hidoo/unit-sass/commit/0331e7e860bb7ab2980602c8f23f355f371d0d22))
+* **kss-builder:** fix deprecation warnings ([2bea673](https://github.com/hidoo/unit-sass/commit/2bea673be62c62e55e2aec6c6272ceb7ee2315ef))
+
+
+### Features
+
+* **unit:** add functions and organize by module ([f3d3878](https://github.com/hidoo/unit-sass/commit/f3d387888ff96574b430658f5f2902777fa728b1))
+
+
+
+
+
 # [0.6.0](https://github.com/hidoo/unit-sass/compare/v0.5.0...v0.6.0) (2021-06-09)
 
 
