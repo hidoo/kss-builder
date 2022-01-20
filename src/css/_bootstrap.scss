@@ -1,11 +1,11 @@
+@use "sass:meta";
 @use "sass:map";
 @use "@hidoo/unit/src/lib/mixin" as unit-mixin;
 @use "./lib/mixin";
 @use "./settings";
 
 @include unit-mixin.bootstrap() {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @include unit-mixin.font-apply-smoothing();
 }
 
 // define root settings

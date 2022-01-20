@@ -54,11 +54,11 @@ Style guide: kss-block-navi.a.a
 
   &__list {
     &__item {
-      @include unit-mixin.use-font-size($value: 0);
+      @include unit-mixin.font-apply-size($value: 0);
 
       &__reference {
-        @include unit-mixin.use-font-family($value: settings.$kss-font-family-number);
-        @include unit-mixin.use-font-size($value: "small");
+        @include unit-mixin.font-apply-family($value: settings.$kss-font-family-number);
+        @include unit-mixin.font-apply-size($value: "small");
 
         min-width: 28px;
         padding-right: 3px;
@@ -76,12 +76,12 @@ Style guide: kss-block-navi.a.a
       }
 
       &__name {
-        @include unit-mixin.use-font-size($value: 13px);
+        @include unit-mixin.font-apply-size($value: 13px);
       }
 
       &__deprecated,
       &__experimental {
-        @include unit-mixin.use-font-size($value: "xsmall");
+        @include unit-mixin.font-apply-size($value: "xsmall");
 
         letter-spacing: 0;
         font-weight: 600;
@@ -105,7 +105,7 @@ Style guide: kss-block-navi.a.a
   }
 
   &__list__item > & &__list__item__reference {
-    @include unit-mixin.use-font-size($value: "xsmall");
+    @include unit-mixin.font-apply-size($value: "xsmall");
   }
 }
 
@@ -171,7 +171,7 @@ Style guide: kss-block-navi.b.a
   }
 
   &__label {
-    @include unit-mixin.use-font-size($value: "xsmall");
+    @include unit-mixin.font-apply-size($value: "xsmall");
   }
 
   &__list {

@@ -75,21 +75,21 @@ Style guide: kss-block-table.a.a
   }
 
   &__heading {
-    @include unit-mixin.use-font-size($value: "small");
+    @include unit-mixin.font-apply-size($value: "small");
 
     white-space: nowrap;
   }
 
   &__description {
-    @include unit-mixin.use-font-size($value: "small");
+    @include unit-mixin.font-apply-size($value: "small");
 
     white-space: nowrap;
   }
 
   &__name,
   &__default {
-    @include unit-mixin.use-font-family($value: "monospace");
-    @include unit-mixin.use-font-size($value: "small", $monospace: true);
+    @include unit-mixin.font-apply-family($value: "monospace");
+    @include unit-mixin.font-apply-size($value: "small", $monospace: true);
 
     width: auto;
     white-space: nowrap;

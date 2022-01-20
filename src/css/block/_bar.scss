@@ -71,7 +71,7 @@ Style guide: kss-block-bar.a.a
     }
 
     &__tools {
-      @include unit-mixin.use-font-size($value: 0);
+      @include unit-mixin.font-apply-size($value: 0);
 
       padding-right: 10px;
       text-align: right;

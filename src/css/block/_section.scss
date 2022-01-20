@@ -95,7 +95,7 @@ Style guide: kss-block-section.b.a
   }
 
   &__label {
-    @include unit-mixin.use-font-size($value: "small");
+    @include unit-mixin.font-apply-size($value: "small");
 
     font-weight: 600;
   }

@@ -42,7 +42,7 @@ Style guide: kss-layout-drawer.a.a
   $viewport-height: 100vh; // stylelint-disable-line plugin/no-unsupported-browser-features
   $selector-transition: string.unique-id();
 
-  @include unit-mixin.define-placeholder($name: $selector-transition) {
+  @include unit-mixin.placeholder-define($name: $selector-transition) {
     transform-origin: 0 0;
     transition-duration: 0.3s;
     transition-property: transform;
@@ -120,7 +120,7 @@ Style guide: kss-layout-drawer.a.a
         transform: translate($drawer-width, 0);
       }
 
-      @include unit-mixin.define-breakpoint($from: "mobile", $until: "desktop") {
+      @include unit-mixin.breakpoint-define($from: "mobile", $until: "desktop") {
         $padding: 40px;
 
         padding-top: $padding + $tool-bar-height;
@@ -129,7 +129,7 @@ Style guide: kss-layout-drawer.a.a
         padding-left: $padding;
       }
 
-      @include unit-mixin.define-breakpoint($until: "mobile") {
+      @include unit-mixin.breakpoint-define($until: "mobile") {
         $padding-vertical: 40px;
         $padding-horizontal: 20px;
 

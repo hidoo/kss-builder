@@ -154,8 +154,8 @@ Style guide: kss-block-document.a.a
     @each $key, $settings in $heading-settings {
       $selector: string.unique-id();
 
-      @include unit-mixin.define-placeholder($name: $selector) {
-        @include unit-mixin.use-font-family($value: settings.$kss-font-family-heading);
+      @include unit-mixin.placeholder-define($name: $selector) {
+        @include unit-mixin.font-apply-family($value: settings.$kss-font-family-heading);
       }
 
       #{$key} {

@@ -73,7 +73,7 @@ Style guide: kss-block-heading.a.a
   }
 
   &__reference {
-    @include unit-mixin.use-font-family($value: settings.$kss-font-family-number);
+    @include unit-mixin.font-apply-family($value: settings.$kss-font-family-number);
 
     line-height: 1.2;
     white-space: nowrap;
@@ -110,7 +110,7 @@ Style guide: kss-block-heading.a.a
     line-height: 1.2;
 
     &__link {
-      @include unit-mixin.use-font-family($value: settings.$kss-font-family-heading);
+      @include unit-mixin.font-apply-family($value: settings.$kss-font-family-heading);
 
       font-weight: 300;
     }
@@ -118,7 +118,7 @@ Style guide: kss-block-heading.a.a
 
   &__deprecated,
   &__experimental {
-    @include unit-mixin.use-font-size($value: "large");
+    @include unit-mixin.font-apply-size($value: "large");
 
     font-weight: 800;
   }
@@ -164,18 +164,18 @@ Style guide: kss-block-heading.a.a
 
   &--depth-1 &__label,
   &--depth-1 &__reference {
-    @include unit-mixin.use-font-size($value: 34px);
+    @include unit-mixin.font-apply-size($value: 34px);
 
-    @include unit-mixin.define-breakpoint($until: "mobile") {
-      @include unit-mixin.use-font-size($value: 30px);
+    @include unit-mixin.breakpoint-define($until: "mobile") {
+      @include unit-mixin.font-apply-size($value: 30px);
     }
   }
 
   &--depth-1 &__description {
-    @include unit-mixin.use-font-size($value: "large");
+    @include unit-mixin.font-apply-size($value: "large");
 
-    @include unit-mixin.define-breakpoint($until: "mobile") {
-      @include unit-mixin.use-font-size($value: "medium");
+    @include unit-mixin.breakpoint-define($until: "mobile") {
+      @include unit-mixin.font-apply-size($value: "medium");
     }
   }
 
@@ -202,17 +202,17 @@ Style guide: kss-block-heading.a.a
       border-left-color: map.get($theme, "border-color-focus");
     }
 
-    @include unit-mixin.define-breakpoint($until: "mobile") {
+    @include unit-mixin.breakpoint-define($until: "mobile") {
       padding-left: 15px;
     }
   }
 
   &--depth-2 &__label,
   &--depth-2 &__reference {
-    @include unit-mixin.use-font-size($value: 28px);
+    @include unit-mixin.font-apply-size($value: 28px);
 
-    @include unit-mixin.define-breakpoint($until: "mobile") {
-      @include unit-mixin.use-font-size($value: 24px);
+    @include unit-mixin.breakpoint-define($until: "mobile") {
+      @include unit-mixin.font-apply-size($value: 24px);
     }
   }
 
@@ -255,7 +255,7 @@ Style guide: kss-block-heading.a.a
       border-left-color: map.get($theme, "border-color-focus");
     }
 
-    @include unit-mixin.define-breakpoint($until: "mobile") {
+    @include unit-mixin.breakpoint-define($until: "mobile") {
       padding-left: 15px;
     }
   }
@@ -278,10 +278,10 @@ Style guide: kss-block-heading.a.a
 
   &--depth-3 &__label,
   &--depth-3 &__reference {
-    @include unit-mixin.use-font-size($value: 22px);
+    @include unit-mixin.font-apply-size($value: 22px);
 
-    @include unit-mixin.define-breakpoint($until: "mobile") {
-      @include unit-mixin.use-font-size($value: 18px);
+    @include unit-mixin.breakpoint-define($until: "mobile") {
+      @include unit-mixin.font-apply-size($value: 18px);
     }
   }
 }
@@ -307,22 +307,22 @@ Style guide: kss-block-heading.b.a
   }
 
   &__name {
-    @include unit-mixin.use-font-family($value: settings.$kss-font-family-heading);
-    @include unit-mixin.use-font-size($value: "2xlarge");
+    @include unit-mixin.font-apply-family($value: settings.$kss-font-family-heading);
+    @include unit-mixin.font-apply-size($value: "2xlarge");
 
     text-align: center;
     font-weight: 300;
   }
 
   &__version {
-    @include unit-mixin.use-font-family($value: settings.$kss-font-family-number);
-    @include unit-mixin.use-font-size($value: "small");
+    @include unit-mixin.font-apply-family($value: settings.$kss-font-family-number);
+    @include unit-mixin.font-apply-size($value: "small");
 
     text-align: center;
   }
 
   &__description {
-    @include unit-mixin.use-font-size($value: "small");
+    @include unit-mixin.font-apply-size($value: "small");
 
     text-align: center;
   }

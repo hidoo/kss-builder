@@ -29,7 +29,7 @@ Style guide: #{unit-settings.$prefix}-table.core.extend
 .#{unit-settings.$prefix}-table { // stylelint-disable-line scss/selector-nest-combinators
   &-a-a {
     &-a {
-      @include unit-mixin.use-table-base();
+      @include unit-mixin.table-initialize();
 
       border-left: 0;
       border-right: 0;
@@ -47,14 +47,14 @@ Style guide: #{unit-settings.$prefix}-table.core.extend
       }
 
       &__column {
-        @include unit-mixin.use-table-column-base(
+        @include unit-mixin.table-initialize-column(
           $padding: 10px 15px (10px * 1.2)
         );
-        @include unit-mixin.use-text-base(
+        @include unit-mixin.text-initialize(
           $line-height: 1.2
         );
-        @include unit-mixin.use-font-base();
-        @include unit-mixin.use-font-size(
+        @include unit-mixin.font-initialize();
+        @include unit-mixin.font-apply-size(
           $value: "medium"
         );
 

@@ -51,8 +51,8 @@ Style guide: kss-block-example.a.a
       }
 
       .hljs {
-        @include unit-mixin.use-font-family($value: "monospace");
-        @include unit-mixin.use-font-size($value: "medium", $monospace: true);
+        @include unit-mixin.font-apply-family($value: "monospace");
+        @include unit-mixin.font-apply-size($value: "medium", $monospace: true);
 
         // override highlight.js theme settings
         display: block;
@@ -134,15 +134,15 @@ Style guide: kss-block-example.b.a
   }
 
   &__name {
-    @include unit-mixin.use-font-family($value: "monospace");
-    @include unit-mixin.use-font-size($value: "small", $monospace: true);
+    @include unit-mixin.font-apply-family($value: "monospace");
+    @include unit-mixin.font-apply-size($value: "small", $monospace: true);
 
     width: auto;
   }
 
   // stylelint-disable selector-list-comma-newline-after
   &__description {
-    @include unit-mixin.use-font-size($value: "small");
+    @include unit-mixin.font-apply-size($value: "small");
 
     white-space: nowrap;
 
@@ -168,8 +168,8 @@ Style guide: kss-block-example.b.a
       padding-top: $top-margin;
     }
 
-    @include unit-mixin.define-breakpoint($until: "mobile") {
-      @include unit-mixin.use-font-size($value: 12px);
+    @include unit-mixin.breakpoint-define($until: "mobile") {
+      @include unit-mixin.font-apply-size($value: 12px);
     }
   }
   // stylelint-enable selector-list-comma-newline-after
@@ -186,14 +186,14 @@ Style guide: kss-block-example.b.a
       border-right: 0;
       border-left: 0;
 
-      @include unit-mixin.define-breakpoint($from: "mobile", $until: "desktop") {
+      @include unit-mixin.breakpoint-define($from: "mobile", $until: "desktop") {
         $margin: -40px;
 
         margin-right: $margin;
         margin-left: $margin;
       }
 
-      @include unit-mixin.define-breakpoint($until: "mobile") {
+      @include unit-mixin.breakpoint-define($until: "mobile") {
         $margin: -20px;
 
         margin-right: $margin;
