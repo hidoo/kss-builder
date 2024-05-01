@@ -1,2 +1,7 @@
+.git/
+node_modules/
 kss-assets/css/
 kss-assets/js/
+example/build/
+src/artworks/
+!src/artworks/*.psd

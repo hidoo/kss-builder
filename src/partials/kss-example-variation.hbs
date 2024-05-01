@@ -1,0 +1,15 @@
+<article class="kss-example-variation  kss-c-box{{#each (split (or this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+  <header class="kss-example-variation__header  kss-c-box">
+    <code class="kss-example-variation__header__name  kss-c-text  kss-c-text--theme-code">
+      {{~or this.className 'default'~}}
+    </code>
+    {{#if this.description}}
+    <div class="kss-example-variation__header__description  kss-c-document  kss-c-document--theme-main">
+      {{~{this.description}~}}
+    </div>
+    {{/if}}
+  </header>
+  <div class="kss-example-variation__canvas  kss-c-box  kss-c-box--texture-transparent">
+    {{{this.markup}}}
+  </div>
+</article>

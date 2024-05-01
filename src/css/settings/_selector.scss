@@ -1,0 +1,38 @@
+////
+/// (c) hidoo | MIT Lisence
+/// @group kss-builder
+////
+
+/// settings of root selectors for on-theme
+/// @type List
+///
+$root: (".kss-root") !default;
+
+/// settings of selector for expressing of state like `.is-expanded`.
+/// @type List
+///
+$expanded: (".is-kss-expand-true") !default;
+
+/// settings of selector for expressing of theme state.
+/// @type Map
+///
+$theme: (
+  "light": (
+    ".is-kss-theme-light"
+  ),
+  "dark": (
+    ".is-kss-theme-dark"
+  ),
+  "example-light": (
+    ".is-kss-example-light"
+  ),
+  "example-dark": (
+    ".is-kss-example-dark"
+  ),
+  "example-light-transparent": (
+    ".is-kss-example-light-transparent"
+  ),
+  "example-dark-transparent": (
+    ".is-kss-example-dark-transparent"
+  )
+) !default;

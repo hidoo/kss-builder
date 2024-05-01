@@ -1,0 +1,39 @@
+{
+  "$scheme": "https://json.schemastore.org/stylelintrc.json",
+  "extends": [
+    "@hidoo/stylelint-config",
+    "@hidoo/stylelint-config/+order",
+    "@hidoo/stylelint-config/+compatibility",
+    "@hidoo/stylelint-config/+performance"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.scss"],
+      "extends": ["@hidoo/stylelint-config/+scss"],
+      "rules": {
+        "custom-property-pattern": [
+          "^kss(--|__)([a-z][a-z0-9]*)(-[a-z0-9]+)*",
+          {
+            "message": "Expected \"%s\" to match pattern \"%s\""
+          }
+        ],
+        "plugin/no-unsupported-browser-features": [
+          true,
+          {
+            "ignore": ["css-nesting", "text-size-adjust", "rem"],
+            "severity": "warning"
+          }
+        ],
+        "scss/at-use-no-unnamespaced": null,
+        "scss/no-unused-private-members": null,
+        "scss/selector-nest-combinators": null,
+        "csstools/value-no-unknown-custom-properties": [
+          true,
+          {
+            "importFrom": ["./kss-assets/css/main.css"]
+          }
+        ]
+      }
+    }
+  ]
+}

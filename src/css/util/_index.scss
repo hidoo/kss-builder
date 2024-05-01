@@ -1,2 +1,15 @@
-@use "@hidoo/unit/src/util";
+@use "@hidoo/unit/src/settings";
+
+/*
+#{settings.$util-prefix}
+
+The utilities.
+
+Weight: 10000
+
+Style guide: #{settings.$util-prefix}
+*/
+
+@use "@hidoo/unit/src/util/margin";
+@use "@hidoo/unit/src/util/padding";
 @use "./border";

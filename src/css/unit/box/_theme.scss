@@ -1,44 +1,50 @@
-@use "sass:map";
-@use "../../lib/mixin";
-@use "../../settings";
+@use "@hidoo/unit/src/settings";
+
+/*
+theme
+
+The theme modifiers of #{settings.$prefix}-box
+
+Weight: -99
+
+Style guide: #{settings.$prefix}-box.theme
+*/
 
 /*
 modifiers: theme
 
-modifiers of theme for kss-unit-box
+modifiers of theme for #{settings.$prefix}-box
 
 Weight: -99
 
-Markup: <div class="kss-unit-box  {{modifier_class}}">
-  <div class="kss-unit-box__container">
+Markup: <div class="#{settings.$prefix}-box  {{modifier_class}}">
+  <div class="#{settings.$prefix}-box__container">
     <!-- some unit -->
-    <p class="kss-unit-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <figure class="kss-unit-pict  kss-unit-pict--fit-max-width  util--float-left">
-      <img class="kss-unit-pict__src" src="https://picsum.photos/200/150/?grayscale&amp;blur=10" alt="" width="200" height="150" />
+    <p class="#{settings.$prefix}-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <figure class="#{settings.$prefix}-pict  #{settings.$prefix}-pict--fit-max-width  util--float-left">
+      <img class="#{settings.$prefix}-pict__src" src="https://picsum.photos/200/150/?grayscale&amp;blur=10" alt="" width="200" height="150" loading="lazy" />
     </figure>
-    <p class="kss-unit-text">あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモーリオ市、郊外のぎらぎらひかる草の波。</p>
+    <p class="#{settings.$prefix}-text">あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモーリオ市、郊外のぎらぎらひかる草の波。</p>
     <!-- some unit -->
   </div>
 </div>
 
-kss-unit-box--theme-a-a-a - background color (themeable)
+#{settings.$prefix}-box--theme-fill-main - fill color type main (supports color scheme)
 
-Style guide: kss-unit-box.theme.extend
+Style guide: #{settings.$prefix}-box.theme.extend
 */
-.kss-unit-box--theme {
-  &-a-a {
-    &-a {
-      @include mixin.on-theme("light") {
-        $theme: map.get(settings.$kss-theme-color-scheme, "light");
+.#{settings.$prefix}-box--theme {
+  &-fill {
+    &-main {
+      --kss__bg-alpha: 1;
 
-        background-color: map.get($theme, "background-color");
-      }
+      color: rgb(var(--kss--color-foreground));
 
-      @include mixin.on-theme("dark") {
-        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
+      background-color: rgb(var(--kss--color-background), var(--kss__bg-alpha));
 
-        background-color: map.get($theme, "background-color");
-      }
+      transition-timing-function: ease-out;
+      transition-duration: 0.1s;
+      transition-property: color, background-color;
     }
   }
 }

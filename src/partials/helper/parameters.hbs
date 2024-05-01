@@ -1,0 +1,30 @@
+{{#each this.parameters}}
+{{#if @first}}
+<div class="kss-c-document__scrollable-table">
+  <table>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Default</th>
+    </tr>
+{{/if}}
+    <tr>
+      <td>
+        <code>
+          {{this.name}}
+        </code>
+      </td>
+      <td>
+        {{{this.description}}}
+      </td>
+      <td>
+        <code>
+          {{or this.defaultValue '-'}}
+        </code>
+      </td>
+    </tr>
+{{#if @last}}
+  </table>
+</div>
+{{/if}}
+{{/each}}

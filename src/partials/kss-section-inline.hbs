@@ -1,0 +1,10 @@
+<{{or this.tag 'section'}} class="kss-section-inline  kss-c-box{{#each (split (or this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+  <header class="kss-section-inline__header  kss-c-box">
+    <{{or this.label-tag 'h2'}} class="kss-section-inline__label  kss-c-text">
+      {{this.label}}
+    </{{or this.label-tag 'h2'}}>
+  </header>
+  <div class="kss-section-inline__container  kss-c-box">
+    {{> @partial-block}}
+  </div>
+</{{or this.tag 'section'}}>

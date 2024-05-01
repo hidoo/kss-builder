@@ -1,0 +1,6 @@
+defaults
+not OperaMini all
+not QQAndroid > 0
+not UCAndroid > 0
+not KaiOS > 0
+maintained node versions

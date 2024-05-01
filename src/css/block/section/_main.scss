@@ -1,0 +1,22 @@
+@use "@hidoo/unit/src/settings";
+
+/*
+kss-section-main
+
+The main section.
+
+Markup: <article class="kss-section-main{{#if modifier_class}}  {{modifier_class}}{{/if}}  #{settings.$prefix}-box{{#each (split (or this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+  <!-- nest -->
+  {{> kss-heading.section
+    modifier_class='kss-heading-section--depth-3'
+    class=''
+  ~}}
+  <!-- nest -->
+  {{#if @partial-block}}{{> @partial-block}}{{else}}<!-- contents -->{{/if}}
+</article>
+
+Style guide: kss-section.main
+*/
+.kss-section-main {
+  // has no settings
+}

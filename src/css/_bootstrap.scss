@@ -1,33 +1,97 @@
 @use "sass:meta";
-@use "sass:map";
-@use "@hidoo/unit/src/lib/mixin" as unit-mixin;
-@use "./lib/mixin";
-@use "./settings";
+@use "sass:math";
+@use "@hidoo/unit/src/lib/mixin";
+@use "@hidoo/unit/src/lib/function";
+@use "@hidoo/unit/src/settings";
+@use "./lib/mixin" as _mixin;
+@use "./settings" as _settings;
 
-@include unit-mixin.bootstrap() {
-  @include unit-mixin.font-apply-smoothing();
+:root {
+  --kss--color-scheme: light dark;
+
+  // Define color custom properties each by roles from color pallet.
+  @each $name, $rgb in _settings.$color-pallet {
+    --kss--color-#{$name}: #{$rgb};
+  }
+
+  // Define color custom properties each by roles from color scheme.
+  @each $scheme, $color-mappings in _settings.$color-schemes {
+    @include _mixin.on-theme($scheme) {
+      @each $role, $name in $color-mappings {
+        --kss--color-#{$role}: var(--kss--color-#{$name});
+      }
+    }
+
+    @media (prefers-color-scheme: #{$scheme}) {
+      @each $role, $name in $color-mappings {
+        --kss--color-#{$role}: var(--kss--color-#{$name});
+      }
+    }
+  }
+
+  // Define font family as custom properties each by preset names.
+  @each $name, $family in _settings.$font-family-presets {
+    --kss--font-family-#{$name}: #{$family};
+  }
+
+  // Define font sizes as custom properties each by preset names.
+  @each $name, $ratio in _settings.$font-size-presets {
+    $size: math.floor(settings.$font-size * $ratio);
+
+    // convert to relative size
+    @if $size > 0 {
+      $size: function.math-px-to-rem($size);
+    }
+
+    --kss--font-size-#{$name}: #{$size};
+  }
+
+  // Define font weight as custom properties each by preset names.
+  @each $name, $weight in _settings.$font-weight-presets {
+    --kss--font-weight-#{$name}: #{$weight};
+  }
+
+  // Define transparent texture as custom properties each by color schemes.
+  @each $scheme, $color in ("light": "ccc", "dark": "333") {
+    --kss--texture-#{$scheme}-transparent: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M%208%200%20l%208%200%20l%200%208%20l%20-8%200%20Z%20M%200%208%20l%208%200%20l%200%208%20l%20-8%200%20Z%22%20fill%3D%22%23#{$color}%22%20fill-rule%3D%22evenodd%22%20%2F%3E%3C%2Fsvg%3E");
+  }
+
+  // Define sizes for main structure
+  --kss--height-tool-bar: 45px;
 }
 
 // define root settings
-.kss-document {
-  @include mixin.on-theme("light") {
-    $theme: map.get(settings.$kss-theme-color-scheme, "light");
+.kss-root {
+  @each $scheme, $color-mappings in _settings.$color-schemes {
+    @include _mixin.on-theme($scheme) {
+      @include meta.load-css($url: "highlight.js/scss/atom-one-#{$scheme}");
+    }
 
-    background-color: map.get($theme, "background-color");
-
-    // work arounds for meta.load-css
-    @import "highlight.js/scss/atom-one-light";
+    @media (prefers-color-scheme: #{$scheme}) {
+      @include meta.load-css($url: "highlight.js/scss/atom-one-#{$scheme}");
+    }
   }
 
-  @include mixin.on-theme("dark") {
-    $theme: map.get(settings.$kss-theme-color-scheme, "dark");
-
-    background-color: map.get($theme, "background-color");
-
-    // work arounds for meta.load-css
-    @import "highlight.js/scss/atom-one-dark";
+  > body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(var(--kss--color-background));
   }
+}
 
-  margin: 0;
-  padding: 0;
+.kss-anchor {
+  position: absolute;
+  margin-top: calc(
+    -1 * (#{"env(safe-area-inset-top)"} + var(--kss--height-tool-bar) + 40px)
+  );
+}
+
+@include mixin.bootstrap() {
+  @include mixin.font-apply-smoothing();
+
+  color-scheme: var(--kss--color-scheme);
+
+  &::selection {
+    background-color: rgb(var(--kss--color-foreground), 0.3);
+  }
 }

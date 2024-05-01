@@ -1,0 +1,63 @@
+@use "@hidoo/unit/src/settings";
+
+/*
+kss-section-inline
+
+The inline section.
+
+Markup: <{{or this.tag 'section'}} class="kss-section-inline{{#if modifier_class}}  {{modifier_class}}{{/if}}  #{settings.$prefix}-box{{#each (split (or this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+  <header class="kss-section-inline__header  #{settings.$prefix}-box">
+    <{{or this.label-tag 'h2'}} class="kss-section-inline__label  #{settings.$prefix}-text">THEME</{{or this.label-tag 'h2'}}>
+  </header>
+  <div class="kss-section-inline__container  #{settings.$prefix}-box">
+    <!-- nest -->
+    {{#if @partial-block}}
+    {{> @partial-block}}
+    {{else}}
+    {{> kss-navi.icon
+      class=''
+    }}
+    {{/if~}}
+    <!-- nest -->
+  </div>
+</{{or this.tag 'section'}}>
+
+Style guide: kss-section.inline
+*/
+.kss-section-inline {
+  --kss__column-gap: 5px;
+
+  display: flex;
+  column-gap: var(--kss__column-gap);
+  align-items: center;
+
+  &::before,
+  &::after {
+    content: none;
+  }
+
+  &__header,
+  &__container {
+    display: flex;
+    column-gap: var(--kss__column-gap);
+
+    &::before,
+    &::after {
+      content: none;
+    }
+  }
+
+  &__label {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+
+    font-size: var(--kss--font-size-xsmall);
+    font-weight: var(--kss--font-weight-semi-bold);
+    color: rgb(var(--kss--color-highlight-light));
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    -webkit-line-clamp: 1;
+  }
+}

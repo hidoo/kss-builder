@@ -1,13 +1,13 @@
 ////
 /// (c) hidoo | MIT Lisence
-/// @group kssbuilder
+/// @group kss-builder
 ////
 
 @use "sass:list";
 @use "sass:map";
 @use "sass:meta";
-@use "@hidoo/unit/src/lib/mixin" as unit-mixin;
-@use "../../settings";
+@use "@hidoo/unit/src/lib/mixin";
+@use "../../settings" as _settings;
 
 /// wrappper of theme state class like `is-theme-light`
 /// @param {String} $state ["light"] - state keyword (one of `"light"`, `"dark"`, `"example-light"`, `"example-dark"`, `"example-light-transparent"` or `"example-dark-transparent"`)
@@ -25,31 +25,27 @@
 ///     font-size: 16px;
 ///   }
 ///
-@mixin on-theme(
-  $state: "light",
-  $capturing-selectors: ()
-) {
-  @if meta.type-of(settings.$kss-state-selectors-theme) != "map" {
-    @error "@mixin on-theme: settings.$kss-state-selectors-theme must be map.";
+@mixin on-theme($state: "light", $capturing-selectors: ()) {
+  @if meta.type-of(_settings.$selector-theme) != "map" {
+    @error "@mixin on-theme: _settings.$selector-theme must be map.";
   }
 
-  $states: map.keys(settings.$kss-state-selectors-theme);
+  $themes: map.keys(_settings.$selector-theme);
 
-  @if meta.type-of(settings.$kss-root-selectors) != "list" {
-    @error "@mixin on-theme: settings.$kss-root-selectors must be list.";
+  @if not list.index($themes, $state) {
+    @error "@mixin on-theme: Argument $state is one of #{list.join($themes, $separator: comma)}.";
   }
 
-  @if not list.index($states, $state) {
-    @error "@mixin on-theme: Argument $state is one of #{list.join($states, $separator: comma)}.";
-  }
-
-  $selectors: map.get(settings.$kss-state-selectors-theme, $state);
+  $selectors: map.get(_settings.$selector-theme, $state);
 
   @if length($capturing-selectors) == 0 {
-    $capturing-selectors: settings.$kss-root-selectors;
+    $capturing-selectors: _settings.$selector-root;
   }
 
-  @include unit-mixin.on($selectors: $selectors, $capturing-selectors: $capturing-selectors) {
+  @include mixin.on(
+    $selectors: $selectors,
+    $capturing-selectors: $capturing-selectors
+  ) {
     @content;
   }
 }

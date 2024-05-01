@@ -2,20 +2,21 @@
 
 // use settings with configure
 @use "@hidoo/unit/src/settings" with (
-  $prefix: "kss-unit",
-  $util-prefix: "kss-util",
+  $prefix: "kss-c",
+  $util-prefix: "kss-u",
+  $selector-current: (
+    ".is-kss-current",
+    ".is-kss-current"
+  ),
+  $selector-active: (
+    ".is-kss-active",
+    ".is-kss-active"
+  ),
   $font-enable-relative-size: false
 );
 
 // use units
-@use "./unit/icon";
-@use "./unit/text";
-@use "./unit/list";
-@use "./unit/button";
-@use "./unit/document";
-@use "./unit/table";
-@use "./unit/box";
-@use "./unit/table-grid";
+@use "./unit";
 
 // use util
 @use "./util";
@@ -26,8 +27,8 @@
 // use layout
 @use "./layout";
 
-// // import kss comment example
-// @import "lib/example/*";
+// use kss comment example
+@use "./example";
 
 // initialize
 @use "./bootstrap";

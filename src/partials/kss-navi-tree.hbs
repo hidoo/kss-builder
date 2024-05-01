@@ -1,0 +1,32 @@
+{{#each this.items}}
+  {{#if @first}}
+  <nav class="kss-navi-tree  kss-c-box{{#each (split (or ../this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+    <ul class="kss-navi-tree__list  kss-c-list">
+  {{/if}}
+      <li class="kss-navi-tree__list__item  kss-c-list__item  kss-c-text">
+        <span class="kss-navi-tree__list__item__reference  kss-c-text{{#if this.isActive}}  is-kss-current{{/if}}">{{this.referenceNumber}}</span>
+        <a class="kss-navi-tree__list__item__name  kss-c-text__link  js-kss-smooth-scroll" href="{{#if this.referenceURI}}section-{{or ../this.referenceURI this.referenceURI}}.html{{#if ../this.referenceURI}}#kss-section-{{this.referenceURI}}{{/if}}{{else}}{{or this.url '#'}}{{/if}}">
+          {{this.header}}
+        </a>
+        {{#if this.deprecated}}
+        <span class="kss-navi-tree__list__item__deprecated  kss-c-text">
+          DEPRECATED!
+        </span>
+        {{/if}}
+        {{#if this.experimental}}
+        <span class="kss-navi-tree__list__item__experimental  kss-c-text">
+          EXPERIMENTAL!
+        </span>
+        {{/if}}
+        {{#if (calc (or this.children false) '&&' this.isActive)}}
+        {{> kss-navi-tree
+          items=this.children
+          class=''
+        }}
+        {{/if}}
+      </li>
+  {{#if @last}}
+    </ul>
+  </nav>
+  {{/if}}
+{{/each}}

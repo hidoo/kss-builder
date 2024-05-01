@@ -1,0 +1,5 @@
+<article class="kss-document-overview{{#if modifier_class}}  {{modifier_class}}{{/if}}  kss-c-box{{#each (split (or this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+  <div class="kss-document-overview__body  kss-c-document  kss-c-document--theme-main">
+    {{~> @partial-block}}
+  </div>
+</article>

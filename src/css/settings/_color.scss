@@ -1,0 +1,139 @@
+////
+/// (c) hidoo | MIT Lisence
+/// @group kss-builder
+////
+
+/// color pallet
+/// @type Map
+/// @prop {List} white [(255, 255, 255)] - <span style="color: #fff;">&#9608;</span>
+/// @prop {List} platinum [(225, 225, 225)] - <span style="color: #e1e1e1;">&#9608;</span>
+/// @prop {List} silver [(177, 177, 177)] - <span style="color: #b1b1b1;">&#9608;</span>
+/// @prop {List} battleship-gray [(145, 145, 145)] - <span style="color: #919191;">&#9608;</span>
+/// @prop {List} gray [(119, 119, 119)] - <span style="color: #777777;">&#9608;</span>
+/// @prop {List} davys-gray [(94, 94, 94)] - <span style="color: ##5e5e5e;">&#9608;</span>
+/// @prop {List} onyx [(62, 62, 62)] - <span style="color: #3e3e3e;">&#9608;</span>
+/// @prop {List} eerie-black [(30, 30, 30)] - <span style="color: #1e1e1e;">&#9608;</span>
+/// @prop {List} black [(0, 0, 0)] - <span style="color: #000000;">&#9608;</span>
+/// @prop {List} blue-green [(0, 153, 204)] - <span style="color: #0099cc;">&#9608;</span>
+/// @prop {List} dark-violet [(153, 0, 204)] - <span style="color: #9900cc;">&#9608;</span>
+/// @prop {List} goldenrod [(204, 153, 0)] - <span style="color: #cc9900;">&#9608;</span>
+///
+$pallet: (
+  "white": (
+    255,
+    255,
+    255
+  ),
+  "platinum": (
+    225,
+    225,
+    225
+  ),
+  "silver": (
+    177,
+    177,
+    177
+  ),
+  "battleship-gray": (
+    145,
+    145,
+    145
+  ),
+  "gray": (
+    119,
+    119,
+    119
+  ),
+  "davys-gray": (
+    94,
+    94,
+    94
+  ),
+  "onyx": (
+    62,
+    62,
+    62
+  ),
+  "eerie-black": (
+    30,
+    30,
+    30
+  ),
+  "black": (
+    0,
+    0,
+    0
+  ),
+  "blue-green": (
+    0,
+    153,
+    204
+  ),
+  "dark-violet": (
+    153,
+    0,
+    204
+  ),
+  "goldenrod": (
+    204,
+    153,
+    0
+  )
+) !default;
+
+/// light color scheme
+/// @type Map
+/// @prop {String} foreground [eerie-black] - foreground color
+/// @prop {String} foreground-light [davys-gray] - foreground color (light)
+/// @prop {String} background [white] - background color
+/// @prop {String} background-light [platinum] - background color (light)
+/// @prop {String} highlight [platinum] - highlight color
+/// @prop {String} highlight-light [silver] - highlight color (light)
+/// @prop {String} accent [blue-green] - accent color
+/// @prop {String} alert [dark-violet] - alert color
+/// @prop {String} warning [goldenrod] - warning color
+///
+$scheme-light: (
+  "foreground": "eerie-black",
+  "foreground-light": "davys-gray",
+  "background": "white",
+  "background-light": "platinum",
+  "highlight": "platinum",
+  "highlight-light": "silver",
+  "accent": "blue-green",
+  "alert": "dark-violet",
+  "warning": "goldenrod"
+) !default;
+
+/// dark color scheme
+/// @type Map
+/// @prop {String} foreground [platinum] - foreground color
+/// @prop {String} foreground-light [battleship-gray] - foreground color (light)
+/// @prop {String} background [eerie-black] - background color
+/// @prop {String} background-light [davys-gray] - background color (light)
+/// @prop {String} highlight [onyx] - highlight color
+/// @prop {String} highlight-light [gray] - highlight color (light)
+/// @prop {String} accent [blue-green] - accent color
+/// @prop {String} alert [dark-violet] - alert color
+/// @prop {String} warning [goldenrod] - warning color
+///
+$scheme-dark: (
+  "foreground": "platinum",
+  "foreground-light": "battleship-gray",
+  "background": "eerie-black",
+  "background-light": "davys-gray",
+  "highlight": "onyx",
+  "highlight-light": "gray",
+  "accent": "blue-green",
+  "alert": "dark-violet",
+  "warning": "goldenrod"
+) !default;
+
+/// color schemes
+/// @type Map
+/// @prop {Map} light [$scheme-light] - light color scheme
+/// @prop {Map} dark [$scheme-dark] - dark color scheme
+$schemes: (
+  "light": $scheme-light,
+  "dark": $scheme-dark
+) !default;

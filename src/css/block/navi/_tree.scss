@@ -1,0 +1,154 @@
+@use "@hidoo/unit/src/lib/mixin";
+@use "@hidoo/unit/src/settings";
+
+/*
+kss-navi-tree
+
+The tree navigation.
+
+Markup: {{#each (or this.items (fromJson '[
+  {"referenceNumber": 1, "header": "component-name"},
+  {"referenceNumber": 2, "header": "component-name", "deprecated": true},
+  {"referenceNumber": 3, "header": "component-name", "isActive": true, "children": [
+    {"referenceNumber": 3.1, "header": "component-child-name"},
+    {"referenceNumber": 3.2, "header": "component-child-name", "experimental": true},
+    {"referenceNumber": 3.3, "header": "component-child-name"}
+  ]},
+  {"referenceNumber": 4, "header": "component-name", "isActive": false, "children": [
+    {"referenceNumber": 4.1, "header": "component-child-name"},
+    {"referenceNumber": 4.2, "header": "component-child-name", "experimental": true},
+    {"referenceNumber": 4.3, "header": "component-child-name"}
+  ]}
+]'))}}
+{{#if @first}}
+<{{or ../this.tag 'nav'}} class="kss-navi-tree{{#if ../modifier_class}}  {{../modifier_class}}{{/if}}  #{settings.$prefix}-box{{#each (split (or ../this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+  <ul class="kss-navi-tree__list  #{settings.$prefix}-list">
+{{/if}}
+    <li class="kss-navi-tree__list__item  #{settings.$prefix}-list__item  #{settings.$prefix}-text">
+      <span class="kss-navi-tree__list__item__reference  #{settings.$prefix}-text{{#if this.isActive}}  is-kss-current{{/if}}">{{this.referenceNumber}}</span>
+      <a class="kss-navi-tree__list__item__name  #{settings.$prefix}-text__link" href="javascript:;">
+        {{this.header}}
+      </a>
+      {{#if this.deprecated}}
+      <span class="kss-navi-tree__list__item__deprecated  #{settings.$prefix}-text">
+        DEPRECATED!
+      </span>
+      {{/if}}
+      {{#if this.experimental}}
+      <span class="kss-navi-tree__list__item__experimental  #{settings.$prefix}-text">
+        EXPERIMENTAL!
+      </span>
+      {{/if}}
+      {{#if (calc (or this.children false) '&&' this.isActive)}}
+      <!-- nest -->
+      {{> kss-navi.tree
+        items=this.children
+        class=''
+      }}
+      <!-- nest -->
+      {{/if}}
+    </li>
+{{#if @last}}
+  </ul>
+</{{or ../this.tag 'nav'}}>
+{{/if}}
+{{/each}}
+
+Style guide: kss-navi.tree
+*/
+.kss-navi-tree {
+  --kss__indent-size: 28px;
+  --kss__row-gap: 8px;
+  --kss__reference-color: rgb(var(--kss--color-highlight-light));
+
+  &__list {
+    &__item {
+      overflow: hidden;
+      font-size: 0;
+      white-space: nowrap;
+
+      &__reference {
+        @include mixin.on-current() {
+          --kss__reference-color: rgb(var(--kss--color-accent));
+        }
+
+        display: inline-block;
+
+        min-width: var(--kss__indent-size);
+        padding-right: 3px;
+
+        font-size: var(--kss--font-size-small);
+        line-height: 1.2;
+        color: var(--kss__reference-color);
+        text-align: center;
+        white-space: nowrap;
+
+        &::before {
+          content: "#";
+        }
+
+        &::after {
+          content: ".";
+        }
+
+        &:not(:empty) {
+          font-family: var(--kss--font-family-numeric);
+        }
+      }
+
+      &__name {
+        @include mixin.on-link() {
+          color: rgb(var(--kss--color-foreground));
+          text-decoration: none;
+        }
+
+        @include mixin.on-focus() {
+          color: rgb(var(--kss--color-foreground-light));
+          text-decoration: none;
+        }
+
+        display: inline-block;
+
+        font-size: var(--kss--font-size-medium-small);
+
+        transition-timing-function: ease-out;
+        transition-duration: 0.2s;
+        transition-property: color;
+      }
+
+      &__deprecated,
+      &__experimental {
+        display: inline;
+        font-size: var(--kss--font-size-xsmall);
+        font-weight: var(--kss--font-weight-bold);
+        letter-spacing: 0;
+      }
+
+      &__deprecated {
+        color: rgb(var(--kss--color-alert));
+      }
+
+      &__experimental {
+        color: rgb(var(--kss--color-warning));
+      }
+
+      &__name + &__deprecated,
+      &__name + &__experimental {
+        padding-left: 5px;
+      }
+    }
+
+    &__item + &__item {
+      margin-top: var(--kss__row-gap);
+    }
+  }
+
+  &__list__item > & {
+    padding-top: var(--kss__row-gap);
+    padding-left: var(--kss__indent-size);
+  }
+
+  &__list__item > & &__list__item__reference {
+    font-size: var(--kss--font-size-xsmall);
+  }
+}

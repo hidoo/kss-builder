@@ -1,0 +1,80 @@
+@use "@hidoo/unit/src/lib/mixin";
+@use "@hidoo/unit/src/settings";
+
+/*
+kss-bar-tool
+
+The tool bar.
+
+Weight: -95
+
+Markup: <nav class="kss-bar-tool{{#if modifier_class}}  {{modifier_class}}{{/if}}  #{settings.$prefix}-box  #{settings.$prefix}-box--theme-fill-main{{#each (split (or this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}" rol="navigation">
+  <button class="kss-bar-tool__button-drawer  #{settings.$prefix}-button" type="button">
+    <span class="#{settings.$prefix}-icon  #{settings.$prefix}-icon--type-drawer">
+      MENU
+    </span>
+  </button>
+  <!-- nest -->
+  {{#> kss-section.inline
+    label='EXAMPLE'
+    class='kss-bar-tool__theme-switcher'
+  }}
+    {{> kss-navi.icon
+      class=''
+    }}
+  {{/kss-section.inline}}
+  <!-- nest -->
+  {{#> kss-section.inline
+    label='EXAMPLE'
+    class='kss-bar-tool__example-switcher'
+  }}
+    {{> kss-navi.button
+      class=''
+    }}
+  {{/kss-section.inline}}
+  <!-- nest -->
+</nav>
+
+Style guide: kss-bar.tool
+*/
+.kss-bar-tool {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+
+  box-sizing: border-box;
+  height: var(--kss--height-tool-bar);
+  padding-right: 10px;
+
+  border-bottom-color: rgb(var(--kss--color-highlight));
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+
+  &::before,
+  &::after {
+    content: none;
+  }
+
+  &__button-drawer {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: var(--kss--height-tool-bar);
+    height: var(--kss--height-tool-bar);
+
+    > .#{settings.$prefix}-icon {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      color: transparent;
+    }
+  }
+
+  &__theme-switcher {
+    // no settings
+  }
+
+  &__example-switcher {
+    // no settings
+  }
+}

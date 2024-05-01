@@ -1,0 +1,127 @@
+@use "@hidoo/unit/src/lib/mixin";
+@use "@hidoo/unit/src/settings";
+
+/*
+kss-navi-button
+
+The button navigation.
+
+Markup: {{#each (or this.items (parse '
+  - label: "Switch canvas to light mode"
+    value: "light"
+    current: true
+  - label: "Switch canvas to dark mode"
+    value: "dark"
+    current: false
+  - label: "Switch canvas to light mode (transparent)"
+    value: "light-transparent"
+    current: false
+  - label: "Switch canvas to dark mode (transparent)"
+    value: "dark-transparent"
+    current: false
+  - label: "Expand canvas"
+    value: "expand"
+    icon: "expand"
+    current: false
+'))}}
+{{#if @first}}
+<{{or ../this.tag 'div'}} class="kss-navi-button{{#if ../modifier_class}}  {{../modifier_class}}{{/if}}  #{settings.$prefix}-box{{#each (split (or ../this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+{{/if}}
+  <button class="kss-navi-button__button  #{settings.$prefix}-button{{#if this.current}}  is-kss-current{{/if}}" type="button" data-kss-{{or ../this.appearance 'example'}}-value="{{this.value}}">
+    {{#if this.icon}}
+    <span class="#{settings.$prefix}-icon  #{settings.$prefix}-icon--type-expand">
+      {{this.label}}
+    </span>
+    {{else}}
+    <span class="#{settings.$prefix}-button__label  #{settings.$prefix}-text">
+      {{this.label}}
+    </span>
+    {{/if}}
+  </button>
+{{#if @last}}
+</{{or ../this.tag 'div'}}>
+{{/if}}
+{{/each}}
+
+Style guide: kss-navi.button
+*/
+.kss-navi-button {
+  --kss__button-size: 20px;
+  --kss__button-bg-color: 0, 0, 0, 0;
+  --kss__button-bg-image: none;
+  --kss__button-bg-size: 8px 8px;
+  --kss__button-border-color: var(--kss--color-highlight);
+  --kss__button-box-shadow-alpha: 0.1;
+  --kss__button-box-shadow: inset 0 1px 1px
+    rgba(0, 0, 0, var(--kss__button-box-shadow-alpha));
+
+  display: flex;
+  column-gap: 5px;
+  align-items: center;
+
+  &::before,
+  &::after {
+    content: none;
+  }
+
+  &__button {
+    @include mixin.on-focus() {
+      --kss__button-border-color: var(--kss--color-highlight-light);
+    }
+
+    @include mixin.on-current() {
+      --kss__button-border-color: var(--kss--color-accent);
+    }
+
+    box-sizing: border-box;
+    width: var(--kss__button-size);
+    height: var(--kss__button-size);
+
+    background-color: rgb(var(--kss__button-bg-color));
+    background-image: var(--kss__button-bg-image);
+    background-size: var(--kss__button-bg-size);
+    border-color: rgb(var(--kss__button-border-color));
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    box-shadow: var(--kss__button-box-shadow);
+
+    transition-timing-function: ease-out;
+    transition-duration: 0.2s;
+    transition-property: border-color;
+
+    > .#{settings.$prefix}-button__label {
+      color: transparent;
+    }
+
+    > .#{settings.$prefix}-icon {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+    }
+
+    &[data-kss-example-value="light"] {
+      --kss__button-bg-color: var(--kss--color-white);
+    }
+
+    &[data-kss-example-value="light-transparent"] {
+      --kss__button-bg-image: var(--kss--texture-light-transparent);
+      --kss__button-bg-color: var(--kss--color-white);
+    }
+
+    &[data-kss-example-value="dark"] {
+      --kss__button-box-shadow-alpha: 0.4;
+      --kss__button-bg-color: var(--kss--color-black);
+    }
+
+    &[data-kss-example-value="dark-transparent"] {
+      --kss__button-box-shadow-alpha: 0.4;
+      --kss__button-bg-image: var(--kss--texture-dark-transparent);
+      --kss__button-bg-color: var(--kss--color-black);
+    }
+
+    &[data-kss-switch-value="expand"] {
+      background-color: rgb(var(--kss--color-background));
+    }
+  }
+}

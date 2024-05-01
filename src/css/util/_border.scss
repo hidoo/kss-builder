@@ -3,9 +3,19 @@
 @use "../settings";
 
 /*
+border
+
+The borders.
+
+Weight: -100
+
+Style guide: kss-u.border
+*/
+
+/*
 modifiers: border
 
-utility modifiers of border.
+The extended border utilities.
 
 Weight: -99
 
@@ -13,27 +23,16 @@ Markup: <div style="position:relative; padding: 50px;">
   <div class="{{modifier_class}}" style="position:relative; width:50px; height:50px; background:#999;"></div>
 </div>
 
-kss-util--border-top-a-a-a - generic border style (themeable)
+kss-u--border-highlight-top - Top border style with highlight color (support color scheme)
 
-Style guide: kss-util.border.extend
+Style guide: kss-u.border.extend
 */
-.kss-util--border {
-  &-top-a-a {
-    &-a {
+.kss-u--border {
+  &-highlight {
+    &-top {
+      border-top-color: rgb(var(--kss--color-highlight));
       border-top-style: solid;
       border-top-width: 1px;
-
-      @include mixin.on-theme("light") {
-        $theme: map.get(settings.$kss-theme-color-scheme, "light");
-
-        border-top-color: map.get($theme, "border-color");
-      }
-
-      @include mixin.on-theme("dark") {
-        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
-
-        border-top-color: map.get($theme, "border-color");
-      }
     }
   }
 }

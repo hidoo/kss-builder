@@ -1,51 +1,65 @@
-@use "sass:map";
-@use "../../lib/mixin";
-@use "../../lib/placeholder";
-@use "../../settings";
+@use "@hidoo/unit/src/settings";
+@use "../../lib/mixin" as _mixin;
+
+/*
+texture
+
+The texture modifiers of #{settings.$prefix}-box
+
+Weight: -98
+
+Style guide: #{settings.$prefix}-box.texture
+*/
 
 /*
 modifiers: texture
 
-builtin modifiers of texture for kss-unit-box
+The extended texture modifiers of #{settings.$prefix}-box
 
 Weight: -99
 
-Markup: <div class="kss-unit-box  {{modifier_class}}">
-  <div class="kss-unit-box__container">
+Markup: <div class="#{settings.$prefix}-box  {{modifier_class}}">
+  <div class="#{settings.$prefix}-box__container">
     <!-- some unit -->
-    <p class="kss-unit-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <figure class="kss-unit-pict  kss-unit-pict--fit-max-width  util--float-left">
-      <img class="kss-unit-pict__src" src="https://picsum.photos/200/150/?grayscale&amp;blur=10" alt="" width="200" height="150" />
+    <p class="#{settings.$prefix}-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <figure class="#{settings.$prefix}-pict  #{settings.$prefix}-pict--fit-max-width  util--float-left">
+      <img class="#{settings.$prefix}-pict__src" src="https://picsum.photos/200/150/?grayscale&amp;blur=10" alt="" width="200" height="150" loading="lazy" />
     </figure>
-    <p class="kss-unit-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p class="#{settings.$prefix}-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     <!-- some unit -->
   </div>
 </div>
 
-kss-unit-box--texture-transparent - transparent texture
+#{settings.$prefix}-box--texture-transparent - transparent texture
 
-Style guide: kss-unit-box.texture.extend
+Style guide: #{settings.$prefix}-box.texture.extend
 */
-.kss-unit-box--texture {
+.#{settings.$prefix}-box--texture {
   &-transparent {
-    @include mixin.on-theme("example-light") {
-      background-color: #fff;
+    --kss__bg-color: transparent;
+    --kss__bg-image: none;
+    --kss__bg-size: 16px 16px;
+
+    @include _mixin.on-theme("example-light") {
+      --kss__bg-color: #fff;
     }
 
-    @include mixin.on-theme("example-dark") {
-      background-color: #000;
+    @include _mixin.on-theme("example-dark") {
+      --kss__bg-color: #000;
     }
 
-    @include mixin.on-theme("example-light-transparent") {
-      @extend %transparent-light;
-
-      background-color: #fff;
+    @include _mixin.on-theme("example-light-transparent") {
+      --kss__bg-color: #fff;
+      --kss__bg-image: var(--kss--texture-light-transparent);
     }
 
-    @include mixin.on-theme("example-dark-transparent") {
-      @extend %transparent-dark;
-
-      background-color: #000;
+    @include _mixin.on-theme("example-dark-transparent") {
+      --kss__bg-color: #000;
+      --kss__bg-image: var(--kss--texture-dark-transparent);
     }
+
+    background-color: var(--kss__bg-color);
+    background-image: var(--kss__bg-image);
+    background-size: var(--kss__bg-size);
   }
 }

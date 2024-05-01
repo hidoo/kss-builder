@@ -1,0 +1,236 @@
+@use "sass:map";
+@use "@hidoo/unit/src/settings";
+
+/*
+kss-document-overview
+
+The overview documentation.
+
+Markup: <article class="kss-document-overview{{#if modifier_class}}  {{modifier_class}}{{/if}}  #{settings.$prefix}-box{{#each (split (or this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+  <div class="kss-document-overview__body  #{settings.$prefix}-document  #{settings.$prefix}-document--theme-main">
+    <!-- heading -->
+    <h1>Lorem ipsum dolor sit amet.</h1>
+    <h2>Lorem ipsum dolor sit amet.</h2>
+    <h3>Lorem ipsum dolor sit amet.</h3>
+    <h4>Lorem ipsum dolor sit amet.</h4>
+    <h5>Lorem ipsum dolor sit amet.</h5>
+    <h6>Lorem ipsum dolor sit amet.</h6>
+    <hr />
+    <!-- paragraph -->
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br />sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <hr />
+    <!-- inline markup -->
+    <p>Lorem ipsum <strong>dolor sit amet</strong>, consectetur <b>adipiscing elit</b>,sed do eiusmod <em>tempor incididunt</em> ut labore et dolore <i>magna aliqua</i>.</p>
+    <p>Lorem ipsum <u>dolor sit amet</u>, consectetur <del>adipiscing elit</del>,sed do eiusmod <s>tempor incididunt</s> ut labore et dolore <code>magna aliqua</code>.</p>
+    <p>Lorem ipsum <span>dolor sit amet</span>, consectetur <a href="javascript:;">adipiscing elit</a>.</p>
+    <hr />
+    <!-- list -->
+    <ul>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        <ul>
+          <li>Lorem ipsum dolor sit amet.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        </ul>
+      </li>
+    </ul>
+    <ol>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        <ol>
+          <li>Lorem ipsum dolor sit amet.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        </ol>
+      </li>
+    </ol>
+    <hr />
+    <!-- embedded image -->
+    <p><img src="https://picsum.photos/600/400/?grayscale&amp;blur=10" width="600" height="400" alt="Lorem ipsum" /></p>
+    <hr />
+    <!-- table -->
+    <table>
+      <tr>
+        <th scope="row">Lorem ipsum dolor sit amet.</th>
+        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+      </tr>
+      <tr>
+        <th scope="row">Lorem ipsum dolor sit amet.</th>
+        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+      </tr>
+    </table>
+    <hr />
+    <!-- blockquote -->
+    <blockquote>
+      <!-- heading -->
+      <h1>Lorem ipsum dolor sit amet.</h1>
+      <h2>Lorem ipsum dolor sit amet.</h2>
+      <h3>Lorem ipsum dolor sit amet.</h3>
+      <h4>Lorem ipsum dolor sit amet.</h4>
+      <h5>Lorem ipsum dolor sit amet.</h5>
+      <h6>Lorem ipsum dolor sit amet.</h6>
+      <hr />
+      <!-- paragraph -->
+      <p>Lorem ipsum dolor sit amet.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br />sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <hr />
+      <!-- inline markup -->
+      <p>Lorem ipsum <strong>dolor sit amet</strong>, consectetur <b>adipiscing elit</b>,sed do eiusmod <em>tempor incididunt</em> ut labore et dolore <i>magna aliqua</i>.</p>
+      <p>Lorem ipsum <u>dolor sit amet</u>, consectetur <del>adipiscing elit</del>,sed do eiusmod <s>tempor incididunt</s> ut labore et dolore <code>magna aliqua</code>.</p>
+      <p>Lorem ipsum <span>dolor sit amet</span>, consectetur <a href="javascript:;">adipiscing elit</a>.</p>
+      <hr />
+      <!-- list -->
+      <ul>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <ul>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+          </ul>
+        </li>
+      </ul>
+      <ol>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <ol>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+          </ol>
+        </li>
+      </ol>
+      <hr />
+      <!-- embedded image -->
+      <p><img src="https://picsum.photos/600/400/?grayscale&amp;blur=10" width="600" height="400" alt="Lorem ipsum" /></p>
+      <hr />
+      <!-- table -->
+      <table>
+        <tr>
+          <th scope="row">Lorem ipsum dolor sit amet.</th>
+          <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+        </tr>
+        <tr>
+          <th scope="row">Lorem ipsum dolor sit amet.</th>
+          <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+        </tr>
+      </table>
+    </blockquote>
+  </div>
+</article>
+
+Style guide: kss-document.overview
+*/
+.kss-document-overview {
+  // stylelint-disable no-descending-specificity
+  &__body {
+    $headings: (
+      "h1": (
+        "size": "9xlarge",
+        "weight": "extra-light"
+      ),
+      "h2": (
+        "size": "7xlarge",
+        "weight": "extra-light"
+      ),
+      "h3": (
+        "size": "4xlarge",
+        "weight": "light"
+      ),
+      "h4": (
+        "size": "2xlarge",
+        "weight": "regular"
+      ),
+      "h5": (
+        "size": "large",
+        "weight": "medium"
+      ),
+      "h6": (
+        "size": "medium",
+        "weight": "semi-bold"
+      )
+    );
+
+    --kss__gap: 25px;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      &:not(:first-child) {
+        padding-top: var(--kss__gap);
+      }
+    }
+
+    @each $tag, $heading in $headings {
+      #{$tag} {
+        // stylelint-disable csstools/value-no-unknown-custom-properties
+        font-size: var(--kss--font-size-#{map.get($heading, "size")});
+        font-weight: var(--kss--font-weight-#{map.get($heading, "weight")});
+        // stylelint-enable csstools/value-no-unknown-custom-properties
+      }
+    }
+
+    h1 {
+      color: rgb(var(--kss--color-accent));
+    }
+
+    p,
+    ul,
+    ol {
+      &:not(:first-child) {
+        padding-top: var(--kss__gap);
+      }
+    }
+
+    code {
+      // settings for simple <code>
+      &:not([class^="language"]) {
+        white-space: normal;
+      }
+
+      // settings for highlight.js
+      &[class^="language"] {
+        display: block;
+
+        padding: 20px !important;
+
+        line-height: 1.5;
+
+        border: 0;
+        border-radius: 0;
+      }
+    }
+
+    blockquote,
+    table,
+    pre {
+      &:not(:first-child) {
+        margin-top: var(--kss__gap);
+      }
+    }
+
+    blockquote {
+      padding-left: var(--kss__gap);
+    }
+
+    pre {
+      // settings for highlight.js
+      &.hljs {
+        padding: 0 !important;
+
+        border-color: rgb(var(--kss--color-highlight));
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 0;
+      }
+    }
+
+    hr {
+      &:not(:first-child) {
+        padding-top: var(--kss__gap);
+      }
+    }
+  }
+  // stylelint-enable no-descending-specificity
+}

@@ -1,0 +1,24 @@
+<header class="kss-heading-section  kss-heading-section--depth-{{or this.depth 2}}  kss-c-box{{#each (split (or this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+  {{> helper/anchor id=(calc 'kss-section-' '+' this.referenceURI)}}
+  <h{{this.depth}} class="kss-heading-section__label  kss-c-text">
+    <span class="kss-heading-section__label__reference  kss-c-text">{{this.referenceNumber}}</span>
+    {{#if this.referenceURI}}
+    <a class="kss-heading-section__label__link  kss-c-text__link  js-kss-smooth-scroll" href="#kss-section-{{this.referenceURI}}">
+    {{/if}}
+      {{this.header}}
+    {{#if this.referenceURI}}
+    </a>
+    {{/if}}
+  </h{{this.depth}}>
+  {{#if this.deprecated}}
+  <p class="kss-heading-section__deprecated  kss-c-text">DEPRECATED!</p>
+  {{/if}}
+  {{#if this.experimental}}
+  <p class="kss-heading-section__experimental  kss-c-text">EXPERIMENTAL!</p>
+  {{/if}}
+  {{#if this.description}}
+  <div class="kss-heading-section__description  kss-c-document  kss-c-document--theme-main">
+    {{{this.description}}}
+  </div>
+  {{/if}}
+</header>

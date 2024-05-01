@@ -1,0 +1,79 @@
+////
+/// (c) hidoo | MIT Lisence
+/// @group kss-builder
+////
+
+@use "sass:list";
+@use "sass:map";
+@use "@hidoo/unit/src/settings";
+
+/// font-family presets
+/// @type Map
+/// @prop {List} default - font-family by default
+/// @prop {List} monospace - font-family for monospace
+/// @prop {List} heading - font-family for heading
+/// @prop {List} numeric - font-family for numeric
+///
+$family-presets: (
+  "default": settings.$font-family,
+  "monospace": settings.$font-family-monospace,
+  "heading":
+    list.append(
+      ("HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue"),
+      settings.$font-family,
+      $separator: comma
+    ),
+  "numeric":
+    list.append(
+      ("Futura", "Century Gothic"),
+      settings.$font-family,
+      $separator: comma
+    )
+) !default;
+
+/// font-size presets
+/// @type Map
+/// @prop {Number} medium-small [0.95] - size medium-small
+/// @prop {Number} medium-large [1.075] - size medium-large
+/// @prop {Number} 5xlarge [1.9] - size 5xlarge
+/// @prop {Number} 6xlarge [2.05] - size 6xlarge
+/// @prop {Number} 7xlarge [2.2] - size 7xlarge
+/// @prop {Number} 8xlarge [2.35] - size 8xlarge
+/// @prop {Number} 9xlarge [2.5] - size 9xlarge
+///
+$size-presets: map.merge(
+  settings.$font-size-presets,
+  (
+    "medium-small": 0.95,
+    "medium-large": 1.075,
+    "5xlarge": 1.9,
+    "6xlarge": 2.05,
+    "7xlarge": 2.2,
+    "8xlarge": 2.35,
+    "9xlarge": 2.5
+  )
+) !default;
+
+/// font-weight presets
+/// @type Map
+/// @prop {Number} thin [100] - light
+/// @prop {Number} extra-light [200] - light
+/// @prop {Number} light [300] - light
+/// @prop {Number} regular [400] - regular
+/// @prop {Number} medium [500] - medium
+/// @prop {Number} semi-bold [600] - semi-bold
+/// @prop {Number} bold [700] - bold
+/// @prop {Number} extra-bold [800] - extra bold
+/// @prop {Number} black [900] - black
+///
+$weight-presets: (
+  "thin": 100,
+  "extra-light": 200,
+  "light": 300,
+  "regular": 400,
+  "medium": 500,
+  "semi-bold": 600,
+  "bold": 700,
+  "extra-bold": 800,
+  "black": 900
+) !default;

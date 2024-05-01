@@ -1,16 +1,24 @@
-@use "sass:map";
-@use "@hidoo/unit/src/lib/mixin" as unit-mixin;
-@use "../../lib/mixin";
-@use "../../settings";
+@use "@hidoo/unit/src/lib/mixin";
+@use "@hidoo/unit/src/settings";
+
+/*
+theme
+
+The theme modifiers of #{settings.$prefix}-document
+
+Weight: -99
+
+Style guide: #{settings.$prefix}-document.theme
+*/
 
 /*
 modifiers: theme
 
-modifiers of theme for kss-unit-document
+The extended theme modifiers of #{settings.$prefix}-document
 
 Weight: -99
 
-Markup: <div class="kss-unit-document  {{modifier_class}}">
+Markup: <div class="#{settings.$prefix}-document  {{modifier_class}}">
   <!-- heading -->
   <h1>Lorem ipsum dolor sit amet.</h1>
   <h2>Lorem ipsum dolor sit amet.</h2>
@@ -52,7 +60,7 @@ Markup: <div class="kss-unit-document  {{modifier_class}}">
   <p><img src="https://picsum.photos/600/400/?grayscale&amp;blur=10" /></p>
   <hr />
   <!-- embedded image (extended markup) -->
-  <figure class="kss-unit-document__pict  kss-unit-document__pict--copy-protect-true" style="width: 400px;">
+  <figure class="#{settings.$prefix}-document__pict  #{settings.$prefix}-document__pict--copy-protect-true" style="width: 400px;">
     <img src="https://picsum.photos/400/300/?grayscale&amp;blur=10" alt="" width="400" height="300" />
     <figcaption>Lorem ipsum dolor sit amet.</figcaption>
   </figure>
@@ -64,7 +72,7 @@ Markup: <div class="kss-unit-document  {{modifier_class}}">
   <hr />
   <!-- embedded video (extended markup) -->
   <p>
-    <span class="kss-unit-document__pict  kss-unit-document__pict--aspect-ratio-16-9">
+    <span class="#{settings.$prefix}-document__pict  #{settings.$prefix}-document__pict--aspect-ratio-16-9">
       <iframe title="vimeo-player" src="https://player.vimeo.com/video/76979871" width="640" height="360" frameborder="0" allowfullscreen></iframe>
     </span>
   </p>
@@ -82,7 +90,7 @@ Markup: <div class="kss-unit-document  {{modifier_class}}">
   </table>
   <hr />
   <!-- table (extended markup) -->
-  <div class="kss-unit-document__scrollable-table">
+  <div class="#{settings.$prefix}-document__scrollable-table">
     <table>
       <tr>
         <th scope="col">Lorem ipsum dolor sit amet.</th>
@@ -99,7 +107,7 @@ Markup: <div class="kss-unit-document  {{modifier_class}}">
         <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
         <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
         <td>Lorem ipsum dolor sit amet.
-          <div class="kss-unit-document__scrollable-table">
+          <div class="#{settings.$prefix}-document__scrollable-table">
             <table>
               <tr>
                 <th scope="row">Lorem ipsum dolor sit amet.</th>
@@ -161,7 +169,7 @@ Markup: <div class="kss-unit-document  {{modifier_class}}">
     <p><img src="https://picsum.photos/600/400/?grayscale&amp;blur=10" /></p>
     <hr />
     <!-- embedded image (extended markup) -->
-    <figure class="kss-unit-document__pict  kss-unit-document__pict--copy-protect-true" style="width: 400px;">
+    <figure class="#{settings.$prefix}-document__pict  #{settings.$prefix}-document__pict--copy-protect-true" style="width: 400px;">
       <img src="https://picsum.photos/400/300/?grayscale&amp;blur=10" alt="" width="400" height="300" />
       <figcaption>Lorem ipsum dolor sit amet.</figcaption>
     </figure>
@@ -173,7 +181,7 @@ Markup: <div class="kss-unit-document  {{modifier_class}}">
     <hr />
     <!-- embedded video (extended markup) -->
     <p>
-      <span class="kss-unit-document__pict  kss-unit-document__pict--aspect-ratio-16-9">
+      <span class="#{settings.$prefix}-document__pict  #{settings.$prefix}-document__pict--aspect-ratio-16-9">
         <iframe title="vimeo-player" src="https://player.vimeo.com/video/76979871" width="640" height="360" frameborder="0" allowfullscreen></iframe>
       </span>
     </p>
@@ -191,7 +199,7 @@ Markup: <div class="kss-unit-document  {{modifier_class}}">
     </table>
     <hr />
     <!-- table (extended markup) -->
-    <div class="kss-unit-document__scrollable-table">
+    <div class="#{settings.$prefix}-document__scrollable-table">
       <table>
         <tr>
           <th scope="col">Lorem ipsum dolor sit amet.</th>
@@ -208,7 +216,7 @@ Markup: <div class="kss-unit-document  {{modifier_class}}">
           <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
           <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
           <td>Lorem ipsum dolor sit amet.
-            <div class="kss-unit-document__scrollable-table">
+            <div class="#{settings.$prefix}-document__scrollable-table">
               <table>
                 <tr>
                   <th scope="row">Lorem ipsum dolor sit amet.</th>
@@ -268,139 +276,106 @@ Markup: <div class="kss-unit-document  {{modifier_class}}">
   </pre>
 </div>
 
-kss-unit-document--theme-a-a-a - generic document (themeable)
+#{settings.$prefix}-document--theme-main - generic document (supports color scheme)
 
-Style guide: kss-unit-document.theme.extend
+Style guide: #{settings.$prefix}-document.theme.extend
 */
-.kss-unit-document--theme {
-  &-a-a-a {
-    @include mixin.on-theme("light") {
-      $theme: map.get(settings.$kss-theme-color-scheme, "light");
+.#{settings.$prefix}-document--theme {
+  &-main {
+    color: rgb(var(--kss--color-foreground));
 
-      color: map.get($theme, "color");
-    }
-
-    @include mixin.on-theme("dark") {
-      $theme: map.get(settings.$kss-theme-color-scheme, "dark");
-
-      color: map.get($theme, "color");
+    *::selection {
+      background-color: rgb(var(--kss--color-foreground), 0.3);
     }
 
     code {
       // settings for simple <code>
       &:not([class^="language"]) {
         padding: 2px 4px;
+
+        font-size: smaller;
+        color: rgb(var(--kss--color-foreground));
         white-space: nowrap;
+
+        background-color: rgb(var(--kss--color-background-light));
         border: 0;
         border-radius: 2px;
-
-        @include mixin.on-theme("light") {
-          $theme: map.get(settings.$kss-theme-color-scheme, "light");
-
-          color: map.get($theme, "color-focus");
-          background-color: map.get($theme, "background-color-focus");
-        }
-
-        @include mixin.on-theme("dark") {
-          $theme: map.get(settings.$kss-theme-color-scheme, "dark");
-
-          color: map.get($theme, "color-focus");
-          background-color: map.get($theme, "background-color-focus");
-        }
       }
     }
 
     a {
-      @include unit-mixin.on-link() {
+      @include mixin.on-link() {
+        color: rgb(var(--kss--color-accent));
         text-decoration: underline;
+      }
 
-        @include mixin.on-theme("light") {
-          $theme: map.get(settings.$kss-theme-color-scheme, "light");
+      @include mixin.on-focus() {
+        color: rgb(var(--kss--color-accent), 0.8);
+        text-decoration: none;
+      }
+    }
 
-          color: map.get($theme, "color");
-        }
+    img {
+      font-size: var(--kss--font-size-small);
+      color: rgb(var(--kss--color-foreground));
 
-        @include mixin.on-theme("dark") {
-          $theme: map.get(settings.$kss-theme-color-scheme, "dark");
+      // anti-blurring when use transform in webkit
+      backface-visibility: hidden;
 
-          color: map.get($theme, "color");
+      &:not([alt=""]) {
+        color: transparent;
+
+        &::after {
+          content: "(" attr(alt) ")";
+
+          position: absolute;
+          inset: 0;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          margin: auto;
+
+          line-height: 3em;
+          color: rgb(var(--kss--color-foreground));
+          text-align: center;
+
+          background-color: rgb(var(--kss--color-background-light));
         }
       }
 
-      @include unit-mixin.on-focus() {
-        text-decoration: underline;
-
-        @include mixin.on-theme("light") {
-          $theme: map.get(settings.$kss-theme-color-scheme, "light");
-
-          color: map.get($theme, "color-focus");
-        }
-
-        @include mixin.on-theme("dark") {
-          $theme: map.get(settings.$kss-theme-color-scheme, "dark");
-
-          color: map.get($theme, "color-focus");
-        }
+      &[loading] {
+        background-color: rgb(var(--kss--color-background-light));
       }
     }
 
     blockquote {
-      @include mixin.on-theme("light") {
-        $theme: map.get(settings.$kss-theme-color-scheme, "light");
-
-        border-left-color: map.get($theme, "border-color");
-      }
-
-      @include mixin.on-theme("dark") {
-        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
-
-        border-left-color: map.get($theme, "border-color");
-      }
+      border-left-color: rgb(var(--kss--color-highlight));
     }
 
     table {
       width: 100%;
       max-width: 100%;
-      border-left: 0;
       border-right: 0;
+      border-left: 0;
     }
 
     th,
     td {
+      border-color: rgb(var(--kss--color-highlight));
       border-style: solid;
       border-width: 1px;
-      border-left: 0;
       border-right: 0;
-
-      @include mixin.on-theme("light") {
-        $theme: map.get(settings.$kss-theme-color-scheme, "light");
-
-        border-color: map.get($theme, "border-color");
-      }
-
-      @include mixin.on-theme("dark") {
-        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
-
-        border-color: map.get($theme, "border-color");
-      }
+      border-left: 0;
     }
 
     th {
-      font-weight: 500;
+      font-weight: var(--kss--font-weight-medium);
     }
 
     hr {
-      @include mixin.on-theme("light") {
-        $theme: map.get(settings.$kss-theme-color-scheme, "light");
-
-        border-color: map.get($theme, "border-color");
-      }
-
-      @include mixin.on-theme("dark") {
-        $theme: map.get(settings.$kss-theme-color-scheme, "dark");
-
-        border-color: map.get($theme, "border-color");
-      }
+      border-color: rgb(var(--kss--color-highlight));
     }
   }
 }

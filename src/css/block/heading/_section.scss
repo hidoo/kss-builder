@@ -1,0 +1,213 @@
+@use "@hidoo/unit/src/lib/mixin";
+@use "@hidoo/unit/src/settings";
+
+/*
+kss-heading-section
+
+The section heading.
+
+Markup: <header class="kss-heading-section{{#if modifier_class}}  {{modifier_class}}{{/if}}  #{settings.$prefix}-box{{#each (split (or this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+  <h1 class="kss-heading-section__label  #{settings.$prefix}-text">
+    <span class="kss-heading-section__label__reference  #{settings.$prefix}-text">9.9</span>
+    <a class="kss-heading-section__label__link  #{settings.$prefix}-text__link" href="javascript:;">component-name</a>
+  </h1>
+  <p class="kss-heading-section__deprecated  #{settings.$prefix}-text">DEPRECATED!</p>
+  <p class="kss-heading-section__experimental  #{settings.$prefix}-text">EXPERIMENTAL!</p>
+  <div class="kss-heading-section__description  #{settings.$prefix}-document  #{settings.$prefix}-document--theme-main">
+    <p>Lorem ipsum <strong>dolor sit amet</strong>, consectetur <b>adipiscing elit</b>,sed do eiusmod <em>tempor incididunt</em> ut labore et dolore <i>magna aliqua</i>.</p>
+    <p>Lorem ipsum <u>dolor sit amet</u>, consectetur <del>adipiscing elit</del>,sed do eiusmod <s>tempor incididunt</s> ut labore et dolore <code>magna aliqua</code>.</p>
+    <p>Lorem ipsum <span>dolor sit amet</span>, consectetur <a href="javascript:;">adipiscing elit</a>.</p>
+  </div>
+</header>
+
+kss-heading-section--depth-1 - with depth 1
+kss-heading-section--depth-2 - with depth 2
+kss-heading-section--depth-3 - with depth 3
+
+Style guide: kss-heading.section
+*/
+.kss-heading-section {
+  --kss__padding: 0;
+  --kss__border-color: var(--kss--color-highlight-light);
+  --kss__border-width: 0;
+  --kss__label-gap: 10px;
+  --kss__label-color: var(--kss--color-foreground);
+  --kss__label-font-size: var(--kss--font-size-medium);
+  --kss__label-font-weight: var(--kss--font-weight-light);
+  --kss__reference-color: var(--kss--color-highlight-light);
+  --kss__description-font-size: var(--kss--font-size-medium);
+  --kss__description-gap: 5px;
+
+  @include mixin.on-current() {
+    --kss__border-color: var(--kss--color-accent);
+    --kss__reference-color: var(--kss--color-accent);
+  }
+
+  padding: var(--kss__padding);
+
+  border-left-color: rgb(var(--kss__border-color));
+  border-left-style: solid;
+  border-left-width: var(--kss__border-width);
+
+  transition-timing-function: ease-out;
+  transition-duration: 0.2s;
+  transition-property: border-color;
+
+  &__label {
+    display: flex;
+    column-gap: 5px;
+    align-items: flex-start;
+
+    font-size: var(--kss__label-font-size);
+    font-weight: var(--kss__label-font-weight);
+    line-height: 1.2;
+    color: rgb(var(--kss__label-color));
+
+    &:not(:empty) {
+      font-family: var(--kss--font-family-heading);
+    }
+
+    &__reference,
+    &__link {
+      transition-timing-function: ease-out;
+      transition-duration: 0.2s;
+      transition-property: color;
+    }
+
+    &__reference {
+      display: block;
+
+      font-size: inherit;
+      font-weight: inherit;
+      font-kerning: normal;
+      line-height: 1.2;
+      color: rgb(var(--kss__reference-color));
+      white-space: nowrap;
+
+      &::before {
+        content: "#";
+      }
+
+      &::after {
+        content: ".";
+      }
+
+      &:not(:empty) {
+        font-family: var(--kss--font-family-numeric);
+      }
+    }
+
+    &__link {
+      @include mixin.on-link() {
+        color: rgb(var(--kss__label-color));
+        text-decoration: none;
+      }
+      @include mixin.on-focus() {
+        --kss__label-color: var(--kss--color-foreground-light);
+      }
+
+      font-weight: inherit;
+      color: rgb(var(--kss__label-color));
+
+      &:not(:empty) {
+        font-family: var(--kss--font-family-heading);
+      }
+    }
+  }
+
+  &__deprecated,
+  &__experimental {
+    font-weight: var(--kss--font-weight-black);
+  }
+
+  &__deprecated {
+    color: rgb(var(--kss--color-alert));
+  }
+
+  &__experimental {
+    color: rgb(var(--kss--color-warning));
+  }
+
+  &__description {
+    font-size: var(--kss__description-font-size);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul,
+    ol {
+      &:not(:first-child) {
+        padding-top: var(--kss__description-gap);
+      }
+    }
+
+    blockquote,
+    pre,
+    table {
+      &:not(:first-child) {
+        margin-top: var(--kss__description-gap);
+      }
+    }
+
+    hr {
+      &:not(:first-child) {
+        padding-top: var(--kss__description-gap);
+      }
+    }
+  }
+
+  &__label + &__deprecated,
+  &__label + &__experimental,
+  &__label + &__description {
+    padding-top: var(--kss__label-gap);
+  }
+
+  &__deprecated + &__description,
+  &__experimental + &__description {
+    padding-top: 10px;
+  }
+
+  // modifier: --depth-1
+  &--depth-1 {
+    --kss__label-gap: 20px;
+    --kss__reference-color: var(--kss--color-accent);
+
+    @include mixin.breakpoint-define($from: "mobile") {
+      --kss__label-font-size: var(--kss--font-size-9xlarge);
+      --kss__description-font-size: var(--kss--font-size-large);
+    }
+
+    @include mixin.breakpoint-define($until: "mobile") {
+      --kss__label-font-size: var(--kss--font-size-7xlarge);
+    }
+  }
+
+  // modifier: --depth-2
+  &--depth-2 {
+    --kss__padding: 0 0 0 20px;
+    --kss__border-width: 3px;
+    --kss__label-gap: 15px;
+    --kss__label-font-size: var(--kss--font-size-6xlarge);
+
+    @include mixin.breakpoint-define($until: "mobile") {
+      --kss__padding: 0 0 0 15px;
+      --kss__label-font-size: var(--kss--font-size-4xlarge);
+    }
+  }
+
+  // modifier: --depth-3
+  &--depth-3 {
+    --kss__padding: 0 0 0 20px;
+    --kss__border-width: 2px;
+    --kss__label-font-size: var(--kss--font-size-3xlarge);
+
+    @include mixin.breakpoint-define($until: "mobile") {
+      --kss__padding: 0 0 0 15px;
+      --kss__label-font-size: var(--kss--font-size-2xlarge);
+    }
+  }
+}

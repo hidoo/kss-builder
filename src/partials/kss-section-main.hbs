@@ -1,0 +1,7 @@
+<section class="kss-section-main  kss-c-box{{#each (split (or this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+  {{> kss-heading-section
+    this
+    class=''
+  }}
+  {{~> @partial-block}}
+</section>

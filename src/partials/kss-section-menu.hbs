@@ -1,0 +1,8 @@
+<aside class="kss-section-menu  kss-c-box{{#each (split (or this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+  <header class="kss-section-menu__header  kss-c-box">
+    <h2 class="kss-section-menu__label  kss-c-text">{{this.label}}</h2>
+  </header>
+  <div class="kss-section-menu__container  kss-c-box">
+    {{> @partial-block}}
+  </div>
+</aside>

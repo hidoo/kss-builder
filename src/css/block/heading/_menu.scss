@@ -1,0 +1,56 @@
+@use "@hidoo/unit/src/settings";
+
+/*
+kss-heading-menu
+
+The menu heading.
+
+Markup: <header class="kss-heading-menu{{#if modifier_class}}  {{modifier_class}}{{/if}}  #{settings.$prefix}-box{{#each (split (or this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+  <h1 class="kss-heading-menu__name  #{settings.$prefix}-text">Package name</h1>
+  <p class="kss-heading-menu__version  #{settings.$prefix}-text">v0.0.1</p>
+  <p class="kss-heading-menu__description  #{settings.$prefix}-text">Package description.</p>
+</header>
+
+Style guide: kss-heading.menu
+*/
+.kss-heading-menu {
+  &__name,
+  &__version {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    -webkit-line-clamp: 1;
+  }
+
+  &__name {
+    font-size: var(--kss--font-size-2xlarge);
+    font-weight: var(--kss--font-weight-light);
+    color: rgb(var(--kss--color-accent));
+    text-align: center;
+  }
+
+  &__version {
+    font-size: var(--kss--font-size-small);
+    color: rgb(var(--kss--color-highlight-light));
+    text-align: center;
+
+    &:not(:empty) {
+      font-family: var(--kss--font-family-numeric);
+    }
+  }
+
+  &__description {
+    font-size: var(--kss--font-size-small);
+    color: rgb(var(--kss--color-foreground));
+    text-align: center;
+  }
+
+  &__name + &__description,
+  &__version + &__description {
+    padding-top: 10px;
+  }
+}

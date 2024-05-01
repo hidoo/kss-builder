@@ -1,34 +1,41 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en" class="kss-root  is-kss-example-light">
 <head>
 
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="rgba(255, 255, 255)" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="rgba(30, 30, 30)" />
 
   <title>Style Guide - {{packageName}} (v{{packageVersion}})</title>
   <meta name="description" content="{{packageDescription}}" />
   <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="kss-assets/images/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="kss-assets/images/favicon.svg" />
   <link rel="apple-touch-icon" sizes="192x192" href="kss-assets/images/touchicon.png" />
   <meta name="apple-mobile-web-app-title" content="{{packageName}}" />
 
   {{!--
     css for style guide
   --}}
-  <link rel="stylesheet" href="kss-assets/css/main{{#isnt (NODE_ENV) 'kss-builder-development'}}.min{{/isnt}}.css" />
+  <link rel="stylesheet" href="kss-assets/css/main{{#if (calc (NODE_ENV) '!==' 'kss-builder-development')}}.min{{/if}}.css" />
 
   {{!--
     load specified paths by options.css
   --}}
-  {{{styles}}}
+  {{#if styles}}
+    {{{styles}}}
+  {{/if}}
 
 </head>
-<body class="kss-document  is-theme-light  is-example-theme-light">
+<body>
 
   {{!--
     drawer
   --}}
-  {{~#> kss-layout-drawer-a-a utils=''}}
+  {{~#> kss-layout-drawer
+    class=''
+  }}
 
     {{!--
       display overview when has homepage value
@@ -36,9 +43,11 @@
     --}}
     {{~#if this.homepage}}
 
-      {{#> kss-block-document-a-a utils=''}}
+      {{#> kss-document-overview
+        class=''
+      }}
         {{{this.homepage}}}
-      {{/kss-block-document-a-a}}
+      {{/kss-document-overview}}
 
     {{else}}
 
@@ -54,21 +63,31 @@
             {{!--
               section heading
             --}}
-            {{> kss-block-heading-a-a this utils=(or @first 'kss-util--margin-top-60')}}
+            {{> kss-heading-section
+              this
+              referenceURI=(choice (calc this.depth '===' 1) '' this.referenceURI)
+              class=(choice @first '' 'kss-u--margin-top-60')
+            }}
 
           {{else}}
 
             {{!--
               section
             --}}
-            {{#> kss-block-section-a-a this utils=(or @first 'kss-util--margin-top-40 kss-util--padding-top-40 kss-util--border-top-a-a-a')}}
+            {{#> kss-section-main
+              this
+              class=(choice @first '' 'kss-u--margin-top-40, kss-u--padding-top-40, kss-u--border-highlight-top')
+            }}
 
-              {{!--
-                list of parameters
-              --}}
-              {{> kss-block-table-a-a items=this.parameters utils='kss-util--margin-top-30'}}
+              {{#> kss-document-overview
+                class='kss-u--margin-top-15'
+              }}
+                {{> helper/parameters
+                  parameters=this.parameters
+                }}
+              {{/kss-document-overview}}
 
-            {{/kss-block-section-a-a}}
+            {{/kss-section-main}}
 
           {{/unless}}
 
@@ -77,31 +96,50 @@
           {{!--
             section
           --}}
-          {{#> kss-block-section-a-a this utils=(or @first 'kss-util--margin-top-40 kss-util--padding-top-40 kss-util--border-top-a-a-a')}}
+          {{#> kss-section-main
+            this
+            class=(choice @first '' 'kss-u--margin-top-40, kss-u--padding-top-40, kss-u--border-highlight-top')
+          }}
 
             {{!--
               list of parameters
             --}}
-            {{> kss-block-table-a-a items=this.parameters utils='kss-util--padding-top-15'}}
+            {{#> kss-document-overview
+              class='kss-u--padding-top-15'
+            }}
+              {{> helper/parameters
+                parameters=this.parameters
+              }}
+            {{/kss-document-overview}}
 
             {{!--
               example of rendered markup by default
             --}}
-            {{~> kss-block-example-b-a markup=this.markup description='' utils='kss-util--margin-top-30'}}
+            {{~> kss-example-variation
+              markup=this.markup
+              description=''
+              class='kss-u--margin-top-30'
+            }}
 
             {{!--
               example of rendered markup by modifiers
             --}}
             {{#each this.modifiers}}
-              {{~> kss-block-example-b-a this utils='kss-util--margin-top-30'}}
+              {{~> kss-example-variation
+                this
+                class='kss-u--margin-top-30'
+              }}
             {{/each}}
 
             {{!--
               example of markup
             --}}
-            {{~> kss-block-example-a-a this utils='kss-util--margin-top-30'}}
+            {{~> kss-example-markup
+              this
+              class='kss-u--margin-top-30'
+            }}
 
-          {{/kss-block-section-a-a}}
+          {{/kss-section-main}}
 
         {{/unless}}
 
@@ -109,17 +147,26 @@
 
     {{/if}}
 
-  {{/kss-layout-drawer-a-a}}
+  {{/kss-layout-drawer}}
 
   {{!--
     scripts for style guide
   --}}
-  <script src="kss-assets/js/main{{#isnt (NODE_ENV) 'kss-builder-development'}}.min{{/isnt}}.js" defer></script>
+  <script type="module" src="kss-assets/js/main.js"></script>
 
   {{!--
     load specified paths by options.js
   --}}
-  {{{scripts}}}
+  {{#if scripts}}
+    {{{scripts}}}
+  {{/if}}
+
+  {{!--
+    load specified paths by options.mjs
+  --}}
+  {{#if esmodules}}
+    {{{esmodules}}}
+  {{/if}}
 
 </body>
 </html>

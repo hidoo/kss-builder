@@ -1,164 +1,159 @@
-@use "sass:map";
-@use "@hidoo/unit/src/lib/mixin" as unit-mixin;
-@use "../../lib/mixin";
-@use "../../settings";
+@use "@hidoo/unit/src/lib/mixin";
+@use "@hidoo/unit/src/settings";
+@use "../../lib/mixin" as _mixin;
+
+/*
+type
+
+The type modifiers of #{settings.$prefix}-icon
+
+Weight: -98
+
+Style guide: #{settings.$prefix}-icon.type
+*/
 
 /*
 modifiers: type
 
-modifiers of type for kss-unit-icon
+The type modifiers of #{settings.$prefix}-icon
 
 Weight: -99
 
-Markup: <span class="kss-unit-icon  {{modifier_class}}"></span>
+Markup: <span class="#{settings.$prefix}-icon  {{modifier_class}}"></span>
+<a href="javascript:;">
+  <span class="#{settings.$prefix}-icon  {{modifier_class}}"></span>
+</a>
+<button type="button">
+  <span class="#{settings.$prefix}-icon  {{modifier_class}}"></span>
+</button>
 
-kss-unit-icon--type-drawer - drawer icon (themeable)
-kss-unit-icon--type-expand - expand icon (themeable)
+#{settings.$prefix}-icon--type-drawer - drawer icon (supports color scheme)
+#{settings.$prefix}-icon--type-expand - expand icon (supports color scheme)
 
-Style guide: kss-unit-icon.type.extend
+Style guide: #{settings.$prefix}-icon.type.extend
 */
-.kss-unit-icon--type {
+.#{settings.$prefix}-icon--type {
   &-drawer {
-    $width: 18px;
+    --kss__size: 18px;
+    --kss__bg-color: rgb(var(--kss--color-foreground));
+    --kss__before-x: 0;
+    --kss__after-x: 0;
+    --kss__before-y: calc(var(--kss__size) / 2 * -1 + 3px);
+    --kss__after-y: calc(var(--kss__size) / 2 * 1 - 3px);
+    --kss__before-rotate: 0deg;
+    --kss__after-rotate: 0deg;
 
-    width: $width;
-    height: $width;
+    @include mixin.on-focus(
+      $capturing-selectors: (
+        "a",
+        "button"
+      )
+    ) {
+      --kss__bg-color: rgb(var(--kss--color-foreground-light));
+    }
+
+    @include mixin.on-active(
+      $capturing-selectors: (
+        ".kss-layout-drawer"
+      )
+    ) {
+      --kss__before-x: calc((var(--kss__size) - 12.7px) / 2);
+      --kss__after-x: calc((var(--kss__size) - 12.7px) / 2);
+      --kss__before-rotate: 45deg;
+      --kss__after-rotate: -45deg;
+    }
+
+    width: var(--kss__size);
+    height: var(--kss__size);
 
     &::before,
     &::after {
       content: "";
-      display: block;
+
       position: absolute;
-      left: 0;
-      width: $width;
+      inset: 0;
+
+      display: block;
+
+      width: var(--kss__size);
       height: 2px;
       margin: auto;
+
+      background-color: var(--kss__bg-color);
       border-radius: 2px;
-      transition-duration: 0.2s;
-      transition-property: background-color;
+
       transition-timing-function: ease-in-out;
+      transition-duration: 0.2s;
+      transition-property: background-color, transform;
     }
 
     &::before {
-      top: 3px;
+      transform-origin: 0 0;
+      transform: translate(var(--kss__before-x), var(--kss__before-y))
+        rotate(var(--kss__before-rotate));
     }
 
     &::after {
-      bottom: 3px;
-    }
-
-    @include mixin.on-theme("light") {
-      $theme: map.get(settings.$kss-theme-color-scheme, "light");
-
-      &::before,
-      &::after {
-        background-color: map.get($theme, "color");
-      }
-
-      @include unit-mixin.on-focus($capturing-selectors: ("a", "button")) {
-        &::before,
-        &::after {
-          background-color: map.get($theme, "color-focus");
-        }
-      }
-    }
-
-    @include mixin.on-theme("dark") {
-      $theme: map.get(settings.$kss-theme-color-scheme, "dark");
-
-      &::before,
-      &::after {
-        background-color: map.get($theme, "color");
-      }
-
-      @include unit-mixin.on-focus($capturing-selectors: ("a", "button")) {
-        &::before,
-        &::after {
-          background-color: map.get($theme, "color-focus");
-        }
-      }
+      transform-origin: 0 100%;
+      transform: translate(var(--kss__after-x), var(--kss__after-y))
+        rotate(var(--kss__after-rotate));
     }
   }
 
   &-expand {
-    $width: 14px;
+    --kss__size: 14px;
+    --kss__icon-size: 3px;
+    --kss__bg-color: rgb(var(--kss--color-foreground));
+    --kss__before-x: calc(var(--kss__icon-size) * -1 - 2px);
+    --kss__after-x: calc(var(--kss__icon-size) * 1 + 2px);
 
-    width: $width;
-    height: $width;
+    @include mixin.on-focus(
+      $capturing-selectors: (
+        "a",
+        "button"
+      )
+    ) {
+      --kss__bg-color: rgb(var(--kss--color-foreground-light));
+    }
+
+    @include _mixin.on-expanded() {
+      --kss__before-x: calc(var(--kss__icon-size) / 2 * 1 + 2px);
+      --kss__after-x: calc(var(--kss__icon-size) / 2 * -1 - 2px);
+    }
+
+    width: var(--kss__size);
+    height: var(--kss__size);
     color: transparent;
 
     &::before,
     &::after {
       content: "";
-      display: block;
+
       position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      height: 3px;
-      margin: auto 0;
-      border-style: solid;
-      border-width: 1px;
+      inset: 0;
+      transform-origin: 50% 50%;
+
+      display: block;
+
+      width: var(--kss__icon-size);
+      height: var(--kss__icon-size);
+      margin: auto;
+
+      border: 1px solid var(--kss__bg-color);
       border-bottom: 0;
       border-left: 0;
-      transform-origin: 50% 50%;
-      transition-duration: 0.2s;
-      transition-property: border-color;
+
       transition-timing-function: ease-in-out;
+      transition-duration: 0.2s;
+      transition-property: border-color, transform;
     }
 
     &::before {
-      right: 1px;
-      transform: rotate(45deg);
+      transform: translate(var(--kss__before-x), 0) rotate(45deg);
     }
 
     &::after {
-      left: 1px;
-      transform: rotate(-135deg);
-    }
-
-    @include mixin.on-expanded() {
-      &::before {
-        right: auto;
-        left: 1px;
-      }
-
-      &::after {
-        right: 1px;
-        left: auto;
-      }
-    }
-
-    @include mixin.on-theme("light") {
-      $theme: map.get(settings.$kss-theme-color-scheme, "light");
-
-      &::before,
-      &::after {
-        border-color: map.get($theme, "color");
-      }
-
-      @include unit-mixin.on-focus($capturing-selectors: ("a", "button")) {
-        &::before,
-        &::after {
-          border-color: map.get($theme, "color-focus");
-        }
-      }
-    }
-
-    @include mixin.on-theme("dark") {
-      $theme: map.get(settings.$kss-theme-color-scheme, "dark");
-
-      &::before,
-      &::after {
-        border-color: map.get($theme, "color");
-      }
-
-      @include unit-mixin.on-focus($capturing-selectors: ("a", "button")) {
-        &::before,
-        &::after {
-          border-color: map.get($theme, "color-focus");
-        }
-      }
+      transform: translate(var(--kss__after-x), 0) rotate(-135deg);
     }
   }
 }

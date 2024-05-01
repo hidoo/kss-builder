@@ -1,0 +1,134 @@
+@use "@hidoo/unit/src/lib/mixin";
+@use "@hidoo/unit/src/settings";
+@use "../../lib/mixin" as _mixin;
+
+/*
+kss-example-variation
+
+The example variation.
+
+Markup: <article class="kss-example-variation{{#if modifier_class}}  {{modifier_class}}{{/if}}  #{settings.$prefix}-box{{#each (split (or this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+  <header class="kss-example-variation__header  #{settings.$prefix}-box">
+    <code class="kss-example-variation__header__name  #{settings.$prefix}-text  #{settings.$prefix}-text--theme-code">component-class-name</code>
+    <div class="kss-example-variation__header__description  #{settings.$prefix}-document  #{settings.$prefix}-document--theme-main">
+      <p><code>component</code> description. (<strong>attention</strong>)</p>
+    </div>
+  </header>
+  <div class="kss-example-variation__canvas  #{settings.$prefix}-box  #{settings.$prefix}-box--texture-transparent">
+    <!-- rendered markup -->
+    <span class="#{settings.$prefix}-icon  #{settings.$prefix}-icon--type-drawer"></span>
+    <!-- rendered markup -->
+  </div>
+</article>
+
+Style guide: kss-example.variation
+*/
+.kss-example-variation {
+  --kss__description-gap: 5px;
+  --kss__canvas-margin-inline: 0;
+  --kss__canvas-padding: 20px;
+  --kss__canvas-border-inline-width: 1px;
+
+  @include _mixin.on-expanded() {
+    --kss__canvas-margin-inline: -60px;
+    --kss__canvas-padding: 20px 0;
+    --kss__canvas-border-inline-width: 0px;
+
+    @include mixin.breakpoint-define($from: "mobile", $until: "desktop") {
+      --kss__canvas-margin-inline: -40px;
+    }
+
+    @include mixin.breakpoint-define($until: "mobile") {
+      --kss__canvas-margin-inline: -15px;
+    }
+  }
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+
+  &::before,
+  &::after {
+    content: none;
+  }
+
+  &__header {
+    overflow-x: auto;
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+
+    width: auto;
+
+    white-space: nowrap;
+
+    &::before,
+    &::after {
+      content: none;
+    }
+
+    &__name {
+      width: auto;
+      font-family: var(--kss--font-family-monospace);
+      font-size: var(--kss--font-size-xsmall);
+    }
+
+    &__description {
+      padding-left: calc(0.5em + 10px);
+      font-size: var(--kss--font-size-small);
+      white-space: nowrap;
+
+      &::before {
+        content: "-";
+        position: absolute;
+        inset: 0 auto 0 0;
+        margin: auto 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      ul,
+      ol {
+        &:not(:first-child) {
+          padding-top: var(--kss__description-gap);
+        }
+      }
+
+      blockquote,
+      pre,
+      table {
+        &:not(:first-child) {
+          margin-top: var(--kss__description-gap);
+        }
+      }
+
+      hr {
+        &:not(:first-child) {
+          padding-top: var(--kss__description-gap);
+        }
+      }
+    }
+  }
+
+  &__canvas {
+    overflow: auto;
+
+    box-sizing: border-box;
+    margin-inline: var(--kss__canvas-margin-inline);
+    padding: var(--kss__canvas-padding);
+
+    border-color: rgb(var(--kss--color-highlight));
+    border-style: solid;
+    border-block-width: 1px;
+    border-inline-width: var(--kss__canvas-border-inline-width);
+
+    transition-timing-function: ease-out;
+    transition-duration: 0.2s;
+    transition-property: margin-inline, padding-inline;
+  }
+}

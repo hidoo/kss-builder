@@ -1,0 +1,87 @@
+@use "@hidoo/unit/src/lib/mixin";
+@use "@hidoo/unit/src/settings";
+
+/*
+kss-navi-icon
+
+The icon navigation.
+
+Markup: {{#each (or this.items (parse '
+  - label: "Switch theme to OS default mode"
+    value: "system"
+    svg:
+      width: 20
+      height: 20
+      content: |-
+        <path fill-rule="evenodd" d="M41.008,19.488a9.5,9.5,0,1,1,9.5-9.5A9.5,9.5,0,0,1,41.008,19.488ZM41,2.875c0,1.741-.008,4.442-0.008,7.147s0,5.376.006,7.1A7.124,7.124,0,0,0,41,2.875Z" transform="translate(-31)"/>
+    current: true
+  - label: "Switch theme to light mode"
+    value: "light"
+    svg:
+      width: 20
+      height: 20
+      content: |-
+        <path fill-rule="evenodd" d="M19,10.993H17a1,1,0,1,1,0-2h2A1,1,0,1,1,19,10.993ZM15.652,5.752a1,1,0,0,1-1.414-1.414l1.414-1.414a1,1,0,1,1,1.414,1.414ZM10,14.994a5,5,0,1,1,5-5A5,5,0,0,1,10,14.994Zm0-8a3,3,0,1,0,3,3A3,3,0,0,0,10,7ZM9.993,4a1,1,0,0,1-1-1V1a1,1,0,1,1,2,0V3A1,1,0,0,1,9.993,4ZM4.348,5.753L2.934,4.339A1,1,0,0,1,4.348,2.924L5.763,4.339A1,1,0,1,1,4.348,5.753ZM4,9.993a1,1,0,0,1-1,1H1a1,1,0,1,1,0-2H3A1,1,0,0,1,4,9.993Zm0.338,4.244a1,1,0,1,1,1.414,1.414L4.339,17.066a1,1,0,1,1-1.414-1.414ZM9.993,16a1,1,0,0,1,1,1v2a1,1,0,1,1-2,0V17A1,1,0,0,1,9.993,16Zm5.669-1.761,1.414,1.414a1,1,0,1,1-1.414,1.414l-1.414-1.414A1,1,0,0,1,15.662,14.238Z" />
+    current: false
+  - label: "Switch theme to dark mode"
+    value: "dark"
+    svg:
+      width: 20
+      height: 20
+      content: |-
+        <path fill-rule="evenodd" d="M80.522,14.1A9.486,9.486,0,1,1,70.506.617l0.005,0.009A0.453,0.453,0,0,1,70.6.608a0.474,0.474,0,0,1,.474.474,0.466,0.466,0,0,1-.178.362A7.51,7.51,0,0,0,79.92,13.414l0,0a0.464,0.464,0,0,1,.216-0.058,0.474,0.474,0,0,1,.474.474A0.462,0.462,0,0,1,80.522,14.1Z" transform="translate(-62)"/>
+    current: false
+'))}}
+{{#if @first}}
+<{{or ../this.tag 'div'}} class="kss-navi-icon{{#if ../modifier_class}}  {{../modifier_class}}{{/if}}  #{settings.$prefix}-box{{#each (split (or ../this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+{{/if}}
+  <button class="kss-navi-icon__button  #{settings.$prefix}-button{{#if this.current}}  is-kss-current{{/if}}" type="button" data-kss-{{or ../this.appearance 'theme'}}-value="{{this.value}}">
+    {{#with this.svg}}
+    <svg class="kss-navi-icon__button__icon" width="{{this.width}}" height="{{this.height}}" viewBox="0 0 {{this.width}} {{this.height}}">
+      {{~{this.content}~}}
+    </svg>
+    {{/with}}
+  </button>
+{{#if @last}}
+</{{or ../this.tag 'div'}}>
+{{/if}}
+{{/each}}
+
+Style guide: kss-navi.icon
+*/
+.kss-navi-icon {
+  --kss__button-display: none;
+  --kss__button-size: 20px;
+  --kss__icon-fill-color: var(--kss--color-foreground);
+
+  display: flex;
+  column-gap: 5px;
+  align-items: center;
+
+  &::before,
+  &::after {
+    content: none;
+  }
+
+  &__button {
+    @include mixin.on-current() {
+      --kss__button-display: block;
+    }
+
+    @include mixin.on-focus() {
+      --kss__icon-fill-color: var(--kss--color-foreground-light);
+    }
+
+    display: var(--kss__button-display);
+    box-sizing: border-box;
+    width: var(--kss__button-size);
+    height: var(--kss__button-size);
+
+    &__icon {
+      fill: rgb(var(--kss__icon-fill-color));
+      transition-timing-function: ease-out;
+      transition-duration: 0.2s;
+      transition-property: fill;
+    }
+  }
+}

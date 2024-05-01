@@ -1,0 +1,15 @@
+{{#each this.items}}
+{{#if @first}}
+<{{or ../this.tag 'div'}} class="kss-navi-icon  kss-c-box{{#each (split (or ../this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+{{/if}}
+  <button class="kss-navi-icon__button  kss-c-button{{#if this.current}}  is-kss-current{{/if}}" type="button" data-kss-{{or ../this.appearance 'theme'}}-value="{{this.value}}">
+    {{#with this.svg}}
+    <svg class="kss-navi-icon__button__icon" width="{{this.width}}" height="{{this.height}}" viewBox="0 0 {{this.width}} {{this.height}}">
+      {{~{this.content}~}}
+    </svg>
+    {{/with}}
+  </button>
+{{#if @last}}
+</{{or ../this.tag 'div'}}>
+{{/if}}
+{{/each}}

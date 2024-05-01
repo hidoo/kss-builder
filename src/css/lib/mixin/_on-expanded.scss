@@ -1,13 +1,11 @@
 ////
 /// (c) hidoo | MIT Lisence
-/// @group kssbuilder
+/// @group kss-builder
 ////
 
 @use "sass:list";
-@use "sass:map";
-@use "sass:meta";
-@use "@hidoo/unit/src/lib/mixin" as unit-mixin;
-@use "../../settings";
+@use "@hidoo/unit/src/lib/mixin";
+@use "../../settings" as _settings;
 
 /// wrappper of theme state class like `is-expanded`
 /// @param {List} $capturing-selectors [()] - capturing parent selectors
@@ -24,23 +22,17 @@
 ///     font-size: 16px;
 ///   }
 ///
-@mixin on-expanded(
-  $capturing-selectors: ()
-) {
-  @if meta.type-of(settings.$kss-state-selectors-expanded) != "list" {
-    @error "@mixin on-theme: settings.$kss-state-selectors-expanded must be list.";
+@mixin on-expanded($capturing-selectors: ()) {
+  @if list.length(_settings.$selector-expanded) == 0 {
+    @error "@mixin on-theme: _settings.$selector-expanded must be list.";
   }
 
-  @if meta.type-of(settings.$kss-root-selectors) != "list" {
-    @error "@mixin on-theme: settings.$kss-root-selectors must be list.";
+  @if list.length($capturing-selectors) == 0 {
+    $capturing-selectors: _settings.$selector-root;
   }
 
-  @if length($capturing-selectors) == 0 {
-    $capturing-selectors: settings.$kss-root-selectors;
-  }
-
-  @include unit-mixin.on(
-    $selectors: settings.$kss-state-selectors-expanded,
+  @include mixin.on(
+    $selectors: _settings.$selector-expanded,
     $capturing-selectors: $capturing-selectors
   ) {
     @content;

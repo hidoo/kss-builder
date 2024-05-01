@@ -1,0 +1,66 @@
+@use "@hidoo/unit/src/settings";
+
+/*
+kss-section-menu
+
+The menu section.
+
+Markup: <aside class="kss-section-menu{{#if modifier_class}}  {{modifier_class}}{{/if}}  #{settings.$prefix}-box{{#each (split (or this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+  <header class="kss-section-menu__header  #{settings.$prefix}-box">
+    <h2 class="kss-section-menu__label  #{settings.$prefix}-text">COMPONENTS</h2>
+  </header>
+  <div class="kss-section-menu__container  #{settings.$prefix}-box">
+    <!-- nest -->
+    {{#if @partial-block}}
+    {{> @partial-block}}
+    {{else}}
+    {{> kss-navi.tree
+      class=''
+    }}
+    {{/if~}}
+    <!-- nest -->
+  </div>
+</aside>
+
+Style guide: kss-section.menu
+*/
+.kss-section-menu {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+
+  &::before,
+  &::after {
+    content: none;
+  }
+
+  &__header {
+    display: flex;
+    border-bottom-color: rgb(var(--kss--color-highlight));
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+
+    &::before,
+    &::after {
+      content: none;
+    }
+  }
+
+  &__container {
+    // no settings
+  }
+
+  &__label {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+
+    font-size: var(--kss--font-size-small);
+    font-weight: var(--kss--font-weight-semi-bold);
+    color: rgb(var(--kss--color-highlight-light));
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    -webkit-line-clamp: 1;
+  }
+}

@@ -1,0 +1,40 @@
+@use "@hidoo/unit/src/settings";
+
+/*
+kss-example-markup
+
+The markup example.
+
+Markup: <div class="kss-example-markup{{#if modifier_class}}  {{modifier_class}}{{/if}}  #{settings.$prefix}-box{{#each (split (or this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
+  <!-- highlighted markup -->
+  <pre><code class="hljs handlebars html">{{{highlight '<span class="#{settings.$prefix}-icon  #{settings.$prefix}-icon--type-drawer"></span>' lang='hbs'}}}</code></pre>
+  <!-- highlighted markup -->
+</div>
+
+Style guide: kss-example.markup
+*/
+.kss-example-markup {
+  pre {
+    margin: 0;
+    border-color: rgb(var(--kss--color-highlight));
+    border-style: solid;
+    border-width: 1px;
+
+    .hljs {
+      overflow-x: auto;
+
+      // override highlight.js theme settings
+      display: block;
+
+      padding: 20px !important;
+
+      font-family: var(--kss--font-family-monospace);
+      font-size: var(--kss--font-size-small);
+      line-height: 1.5;
+
+      *::selection {
+        background-color: rgb(var(--kss--color-foreground), 0.3);
+      }
+    }
+  }
+}
