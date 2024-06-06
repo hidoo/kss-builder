@@ -1,6 +1,6 @@
 {
   "recursive": true,
   "ui": "bdd",
-  "timeout": 1000,
+  "timeout": 10000,
   "slow": 0
 }

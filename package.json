@@ -30,7 +30,7 @@
     "test:lint": "pnpm run --sequential '/^test:lint:[^:]+$/'",
     "test:lint:js": "eslint .",
     "test:lint:style": "stylelint **/*.{css,scss} --fix",
-    "test:unit": "cross-env NODE_ENV=test mocha test/**/*.test.js",
+    "test:unit": "cross-env NODE_ENV=test mocha **/*.test.js",
     "version": "pnpm run --sequential '/^(build|test|version:[^:]+)$/'",
     "version:changelog": "conventional-changelog -p angular -i ./CHANGELOG.md -s -r 0",
     "version:commit": "git add ./CHANGELOG.md"
