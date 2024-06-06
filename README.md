@@ -6,6 +6,12 @@
 
 <p align="center">Custom builder for kss-node.</p>
 
+<div align="center">
+
+[![Test](https://github.com/hidoo/kss-builder/actions/workflows/test.yml/badge.svg)](https://github.com/hidoo/kss-builder/actions/workflows/test.yml)
+
+</div>
+
 ## Installation
 
 ```sh
