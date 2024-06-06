@@ -47,8 +47,8 @@
   "license": "MIT",
   "dependencies": {
     "@hidoo/handlebars-helpers": "1.1.0",
-    "@hidoo/unit": "^0.9.0",
-    "glob": "10.3.15",
+    "@hidoo/unit": "0.9.0",
+    "glob": "10.4.1",
     "handlebars": "4.7.8",
     "highlight.js": "11.9.0",
     "kss": "3.1.0"
@@ -62,19 +62,19 @@
     "@hidoo/gulp-task-build-styleguide-kss": "v1.0.0-alpha.1",
     "@hidoo/stylelint-config": "1.0.0",
     "@hidoo/util-fancy-print": "0.19.0",
-    "@rollup/plugin-swc": "0.3.0",
-    "browser-sync": "2.27.10",
+    "@rollup/plugin-swc": "0.3.1",
+    "browser-sync": "3.0.2",
     "chalk": "5.3.0",
-    "commander": "8.3.0",
-    "conventional-changelog-cli": "4.1.0",
-    "core-js": "3.36.1",
+    "commander": "12.1.0",
+    "conventional-changelog-cli": "5.0.0",
+    "core-js": "3.37.1",
     "cross-env": "7.0.3",
     "eslint": "8.57.0",
     "gulp": "4.0.2",
-    "lint-staged": "15.2.2",
+    "lint-staged": "15.2.5",
     "mocha": "10.4.0",
-    "prettier": "3.2.5",
+    "prettier": "3.3.1",
     "regenerator-runtime": "0.14.1",
-    "stylelint": "16.4.0"
+    "stylelint": "16.6.1"
   }
 }
