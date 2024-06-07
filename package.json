@@ -11,6 +11,7 @@
   "main": "index.cjs",
   "files": [
     "kss-assets/css/main.min.css",
+    "kss-assets/css/main.min.css.br",
     "kss-assets/css/main.min.css.gz",
     "kss-assets/images/",
     "kss-assets/js/",
