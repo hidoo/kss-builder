@@ -1,6 +1,6 @@
 {
   "name": "@hidoo/kss-builder",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "Provides a custom builder for kss-node.",
   "packageManager": "pnpm@9.1.1",
   "engines": {
@@ -11,6 +11,7 @@
   "main": "index.cjs",
   "files": [
     "kss-assets/css/main.min.css",
+    "kss-assets/css/main.min.css.br",
     "kss-assets/css/main.min.css.gz",
     "kss-assets/images/",
     "kss-assets/js/",
