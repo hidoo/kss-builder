@@ -55,8 +55,8 @@
     "kss": "3.1.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.3.0",
-    "@commitlint/config-conventional": "19.2.2",
+    "@commitlint/cli": "19.4.1",
+    "@commitlint/config-conventional": "19.4.1",
     "@hidoo/eslint-config": "1.3.1",
     "@hidoo/gulp-task-build-css-sass": "v1.0.0-alpha.1",
     "@hidoo/gulp-task-build-js-rollup": "v1.0.0-alpha.1",
