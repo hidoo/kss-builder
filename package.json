@@ -63,7 +63,7 @@
     "@hidoo/gulp-task-build-styleguide-kss": "v1.0.0-alpha.1",
     "@hidoo/stylelint-config": "1.0.0",
     "@hidoo/util-fancy-print": "0.19.0",
-    "@rollup/plugin-swc": "0.3.1",
+    "@rollup/plugin-swc": "0.4.0",
     "browser-sync": "3.0.2",
     "chalk": "5.3.0",
     "commander": "12.1.0",
