@@ -41,7 +41,7 @@ importers:
         version: 1.0.0-alpha.1(gulp@5.0.0)(jiti@1.21.6)
       '@hidoo/gulp-task-build-js-rollup':
         specifier: v1.0.0-alpha.1
-        version: 1.0.0-alpha.1(@babel/core@7.26.0)(core-js@3.38.1)(gulp@5.0.0)
+        version: 1.0.0-alpha.1(@babel/core@7.26.0)(core-js@3.39.0)(gulp@5.0.0)
       '@hidoo/gulp-task-build-styleguide-kss':
         specifier: v1.0.0-alpha.1
         version: 1.0.0-alpha.1(chokidar@3.6.0)(gulp@5.0.0)
@@ -67,8 +67,8 @@ importers:
         specifier: 5.0.0
         version: 5.0.0(conventional-commits-filter@5.0.0)
       core-js:
-        specifier: 3.38.1
-        version: 3.38.1
+        specifier: 3.39.0
+        version: 3.39.0
       cross-env:
         specifier: 7.0.3
         version: 7.0.3
@@ -1279,8 +1279,8 @@ packages:
     resolution: {integrity: sha512-bVWtw1wQLzzKiYROtvNlbJgxgBYt2bMJpkCbKmXM3xyijvcjjWXEk5nyrrT3bgJ7ODb19ZohE2T0Y3FgNPyoTw==}
     engines: {node: '>= 10.13.0'}
 
-  core-js@3.38.1:
-    resolution: {integrity: sha512-OP35aUorbU3Zvlx7pjsFdu1rGNnD4pgw/CWoYzRY3t2EzoVT7shKHY1dlAy3f41cGIO7ZDPQimhGFTlEYkG/Hw==}
+  core-js@3.39.0:
+    resolution: {integrity: sha512-raM0ew0/jJUqkJ0E6e8UDtl+y/7ktFivgWvqw8dNSQeNWoSDLvQ1H/RN3aPXB9tBd4/FhyR4RDPGhsNIMsAn7g==}
 
   core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
@@ -4364,7 +4364,7 @@ snapshots:
       - jiti
       - tsx
 
-  '@hidoo/gulp-task-build-js-rollup@1.0.0-alpha.1(@babel/core@7.26.0)(core-js@3.38.1)(gulp@5.0.0)':
+  '@hidoo/gulp-task-build-js-rollup@1.0.0-alpha.1(@babel/core@7.26.0)(core-js@3.39.0)(gulp@5.0.0)':
     dependencies:
       '@hidoo/gulp-plugin-compress': 1.0.0-alpha.1(gulp@5.0.0)
       '@hidoo/gulp-util-error-handler': 1.0.0-alpha.1
@@ -4374,7 +4374,7 @@ snapshots:
       '@rollup/plugin-json': 6.1.0(rollup@4.13.0)
       '@rollup/plugin-node-resolve': 15.2.3(rollup@4.13.0)
       '@rollup/plugin-replace': 5.0.5(rollup@4.13.0)
-      core-js: 3.38.1
+      core-js: 3.39.0
       fancy-log: 2.0.0
       gulp: 5.0.0
       gulp-if: 3.0.0
@@ -5388,7 +5388,7 @@ snapshots:
       each-props: 3.0.0
       is-plain-object: 5.0.0
 
-  core-js@3.38.1: {}
+  core-js@3.39.0: {}
 
   core-util-is@1.0.3: {}
 
