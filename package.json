@@ -76,6 +76,6 @@
     "mocha": "11.1.0",
     "prettier": "3.4.2",
     "regenerator-runtime": "0.14.1",
-    "stylelint": "16.11.0"
+    "stylelint": "16.18.0"
   }
 }
