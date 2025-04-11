@@ -7,6 +7,10 @@ on:
 
   workflow_dispatch:
 
+env:
+  # workaround for ERR_REQUIRE_ASYNC_MODULE on gulp-cli
+  NYC_CONFIG: 1
+
 permissions:
   contents: read
   pages: write
