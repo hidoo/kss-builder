@@ -1,3 +1,21 @@
+## [1.0.1](https://github.com/hidoo/kss-builder/compare/v1.0.0...v1.0.1) (2025-04-11)
+
+
+### Bug Fixes
+
+* **config:** add setting for commander v13 ([379aabc](https://github.com/hidoo/kss-builder/commit/379aabcdfdaf850329620c0f3eac3ef1cfe59c6e))
+* **deps:** update dependency glob to v10.4.2 ([21af626](https://github.com/hidoo/kss-builder/commit/21af626dcfc545a4c1294eed592004dc44325c83))
+* **deps:** update dependency glob to v10.4.3 ([0f016e6](https://github.com/hidoo/kss-builder/commit/0f016e6367d798cc0a74954542826c4deba51dea))
+* **deps:** update dependency glob to v10.4.5 ([70c8f65](https://github.com/hidoo/kss-builder/commit/70c8f65d5bb079a823ff4015f3258ad52ab19f38))
+* **deps:** update dependency glob to v11 ([7411b30](https://github.com/hidoo/kss-builder/commit/7411b30a525fc6283dd43e92ab683d174382a501))
+* **deps:** update dependency glob to v11.0.1 ([27390a8](https://github.com/hidoo/kss-builder/commit/27390a8cff35d301af876ead0507f79a0ed0db10))
+* **deps:** update dependency highlight.js to v11.10.0 ([d072d6e](https://github.com/hidoo/kss-builder/commit/d072d6e8064da58bd8f3d87bb6eea3fbe0bd9ae3))
+* **deps:** update dependency highlight.js to v11.11.1 ([#63](https://github.com/hidoo/kss-builder/issues/63)) ([df79652](https://github.com/hidoo/kss-builder/commit/df79652ef46d0307cefb14f7a0c05090234bb663))
+* **github:** set environment variable NYC_CONFIG for workaround to avoid ERR_REQUIRE_ASYNC_MODULE ([16139da](https://github.com/hidoo/kss-builder/commit/16139da9b773263efed0516f685c8d0b9e96fda2))
+* **github:** set environment variable NYC_CONFIG for workaround to avoid ERR_REQUIRE_ASYNC_MODULE ([baa7c34](https://github.com/hidoo/kss-builder/commit/baa7c34ee2c51d099bd485c079f87cfb2bc8f5cd))
+
+
+
 # [1.0.0](https://github.com/hidoo/kss-builder/compare/v0.9.0...v1.0.0) (2024-06-07)
 
 
