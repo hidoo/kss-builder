@@ -55,8 +55,8 @@ importers:
         specifier: 0.4.0
         version: 0.4.0(@swc/core@1.11.18)(rollup@4.13.0)
       browser-sync:
-        specifier: 3.0.3
-        version: 3.0.3
+        specifier: 3.0.4
+        version: 3.0.4
       chalk:
         specifier: 5.4.1
         version: 5.4.1
@@ -1034,8 +1034,8 @@ packages:
   browser-sync-ui@3.0.4:
     resolution: {integrity: sha512-5Po3YARCZ/8yQHFzvrSjn8+hBUF7ZWac39SHsy8Tls+7tE62iq6pYWxpVU6aOOMAGD21RwFQhQeqmJPf70kHEQ==}
 
-  browser-sync@3.0.3:
-    resolution: {integrity: sha512-91hoBHKk1C4pGeD+oE9Ld222k2GNQEAsI5AElqR8iLLWNrmZR2LPP8B0h8dpld9u7kro5IEUB3pUb0DJ3n1cRQ==}
+  browser-sync@3.0.4:
+    resolution: {integrity: sha512-mcYOIy4BW6sWSEnTSBjQwWsnbx2btZX78ajTTjdNfyC/EqQVcIe0nQR6894RNAMtvlfAnLaH9L2ka97zpvgenA==}
     engines: {node: '>= 8.0.0'}
     hasBin: true
 
@@ -5193,7 +5193,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  browser-sync@3.0.3:
+  browser-sync@3.0.4:
     dependencies:
       browser-sync-client: 3.0.4
       browser-sync-ui: 3.0.4
