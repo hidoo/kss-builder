@@ -23,6 +23,7 @@ const cli = new Command()
   .option('--protocol <scheme>', 'set protocol.')
   .option('--open [type]', 'open browser automatically or not.')
   .option('--compress', 'enable file compress or not.')
+  .allowExcessArguments()
   .parse(process.argv);
 
 /**
