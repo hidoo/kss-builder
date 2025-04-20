@@ -58,7 +58,7 @@
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
     "@hidoo/eslint-config": "1.3.1",
-    "@hidoo/gulp-task-build-css-sass": "v1.0.0-alpha.1",
+    "@hidoo/gulp-task-build-css-sass": "1.0.0-alpha.2",
     "@hidoo/gulp-task-build-js-rollup": "v1.0.0-alpha.1",
     "@hidoo/gulp-task-build-styleguide-kss": "v1.0.0-alpha.1",
     "@hidoo/stylelint-config": "1.0.0",
