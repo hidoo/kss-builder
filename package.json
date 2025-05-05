@@ -2,10 +2,10 @@
   "name": "@hidoo/kss-builder",
   "version": "1.0.1",
   "description": "Provides a custom builder for kss-node.",
-  "packageManager": "pnpm@10.9.0",
+  "packageManager": "pnpm@10.10.0",
   "engines": {
     "node": ">=18.12.0",
-    "pnpm": "10.9.0"
+    "pnpm": "10.10.0"
   },
   "type": "module",
   "main": "index.cjs",
