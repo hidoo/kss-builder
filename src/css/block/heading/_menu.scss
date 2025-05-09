@@ -19,11 +19,10 @@ Style guide: kss-heading.menu
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 
     text-overflow: ellipsis;
     white-space: nowrap;
-
-    -webkit-line-clamp: 1;
   }
 
   &__name {

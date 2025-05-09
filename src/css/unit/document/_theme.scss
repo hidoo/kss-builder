@@ -292,14 +292,14 @@ Style guide: #{settings.$prefix}-document.theme.extend
       // settings for simple <code>
       &:not([class^="language"]) {
         padding: 2px 4px;
+        border: 0;
+        border-radius: 2px;
 
         font-size: smaller;
         color: rgb(var(--kss--color-foreground));
         white-space: nowrap;
 
         background-color: rgb(var(--kss--color-background-light));
-        border: 0;
-        border-radius: 2px;
       }
     }
 

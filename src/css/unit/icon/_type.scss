@@ -78,9 +78,9 @@ Style guide: #{settings.$prefix}-icon.type.extend
       width: var(--kss__size);
       height: 2px;
       margin: auto;
+      border-radius: 2px;
 
       background-color: var(--kss__bg-color);
-      border-radius: 2px;
 
       transition-timing-function: ease-in-out;
       transition-duration: 0.2s;
@@ -138,7 +138,6 @@ Style guide: #{settings.$prefix}-icon.type.extend
       width: var(--kss__icon-size);
       height: var(--kss__icon-size);
       margin: auto;
-
       border: 1px solid var(--kss__bg-color);
       border-bottom: 0;
       border-left: 0;

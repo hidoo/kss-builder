@@ -53,7 +53,7 @@ Style guide: kss-navi.button
   --kss__button-border-color: var(--kss--color-highlight);
   --kss__button-box-shadow-alpha: 0.1;
   --kss__button-box-shadow: inset 0 1px 1px
-    rgba(0, 0, 0, var(--kss__button-box-shadow-alpha));
+    rgb(0, 0, 0, var(--kss__button-box-shadow-alpha));
 
   display: flex;
   column-gap: 5px;
@@ -76,14 +76,14 @@ Style guide: kss-navi.button
     box-sizing: border-box;
     width: var(--kss__button-size);
     height: var(--kss__button-size);
-
-    background-color: rgb(var(--kss__button-bg-color));
-    background-image: var(--kss__button-bg-image);
-    background-size: var(--kss__button-bg-size);
     border-color: rgb(var(--kss__button-border-color));
     border-style: solid;
     border-width: 1px;
     border-radius: 2px;
+
+    background-color: rgb(var(--kss__button-bg-color));
+    background-image: var(--kss__button-bg-image);
+    background-size: var(--kss__button-bg-size);
     box-shadow: var(--kss__button-box-shadow);
 
     transition-timing-function: ease-out;

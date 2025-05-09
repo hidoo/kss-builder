@@ -51,13 +51,12 @@ Style guide: kss-section.inline
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 
     font-size: var(--kss--font-size-xsmall);
     font-weight: var(--kss--font-weight-semi-bold);
     color: rgb(var(--kss--color-highlight-light));
     text-overflow: ellipsis;
     white-space: nowrap;
-
-    -webkit-line-clamp: 1;
   }
 }
