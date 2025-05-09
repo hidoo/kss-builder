@@ -1,7 +1,7 @@
 <article class="kss-example-variation  kss-c-box{{#each (split (or this.class '') '/\s?,\s?/')}}  {{this}}{{/each}}">
   <header class="kss-example-variation__header  kss-c-box">
     <code class="kss-example-variation__header__name  kss-c-text  kss-c-text--theme-code">
-      {{~or this.className 'default'~}}
+      {{~or (replace this.className '/\s+pseudo\-class\-/' ':') 'default'~}}
     </code>
     {{#if this.description}}
     <div class="kss-example-variation__header__description  kss-c-document  kss-c-document--theme-main">
@@ -10,6 +10,6 @@
     {{/if}}
   </header>
   <div class="kss-example-variation__canvas  kss-c-box  kss-c-box--texture-transparent">
-    {{{this.markup}}}
+    {{{replace this.markup '/\s+pseudo\-class\-/' ':'}}}
   </div>
 </article>
