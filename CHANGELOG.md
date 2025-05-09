@@ -1,3 +1,15 @@
+## [1.0.2](https://github.com/hidoo/kss-builder/compare/v1.0.1...v1.0.2) (2025-05-09)
+
+
+### Bug Fixes
+
+* change modifiers to no transform ":" to "pseudo-class" ([97fe172](https://github.com/hidoo/kss-builder/commit/97fe172fea0e7387879f4c31464744619cda20f8))
+* **deps:** update dependency @hidoo/handlebars-helpers to v1.2.0 ([#83](https://github.com/hidoo/kss-builder/issues/83)) ([06f2f3c](https://github.com/hidoo/kss-builder/commit/06f2f3c5725723e8db5daafdc3f1b7181840bb15))
+* **deps:** update dependency glob to v11.0.2 ([#85](https://github.com/hidoo/kss-builder/issues/85)) ([584edc7](https://github.com/hidoo/kss-builder/commit/584edc751479ef2aff008aef8232a6662bfd8665))
+* **stylelint:** fix reported issues ([6b411d8](https://github.com/hidoo/kss-builder/commit/6b411d889857fa803cef61f2ff5914b4425cabd4))
+
+
+
 ## [1.0.1](https://github.com/hidoo/kss-builder/compare/v1.0.0...v1.0.1) (2025-04-11)
 
 
