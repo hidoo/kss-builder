@@ -38,7 +38,7 @@
 
   $selectors: map.get(_settings.$selector-theme, $state);
 
-  @if length($capturing-selectors) == 0 {
+  @if list.length($capturing-selectors) == 0 {
     $capturing-selectors: _settings.$selector-root;
   }
 

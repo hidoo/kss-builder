@@ -59,11 +59,11 @@ Style guide: kss-layout.drawer
     box-sizing: border-box;
     width: var(--kss__drawer-width);
     height: var(--kss__viewport-height);
-
-    background-color: inherit;
     border-color: rgb(var(--kss--color-highlight));
     border-right-style: solid;
     border-right-width: 1px;
+
+    background-color: inherit;
 
     transition: transform var(--kss__transition-duration) var(--kss__easing);
   }
