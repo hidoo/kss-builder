@@ -43,8 +43,8 @@ importers:
         specifier: 1.0.0-alpha.3
         version: 1.0.0-alpha.3(@babel/core@7.26.10)(core-js@3.42.0)(gulp@5.0.0)(picomatch@4.0.2)
       '@hidoo/gulp-task-build-styleguide-kss':
-        specifier: 1.0.0-alpha.2
-        version: 1.0.0-alpha.2(chokidar@3.6.0)(gulp@5.0.0)
+        specifier: 1.0.0-alpha.3
+        version: 1.0.0-alpha.3(chokidar@3.6.0)(gulp@5.0.0)
       '@hidoo/stylelint-config':
         specifier: 1.1.0
         version: 1.1.0(postcss@8.5.3)(stylelint@16.19.1(typescript@5.8.3))
@@ -371,15 +371,11 @@ packages:
       core-js: '>=3.0.0'
       gulp: '>=4.0.2'
 
-  '@hidoo/gulp-task-build-styleguide-kss@1.0.0-alpha.2':
-    resolution: {integrity: sha512-sO+vkyeZZ+mkKonJ2zTp8cZwBFdTkqZYNXGKPwPfG/rwEC3t7fAlD3h6XTFG6C1ulndyKbHoSyvx46Hm+otjhg==}
+  '@hidoo/gulp-task-build-styleguide-kss@1.0.0-alpha.3':
+    resolution: {integrity: sha512-HdcAvC3iYvhG37oFk7COCD5kvfxRp1MVDjut4H9L8joJpIl31Z+L54taqnLU/559xH4IMR8eyDvonbGtAkvJBQ==}
     engines: {node: '>=18.4.0'}
     peerDependencies:
       gulp: '>=4.0.2'
-
-  '@hidoo/gulp-util-error-handler@1.0.0-alpha.2':
-    resolution: {integrity: sha512-6q2aLWVjMPOpavpO5Y8snlgD15CdSaTZ3vHekXW6gcn/MhhXY5sYCfp6KHQ9ifU4fN/RDYv7MKUmIx7tmn6AlA==}
-    engines: {node: '>=18.4.0'}
 
   '@hidoo/gulp-util-error-handler@1.0.0-alpha.3':
     resolution: {integrity: sha512-qit3+snPoQHV4aDp49EdUHe5ZcmMcJqmbUjdpIWttEXyd4G/BSfpg6WH049wEhFSh3z7K2oSpqRefEb/6EWqdw==}
@@ -5098,9 +5094,9 @@ snapshots:
       - picomatch
       - supports-color
 
-  '@hidoo/gulp-task-build-styleguide-kss@1.0.0-alpha.2(chokidar@3.6.0)(gulp@5.0.0)':
+  '@hidoo/gulp-task-build-styleguide-kss@1.0.0-alpha.3(chokidar@3.6.0)(gulp@5.0.0)':
     dependencies:
-      '@hidoo/gulp-util-error-handler': 1.0.0-alpha.2
+      '@hidoo/gulp-util-error-handler': 1.0.0-alpha.3
       '@hidoo/handlebars-helpers': 1.2.0(handlebars@4.7.8)
       '@hidoo/kss-builder': 1.0.1(chokidar@3.6.0)
       gulp: 5.0.0
@@ -5108,11 +5104,6 @@ snapshots:
       kss: 3.1.0(chokidar@3.6.0)
     transitivePeerDependencies:
       - chokidar
-
-  '@hidoo/gulp-util-error-handler@1.0.0-alpha.2':
-    dependencies:
-      chalk: 5.4.1
-      fancy-log: 2.0.0
 
   '@hidoo/gulp-util-error-handler@1.0.0-alpha.3':
     dependencies:
