@@ -1,3 +1,18 @@
+# [1.1.0](https://github.com/hidoo/kss-builder/compare/v1.0.2...v1.1.0) (2025-05-15)
+
+
+### Bug Fixes
+
+* **css:** fix hyphens display issue on firefox ([f7e8bae](https://github.com/hidoo/kss-builder/commit/f7e8bae21b66dca3837215d36ac2b65d70b11217))
+
+
+### Features
+
+* add pseudo-class-transforms option ([f5819bb](https://github.com/hidoo/kss-builder/commit/f5819bb8dca92f6eee39827c7cdc755c393358b2))
+* add section-duplicates option ([f9f70b8](https://github.com/hidoo/kss-builder/commit/f9f70b816cafade37225a6b7c2f4796ad9156ffb))
+
+
+
 ## [1.0.2](https://github.com/hidoo/kss-builder/compare/v1.0.1...v1.0.2) (2025-05-09)
 
 
