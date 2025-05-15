@@ -26,6 +26,21 @@ class KssBuilderHandlebars extends KssBuilderBase {
         string: true,
         describe:
           'URL of a JavaScript file to include in the style guide as ES Modules'
+      },
+      'pseudo-class-transforms': {
+        group: 'Style guide:',
+        boolean: true,
+        multiple: false,
+        describe: 'Allow pseudo class transformation whether or not',
+        default: true
+      },
+      'section-duplicates': {
+        group: 'Style guide:',
+        boolean: true,
+        multiple: false,
+        describe:
+          'Allow section duplicates based on the reference whether or not',
+        default: true
       }
     });
   }
@@ -78,6 +93,17 @@ class KssBuilderHandlebars extends KssBuilderBase {
       );
     } catch (error) {
       console.error('Failed to load package.json:', error);
+    }
+
+    // Exclude section duplicates
+    if (!this.options['section-duplicates']) {
+      const sections = new Map();
+
+      styleGuide.sections().forEach((section) => {
+        sections.set(section.data.reference, section);
+      });
+
+      styleGuide.data.sections = [...sections.values()];
     }
 
     // Create new Handlebars instance
