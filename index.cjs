@@ -26,6 +26,13 @@ class KssBuilderHandlebars extends KssBuilderBase {
         string: true,
         describe:
           'URL of a JavaScript file to include in the style guide as ES Modules'
+      },
+      'pseudo-class-transforms': {
+        group: 'Style guide:',
+        boolean: true,
+        multiple: false,
+        describe: 'Allow pseudo class transformation whether or not',
+        default: true
       }
     });
   }
