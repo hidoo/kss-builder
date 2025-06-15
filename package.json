@@ -68,7 +68,7 @@
     "chalk": "5.4.1",
     "commander": "13.1.0",
     "conventional-changelog-cli": "5.0.0",
-    "core-js": "3.42.0",
+    "core-js": "3.43.0",
     "cross-env": "7.0.3",
     "eslint": "9.28.0",
     "gulp": "5.0.1",
