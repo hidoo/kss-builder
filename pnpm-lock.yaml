@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@hidoo/handlebars-helpers':
         specifier: 1.2.0
-        version: 1.2.0(handlebars@4.7.8)
+        version: 1.2.0(handlebars@4.7.9)
       '@hidoo/unit':
         specifier: 0.9.0
         version: 0.9.0
@@ -18,8 +18,8 @@ importers:
         specifier: 11.1.0
         version: 11.1.0
       handlebars:
-        specifier: 4.7.8
-        version: 4.7.8
+        specifier: 4.7.9
+        version: 4.7.9
       highlight.js:
         specifier: 11.11.1
         version: 11.11.1
@@ -2328,6 +2328,11 @@ packages:
 
   handlebars@4.7.8:
     resolution: {integrity: sha512-vafaFqs8MZkRrSX7sFVUdo3ap/eNiLnb4IakshzvP56X5Nr1iGKAIqdX6tMlm6HcNRIkr6AxO5jFEoJzzpT8aQ==}
+    engines: {node: '>=0.4.7'}
+    hasBin: true
+
+  handlebars@4.7.9:
+    resolution: {integrity: sha512-4E71E0rpOaQuJR2A3xDZ+GM1HyWYv1clR58tC8emQNeQe3RH7MAzSbat+V0wG78LQBo6m6bzSG/L4pBuCsgnUQ==}
     engines: {node: '>=0.4.7'}
     hasBin: true
 
@@ -5082,6 +5087,15 @@ snapshots:
       marked-gfm-heading-id: 4.1.1(marked@15.0.8)
       marked-highlight: 2.2.1(marked@15.0.8)
 
+  '@hidoo/handlebars-helpers@1.2.0(handlebars@4.7.9)':
+    dependencies:
+      '@hidoo/data-from': 1.0.0
+      handlebars: 4.7.9
+      highlight.js: 11.11.1
+      marked: 15.0.8
+      marked-gfm-heading-id: 4.1.1(marked@15.0.8)
+      marked-highlight: 2.2.1(marked@15.0.8)
+
   '@hidoo/kss-builder@1.1.0(chokidar@3.6.0)':
     dependencies:
       '@hidoo/handlebars-helpers': 1.2.0(handlebars@4.7.8)
@@ -6072,7 +6086,7 @@ snapshots:
   conventional-changelog-writer@8.2.0:
     dependencies:
       conventional-commits-filter: 5.0.0
-      handlebars: 4.7.8
+      handlebars: 4.7.9
       meow: 13.2.0
       semver: 7.7.4
 
@@ -7229,6 +7243,15 @@ snapshots:
     optionalDependencies:
       uglify-js: 3.19.3
 
+  handlebars@4.7.9:
+    dependencies:
+      minimist: 1.2.8
+      neo-async: 2.6.2
+      source-map: 0.6.1
+      wordwrap: 1.0.0
+    optionalDependencies:
+      uglify-js: 3.19.3
+
   has-ansi@2.0.0:
     dependencies:
       ansi-regex: 2.1.1
@@ -7637,7 +7660,7 @@ snapshots:
       bluebird: 3.7.2
       fs-extra: 9.1.0
       glob: 7.2.3
-      handlebars: 4.7.8
+      handlebars: 4.7.9
       highlight.js: 10.7.3
       markdown-it: 12.3.2
       nunjucks: 3.2.4(chokidar@3.6.0)
