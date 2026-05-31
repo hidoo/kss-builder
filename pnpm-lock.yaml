@@ -52,8 +52,8 @@ importers:
         specifier: 0.19.0
         version: 0.19.0
       '@rollup/plugin-swc':
-        specifier: 0.4.0
-        version: 0.4.0(@swc/core@1.15.32)(rollup@4.41.1)
+        specifier: 0.4.1
+        version: 0.4.1(@swc/core@1.15.32)(rollup@4.41.1)
       browser-sync:
         specifier: 3.0.4
         version: 3.0.4
@@ -566,8 +566,8 @@ packages:
       rollup:
         optional: true
 
-  '@rollup/plugin-swc@0.4.0':
-    resolution: {integrity: sha512-oAtqXa8rOl7BOK1Rz3rRxI+LIL53S9SqO2KSq2UUUzWgOgXg6492Jh5mL2mv/f9cpit8zFWdwILuVeozZ0C8mg==}
+  '@rollup/plugin-swc@0.4.1':
+    resolution: {integrity: sha512-widfnT1TbDc4hsV37PQ61ZoLGPJ7STZE4lQzA3gWKbcMfzjOgiGsoTYfSsq21H4J2UY1y3MKwejXTMkwN2tEtQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       '@swc/core': ^1.3.0
@@ -5325,7 +5325,7 @@ snapshots:
     optionalDependencies:
       rollup: 4.41.1
 
-  '@rollup/plugin-swc@0.4.0(@swc/core@1.15.32)(rollup@4.41.1)':
+  '@rollup/plugin-swc@0.4.1(@swc/core@1.15.32)(rollup@4.41.1)':
     dependencies:
       '@rollup/pluginutils': 5.3.0(rollup@4.41.1)
       '@swc/core': 1.15.32
