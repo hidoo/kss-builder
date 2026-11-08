@@ -74,7 +74,7 @@
     "gulp": "5.0.1",
     "lint-staged": "16.0.0",
     "mocha": "11.8.0",
-    "prettier": "3.9.6",
+    "prettier": "3.9.10",
     "regenerator-runtime": "0.14.1",
     "stylelint": "16.26.1"
   }
